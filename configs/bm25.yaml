@@ -1,0 +1,7 @@
+nombre: "BM25 (léxico)"
+retriever: bm25
+top_k: 5
+chunk_size: 300
+chunk_overlap: 50
+ollama_model: gemma3:12b
+ollama_url: http://localhost:11434/api/generate

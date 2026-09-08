@@ -1,0 +1,8 @@
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# OS junk
+Thumbs.db
+desktop.ini

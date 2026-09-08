@@ -1,0 +1,199 @@
+2026-05-17 14:03:37,414 [INFO] Ollama activo. Modelos disponibles: ['gemma3:12b', 'nomic-embed-text:latest', 'llama3.2:latest', 'mistral:latest']
+2026-05-17 14:03:37,414 [INFO] === PASO 1: Descargando corpus de Wikipedia ===
+2026-05-17 14:03:37,415 [INFO] Wikipedia: language=es, user_agent: RAG-Baseline-Tesis/1.0 (Wikipedia-API/0.14.1; https://github.com/martin-majlis/Wikipedia-API/), extract_format=1
+2026-05-17 14:03:37,703 [INFO] Request URL: https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=info&titles=Historia de México&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle|varianttitles
+2026-05-17 14:03:37,959 [INFO] HTTP Request: GET https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=info&titles=Historia+de+M%C3%A9xico&inprop=protection%7Ctalkid%7Cwatched%7Cwatchers%7Cvisitingwatchers%7Cnotificationtimestamp%7Csubjectid%7Curl%7Creadable%7Cpreload%7Cdisplaytitle%7Cvarianttitles "HTTP/1.1 200 OK"
+2026-05-17 14:03:37,960 [INFO] Request URL: https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=extracts&titles=Historia de México&explaintext=1&exsectionformat=wiki
+2026-05-17 14:03:38,571 [INFO] HTTP Request: GET https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=extracts&titles=Historia+de+M%C3%A9xico&explaintext=1&exsectionformat=wiki "HTTP/1.1 200 OK"
+2026-05-17 14:03:38,695 [INFO]   [OK]    Historia de México (465,987 chars)
+2026-05-17 14:03:38,995 [INFO] Request URL: https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=info&titles=Imperio azteca&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle|varianttitles
+2026-05-17 14:03:39,125 [INFO] HTTP Request: GET https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=info&titles=Imperio+azteca&inprop=protection%7Ctalkid%7Cwatched%7Cwatchers%7Cvisitingwatchers%7Cnotificationtimestamp%7Csubjectid%7Curl%7Creadable%7Cpreload%7Cdisplaytitle%7Cvarianttitles "HTTP/1.1 200 OK"
+2026-05-17 14:03:39,126 [INFO] Request URL: https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=extracts&titles=Imperio azteca&explaintext=1&exsectionformat=wiki
+2026-05-17 14:03:39,205 [INFO] HTTP Request: GET https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=extracts&titles=Imperio+azteca&explaintext=1&exsectionformat=wiki "HTTP/1.1 200 OK"
+2026-05-17 14:03:39,208 [INFO]   [OK]    Imperio azteca (69,508 chars)
+2026-05-17 14:03:39,509 [INFO] Request URL: https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=info&titles=Conquista de México&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle|varianttitles
+2026-05-17 14:03:39,645 [INFO] HTTP Request: GET https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=info&titles=Conquista+de+M%C3%A9xico&inprop=protection%7Ctalkid%7Cwatched%7Cwatchers%7Cvisitingwatchers%7Cnotificationtimestamp%7Csubjectid%7Curl%7Creadable%7Cpreload%7Cdisplaytitle%7Cvarianttitles "HTTP/1.1 200 OK"
+2026-05-17 14:03:39,646 [INFO] Request URL: https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=extracts&titles=Conquista de México&explaintext=1&exsectionformat=wiki
+2026-05-17 14:03:39,742 [INFO] HTTP Request: GET https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=extracts&titles=Conquista+de+M%C3%A9xico&explaintext=1&exsectionformat=wiki "HTTP/1.1 200 OK"
+2026-05-17 14:03:39,750 [INFO]   [OK]    Conquista de México (157,017 chars)
+2026-05-17 14:03:40,051 [INFO] Request URL: https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=info&titles=Independencia de México&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle|varianttitles
+2026-05-17 14:03:40,182 [INFO] HTTP Request: GET https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=info&titles=Independencia+de+M%C3%A9xico&inprop=protection%7Ctalkid%7Cwatched%7Cwatchers%7Cvisitingwatchers%7Cnotificationtimestamp%7Csubjectid%7Curl%7Creadable%7Cpreload%7Cdisplaytitle%7Cvarianttitles "HTTP/1.1 200 OK"
+2026-05-17 14:03:40,183 [INFO] Request URL: https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=extracts&titles=Independencia de México&explaintext=1&exsectionformat=wiki
+2026-05-17 14:03:40,558 [INFO] HTTP Request: GET https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=extracts&titles=Independencia+de+M%C3%A9xico&explaintext=1&exsectionformat=wiki "HTTP/1.1 200 OK"
+2026-05-17 14:03:40,568 [INFO]   [OK]    Independencia de México (207,823 chars)
+2026-05-17 14:03:40,869 [INFO] Request URL: https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=info&titles=Revolución mexicana&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle|varianttitles
+2026-05-17 14:03:40,967 [INFO] HTTP Request: GET https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=info&titles=Revoluci%C3%B3n+mexicana&inprop=protection%7Ctalkid%7Cwatched%7Cwatchers%7Cvisitingwatchers%7Cnotificationtimestamp%7Csubjectid%7Curl%7Creadable%7Cpreload%7Cdisplaytitle%7Cvarianttitles "HTTP/1.1 200 OK"
+2026-05-17 14:03:40,968 [INFO] Request URL: https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=extracts&titles=Revolución mexicana&explaintext=1&exsectionformat=wiki
+2026-05-17 14:03:41,166 [INFO] HTTP Request: GET https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=extracts&titles=Revoluci%C3%B3n+mexicana&explaintext=1&exsectionformat=wiki "HTTP/1.1 200 OK"
+2026-05-17 14:03:41,170 [INFO]   [OK]    Revolución mexicana (91,909 chars)
+2026-05-17 14:03:41,471 [INFO] Request URL: https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=info&titles=Reforma (México)&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle|varianttitles
+2026-05-17 14:03:41,578 [INFO] HTTP Request: GET https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=info&titles=Reforma+%28M%C3%A9xico%29&inprop=protection%7Ctalkid%7Cwatched%7Cwatchers%7Cvisitingwatchers%7Cnotificationtimestamp%7Csubjectid%7Curl%7Creadable%7Cpreload%7Cdisplaytitle%7Cvarianttitles "HTTP/1.1 200 OK"
+2026-05-17 14:03:41,578 [WARNING]   [SKIP]  No encontrado: Reforma (México)
+2026-05-17 14:03:41,578 [INFO] Request URL: https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=info&titles=Virreinato de Nueva España&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle|varianttitles
+2026-05-17 14:03:41,731 [INFO] HTTP Request: GET https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=info&titles=Virreinato+de+Nueva+Espa%C3%B1a&inprop=protection%7Ctalkid%7Cwatched%7Cwatchers%7Cvisitingwatchers%7Cnotificationtimestamp%7Csubjectid%7Curl%7Creadable%7Cpreload%7Cdisplaytitle%7Cvarianttitles "HTTP/1.1 200 OK"
+2026-05-17 14:03:41,733 [INFO] Request URL: https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=extracts&titles=Virreinato de Nueva España&explaintext=1&exsectionformat=wiki
+2026-05-17 14:03:42,067 [INFO] HTTP Request: GET https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=extracts&titles=Virreinato+de+Nueva+Espa%C3%B1a&explaintext=1&exsectionformat=wiki "HTTP/1.1 200 OK"
+2026-05-17 14:03:42,075 [INFO]   [OK]    Virreinato de Nueva España (147,752 chars)
+2026-05-17 14:03:42,376 [INFO] Request URL: https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=info&titles=Civilización maya&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle|varianttitles
+2026-05-17 14:03:42,473 [INFO] HTTP Request: GET https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=info&titles=Civilizaci%C3%B3n+maya&inprop=protection%7Ctalkid%7Cwatched%7Cwatchers%7Cvisitingwatchers%7Cnotificationtimestamp%7Csubjectid%7Curl%7Creadable%7Cpreload%7Cdisplaytitle%7Cvarianttitles "HTTP/1.1 200 OK"
+2026-05-17 14:03:42,473 [INFO] Request URL: https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=extracts&titles=Cultura maya&explaintext=1&exsectionformat=wiki
+2026-05-17 14:03:42,546 [INFO] HTTP Request: GET https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=extracts&titles=Cultura+maya&explaintext=1&exsectionformat=wiki "HTTP/1.1 200 OK"
+2026-05-17 14:03:42,552 [INFO]   [OK]    Civilización maya (112,049 chars)
+2026-05-17 14:03:42,852 [INFO] Request URL: https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=info&titles=Cultura olmeca&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle|varianttitles
+2026-05-17 14:03:42,988 [INFO] HTTP Request: GET https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=info&titles=Cultura+olmeca&inprop=protection%7Ctalkid%7Cwatched%7Cwatchers%7Cvisitingwatchers%7Cnotificationtimestamp%7Csubjectid%7Curl%7Creadable%7Cpreload%7Cdisplaytitle%7Cvarianttitles "HTTP/1.1 200 OK"
+2026-05-17 14:03:42,990 [INFO] Request URL: https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=extracts&titles=Cultura olmeca&explaintext=1&exsectionformat=wiki
+2026-05-17 14:03:43,073 [INFO] HTTP Request: GET https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=extracts&titles=Cultura+olmeca&explaintext=1&exsectionformat=wiki "HTTP/1.1 200 OK"
+2026-05-17 14:03:43,074 [INFO]   [OK]    Cultura olmeca (16,451 chars)
+2026-05-17 14:03:43,375 [INFO] Request URL: https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=info&titles=Porfiriato&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle|varianttitles
+2026-05-17 14:03:43,509 [INFO] HTTP Request: GET https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=info&titles=Porfiriato&inprop=protection%7Ctalkid%7Cwatched%7Cwatchers%7Cvisitingwatchers%7Cnotificationtimestamp%7Csubjectid%7Curl%7Creadable%7Cpreload%7Cdisplaytitle%7Cvarianttitles "HTTP/1.1 200 OK"
+2026-05-17 14:03:43,510 [INFO] Request URL: https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=extracts&titles=Porfiriato&explaintext=1&exsectionformat=wiki
+2026-05-17 14:03:43,606 [INFO] HTTP Request: GET https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=extracts&titles=Porfiriato&explaintext=1&exsectionformat=wiki "HTTP/1.1 200 OK"
+2026-05-17 14:03:43,608 [INFO]   [OK]    Porfiriato (33,485 chars)
+2026-05-17 14:03:43,908 [INFO] Request URL: https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=info&titles=Guerra de Reforma&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle|varianttitles
+2026-05-17 14:03:44,015 [INFO] HTTP Request: GET https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=info&titles=Guerra+de+Reforma&inprop=protection%7Ctalkid%7Cwatched%7Cwatchers%7Cvisitingwatchers%7Cnotificationtimestamp%7Csubjectid%7Curl%7Creadable%7Cpreload%7Cdisplaytitle%7Cvarianttitles "HTTP/1.1 200 OK"
+2026-05-17 14:03:44,016 [INFO] Request URL: https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=extracts&titles=Guerra de Reforma&explaintext=1&exsectionformat=wiki
+2026-05-17 14:03:44,094 [INFO] HTTP Request: GET https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=extracts&titles=Guerra+de+Reforma&explaintext=1&exsectionformat=wiki "HTTP/1.1 200 OK"
+2026-05-17 14:03:44,095 [INFO]   [OK]    Guerra de Reforma (11,966 chars)
+2026-05-17 14:03:44,396 [INFO] Request URL: https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=info&titles=Emiliano Zapata&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle|varianttitles
+2026-05-17 14:03:44,523 [INFO] HTTP Request: GET https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=info&titles=Emiliano+Zapata&inprop=protection%7Ctalkid%7Cwatched%7Cwatchers%7Cvisitingwatchers%7Cnotificationtimestamp%7Csubjectid%7Curl%7Creadable%7Cpreload%7Cdisplaytitle%7Cvarianttitles "HTTP/1.1 200 OK"
+2026-05-17 14:03:44,524 [INFO] Request URL: https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=extracts&titles=Emiliano Zapata&explaintext=1&exsectionformat=wiki
+2026-05-17 14:03:44,666 [INFO] HTTP Request: GET https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=extracts&titles=Emiliano+Zapata&explaintext=1&exsectionformat=wiki "HTTP/1.1 200 OK"
+2026-05-17 14:03:44,668 [INFO]   [OK]    Emiliano Zapata (32,914 chars)
+2026-05-17 14:03:44,969 [INFO] Request URL: https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=info&titles=Pancho Villa&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle|varianttitles
+2026-05-17 14:03:45,088 [INFO] HTTP Request: GET https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=info&titles=Pancho+Villa&inprop=protection%7Ctalkid%7Cwatched%7Cwatchers%7Cvisitingwatchers%7Cnotificationtimestamp%7Csubjectid%7Curl%7Creadable%7Cpreload%7Cdisplaytitle%7Cvarianttitles "HTTP/1.1 200 OK"
+2026-05-17 14:03:45,088 [INFO] Request URL: https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=extracts&titles=Pancho Villa&explaintext=1&exsectionformat=wiki
+2026-05-17 14:03:45,160 [INFO] HTTP Request: GET https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=extracts&titles=Pancho+Villa&explaintext=1&exsectionformat=wiki "HTTP/1.1 200 OK"
+2026-05-17 14:03:45,162 [INFO]   [OK]    Pancho Villa (41,967 chars)
+2026-05-17 14:03:45,462 [INFO] Request URL: https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=info&titles=Miguel Hidalgo y Costilla&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle|varianttitles
+2026-05-17 14:03:45,589 [INFO] HTTP Request: GET https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=info&titles=Miguel+Hidalgo+y+Costilla&inprop=protection%7Ctalkid%7Cwatched%7Cwatchers%7Cvisitingwatchers%7Cnotificationtimestamp%7Csubjectid%7Curl%7Creadable%7Cpreload%7Cdisplaytitle%7Cvarianttitles "HTTP/1.1 200 OK"
+2026-05-17 14:03:45,590 [INFO] Request URL: https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=extracts&titles=Miguel Hidalgo y Costilla&explaintext=1&exsectionformat=wiki
+2026-05-17 14:03:45,752 [INFO] HTTP Request: GET https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=extracts&titles=Miguel+Hidalgo+y+Costilla&explaintext=1&exsectionformat=wiki "HTTP/1.1 200 OK"
+2026-05-17 14:03:45,755 [INFO]   [OK]    Miguel Hidalgo y Costilla (57,383 chars)
+2026-05-17 14:03:46,055 [INFO] Request URL: https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=info&titles=Benito Juárez&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle|varianttitles
+2026-05-17 14:03:46,184 [INFO] HTTP Request: GET https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=info&titles=Benito+Ju%C3%A1rez&inprop=protection%7Ctalkid%7Cwatched%7Cwatchers%7Cvisitingwatchers%7Cnotificationtimestamp%7Csubjectid%7Curl%7Creadable%7Cpreload%7Cdisplaytitle%7Cvarianttitles "HTTP/1.1 200 OK"
+2026-05-17 14:03:46,185 [INFO] Request URL: https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=extracts&titles=Benito Juárez&explaintext=1&exsectionformat=wiki
+2026-05-17 14:03:46,371 [INFO] HTTP Request: GET https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=extracts&titles=Benito+Ju%C3%A1rez&explaintext=1&exsectionformat=wiki "HTTP/1.1 200 OK"
+2026-05-17 14:03:46,376 [INFO]   [OK]    Benito Juárez (96,620 chars)
+2026-05-17 14:03:46,677 [INFO] Request URL: https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=info&titles=Moctezuma II&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle|varianttitles
+2026-05-17 14:03:46,810 [INFO] HTTP Request: GET https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=info&titles=Moctezuma+II&inprop=protection%7Ctalkid%7Cwatched%7Cwatchers%7Cvisitingwatchers%7Cnotificationtimestamp%7Csubjectid%7Curl%7Creadable%7Cpreload%7Cdisplaytitle%7Cvarianttitles "HTTP/1.1 200 OK"
+2026-05-17 14:03:46,811 [INFO] Request URL: https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=extracts&titles=Moctezuma Xocoyotzin&explaintext=1&exsectionformat=wiki
+2026-05-17 14:03:47,090 [INFO] HTTP Request: GET https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=extracts&titles=Moctezuma+Xocoyotzin&explaintext=1&exsectionformat=wiki "HTTP/1.1 200 OK"
+2026-05-17 14:03:47,096 [INFO]   [OK]    Moctezuma II (133,173 chars)
+2026-05-17 14:03:47,397 [INFO] Request URL: https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=info&titles=Hernán Cortés&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle|varianttitles
+2026-05-17 14:03:47,527 [INFO] HTTP Request: GET https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=info&titles=Hern%C3%A1n+Cort%C3%A9s&inprop=protection%7Ctalkid%7Cwatched%7Cwatchers%7Cvisitingwatchers%7Cnotificationtimestamp%7Csubjectid%7Curl%7Creadable%7Cpreload%7Cdisplaytitle%7Cvarianttitles "HTTP/1.1 200 OK"
+2026-05-17 14:03:47,527 [INFO] Request URL: https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=extracts&titles=Hernán Cortés&explaintext=1&exsectionformat=wiki
+2026-05-17 14:03:47,696 [INFO] HTTP Request: GET https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=extracts&titles=Hern%C3%A1n+Cort%C3%A9s&explaintext=1&exsectionformat=wiki "HTTP/1.1 200 OK"
+2026-05-17 14:03:47,701 [INFO]   [OK]    Hernán Cortés (85,822 chars)
+2026-05-17 14:03:48,002 [INFO] Request URL: https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=info&titles=Tenochtitlan&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle|varianttitles
+2026-05-17 14:03:48,121 [INFO] HTTP Request: GET https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=info&titles=Tenochtitlan&inprop=protection%7Ctalkid%7Cwatched%7Cwatchers%7Cvisitingwatchers%7Cnotificationtimestamp%7Csubjectid%7Curl%7Creadable%7Cpreload%7Cdisplaytitle%7Cvarianttitles "HTTP/1.1 200 OK"
+2026-05-17 14:03:48,123 [INFO] Request URL: https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=extracts&titles=Tenochtitlan&explaintext=1&exsectionformat=wiki
+2026-05-17 14:03:48,206 [INFO] HTTP Request: GET https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=extracts&titles=Tenochtitlan&explaintext=1&exsectionformat=wiki "HTTP/1.1 200 OK"
+2026-05-17 14:03:48,207 [INFO]   [OK]    Tenochtitlan (380 chars)
+2026-05-17 14:03:48,508 [INFO] Request URL: https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=info&titles=Cultura teotihuacana&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle|varianttitles
+2026-05-17 14:03:48,623 [INFO] HTTP Request: GET https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=info&titles=Cultura+teotihuacana&inprop=protection%7Ctalkid%7Cwatched%7Cwatchers%7Cvisitingwatchers%7Cnotificationtimestamp%7Csubjectid%7Curl%7Creadable%7Cpreload%7Cdisplaytitle%7Cvarianttitles "HTTP/1.1 200 OK"
+2026-05-17 14:03:48,624 [INFO] Request URL: https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=extracts&titles=Teotihuacán&explaintext=1&exsectionformat=wiki
+2026-05-17 14:03:48,840 [INFO] HTTP Request: GET https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=extracts&titles=Teotihuac%C3%A1n&explaintext=1&exsectionformat=wiki "HTTP/1.1 200 OK"
+2026-05-17 14:03:48,844 [INFO]   [OK]    Cultura teotihuacana (88,941 chars)
+2026-05-17 14:03:49,145 [INFO] Request URL: https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=info&titles=Guerra de Independencia de México&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle|varianttitles
+2026-05-17 14:03:49,285 [INFO] HTTP Request: GET https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=info&titles=Guerra+de+Independencia+de+M%C3%A9xico&inprop=protection%7Ctalkid%7Cwatched%7Cwatchers%7Cvisitingwatchers%7Cnotificationtimestamp%7Csubjectid%7Curl%7Creadable%7Cpreload%7Cdisplaytitle%7Cvarianttitles "HTTP/1.1 200 OK"
+2026-05-17 14:03:49,286 [INFO] Request URL: https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=extracts&titles=Independencia de México&explaintext=1&exsectionformat=wiki
+2026-05-17 14:03:49,384 [INFO] HTTP Request: GET https://es.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=extracts&titles=Independencia+de+M%C3%A9xico&explaintext=1&exsectionformat=wiki "HTTP/1.1 200 OK"
+2026-05-17 14:03:49,394 [INFO]   [OK]    Guerra de Independencia de México (207,823 chars)
+2026-05-17 14:03:49,694 [INFO] Corpus listo: 19 artículos
+2026-05-17 14:03:49,694 [INFO] === PASO 2: Construyendo chunks ===
+2026-05-17 14:03:49,709 [INFO]   Historia de México: 304 chunks
+2026-05-17 14:03:49,718 [INFO]   Imperio azteca: 44 chunks
+2026-05-17 14:03:49,727 [INFO]   Conquista de México: 101 chunks
+2026-05-17 14:03:49,738 [INFO]   Independencia de México: 134 chunks
+2026-05-17 14:03:49,746 [INFO]   Revolución mexicana: 59 chunks
+2026-05-17 14:03:49,756 [INFO]   Virreinato de Nueva España: 95 chunks
+2026-05-17 14:03:49,764 [INFO]   Civilización maya: 71 chunks
+2026-05-17 14:03:49,771 [INFO]   Cultura olmeca: 11 chunks
+2026-05-17 14:03:49,779 [INFO]   Porfiriato: 21 chunks
+2026-05-17 14:03:49,788 [INFO]   Guerra de Reforma: 8 chunks
+2026-05-17 14:03:49,796 [INFO]   Emiliano Zapata: 22 chunks
+2026-05-17 14:03:49,804 [INFO]   Pancho Villa: 28 chunks
+2026-05-17 14:03:49,811 [INFO]   Miguel Hidalgo y Costilla: 38 chunks
+2026-05-17 14:03:49,820 [INFO]   Benito Juárez: 65 chunks
+2026-05-17 14:03:49,828 [INFO]   Moctezuma II: 84 chunks
+2026-05-17 14:03:49,838 [INFO]   Hernán Cortés: 58 chunks
+2026-05-17 14:03:49,844 [INFO]   Tenochtitlan: 1 chunks
+2026-05-17 14:03:49,854 [INFO]   Cultura teotihuacana: 56 chunks
+2026-05-17 14:03:49,865 [INFO]   Guerra de Independencia de México: 134 chunks
+2026-05-17 14:03:49,866 [INFO] Total chunks: 1334
+2026-05-17 14:03:49,866 [INFO] === PASO 3: Generando embeddings con paraphrase-multilingual-MiniLM-L12-v2 ===
+2026-05-17 14:03:49,867 [INFO] No device provided, using cpu
+2026-05-17 14:03:50,285 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-17 14:03:50,285 [WARNING] Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-05-17 14:03:50,308 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/modules.json "HTTP/1.1 200 OK"
+2026-05-17 14:03:50,341 [INFO] HTTP Request: GET https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/modules.json "HTTP/1.1 200 OK"
+2026-05-17 14:03:50,449 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-17 14:03:50,474 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-05-17 14:03:50,501 [INFO] HTTP Request: GET https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-05-17 14:03:50,511 [INFO] Loading SentenceTransformer model from sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2.
+2026-05-17 14:03:50,615 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-17 14:03:50,638 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-05-17 14:03:50,738 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-05-17 14:03:50,764 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/README.md "HTTP/1.1 200 OK"
+2026-05-17 14:03:50,791 [INFO] HTTP Request: GET https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/README.md "HTTP/1.1 200 OK"
+2026-05-17 14:03:50,908 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-17 14:03:50,931 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/modules.json "HTTP/1.1 200 OK"
+2026-05-17 14:03:51,036 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-17 14:03:51,072 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-05-17 14:03:51,097 [INFO] HTTP Request: GET https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-05-17 14:03:51,206 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-05-17 14:03:51,308 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-17 14:03:51,333 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/config.json "HTTP/1.1 200 OK"
+2026-05-17 14:03:51,360 [INFO] HTTP Request: GET https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/config.json "HTTP/1.1 200 OK"
+2026-05-17 14:03:51,532 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/model.safetensors "HTTP/1.1 302 Found"
+2026-05-17 14:03:51,699 [INFO] HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/xet-read-token/e8f8c211226b894fcb81acc59f3b34ba3efd5f42 "HTTP/1.1 200 OK"
+2026-05-17 14:04:01,979 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-05-17 14:04:02,079 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-17 14:04:02,180 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-17 14:04:02,280 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-17 14:04:02,380 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-17 14:04:02,403 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-17 14:04:02,429 [INFO] HTTP Request: GET https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-17 14:04:02,536 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-17 14:04:02,559 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/config.json "HTTP/1.1 200 OK"
+2026-05-17 14:04:02,661 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-17 14:04:02,683 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/config.json "HTTP/1.1 200 OK"
+2026-05-17 14:04:02,782 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-17 14:04:02,805 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-17 14:04:02,902 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-17 14:04:02,924 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-17 14:04:03,029 [INFO] HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-17 14:04:03,136 [INFO] HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-17 14:04:03,280 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/tokenizer.json "HTTP/1.1 302 Found"
+2026-05-17 14:04:03,956 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/tokenizer.model "HTTP/1.1 404 Not Found"
+2026-05-17 14:04:04,058 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/added_tokens.json "HTTP/1.1 404 Not Found"
+2026-05-17 14:04:04,157 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/special_tokens_map.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-17 14:04:04,180 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/special_tokens_map.json "HTTP/1.1 200 OK"
+2026-05-17 14:04:04,204 [INFO] HTTP Request: GET https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/special_tokens_map.json "HTTP/1.1 200 OK"
+2026-05-17 14:04:04,310 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/chat_template.jinja "HTTP/1.1 404 Not Found"
+2026-05-17 14:04:06,144 [INFO] HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2 "HTTP/1.1 200 OK"
+2026-05-17 14:04:06,467 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-17 14:04:06,489 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-05-17 14:04:06,517 [INFO] HTTP Request: GET https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-05-17 14:04:06,628 [INFO] HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2 "HTTP/1.1 200 OK"
+2026-05-17 14:04:06,633 [INFO]   Codificando 1334 chunks... (1-2 min la primera vez)
+2026-05-17 14:04:37,700 [INFO]   Índice guardado: 1334 vectores, dim=384
+2026-05-17 16:58:01,316 [INFO] ======================================================================
+2026-05-17 16:58:01,317 [INFO] QUERY     : ¿En qué año cayó Tenochtitlan?
+2026-05-17 16:58:01,318 [INFO] RETRIEVAL : 0.075s | LLM: 42.230s | Total: 42.304s
+2026-05-17 16:58:01,318 [INFO] CHUNKS RECUPERADOS (5):
+2026-05-17 16:58:01,318 [INFO]   [1] score=0.6877 | fuente=Historia de México | palabras 8500-8800
+2026-05-17 16:58:01,318 [INFO]        preview: Lago de Texcoco y sitiar la ciudad. La inestabilidad del imperio apresuró los planes y el 28 de abril de 1521 inició el...
+2026-05-17 16:58:01,318 [INFO]   [2] score=0.6643 | fuente=Moctezuma II | palabras 14250-14550
+2026-05-17 16:58:01,318 [INFO]        preview: había existido por años entre los mexicas y tarascos.​ Llegada a Tenochtitlán El día 8 de noviembre de 1519, después de...
+2026-05-17 16:58:01,318 [INFO]   [3] score=0.6383 | fuente=Tenochtitlan | palabras 0-51
+2026-05-17 16:58:01,319 [INFO]        preview: # Tenochtitlan Tenochtitlan puede hacer referencia a: México-Tenochtitlan, ciudad principal de los mexicas. Municipio de...
+2026-05-17 16:58:01,319 [INFO]   [4] score=0.6242 | fuente=Virreinato de Nueva España | palabras 1500-1800
+2026-05-17 16:58:01,319 [INFO]        preview: quienes en lugar de obedecer a su monarca, comenzaron a apedrearlo. El emperador murió pocos días después. Cuitláhuac, h...
+2026-05-17 16:58:01,319 [INFO]   [5] score=0.6129 | fuente=Imperio azteca | palabras 250-550
+2026-05-17 16:58:01,319 [INFO]        preview: Guerrero y el Soconusco. El fin del Imperio azteca ocurrió el 13 de agosto de 1521, cuando los españoles —en alianza con...
+2026-05-17 16:58:01,319 [INFO] RESPUESTA:
+Según el Fragmento 5, el fin del Imperio azteca ocurrió el 13 de agosto de 1521, cuando los españoles derrotaron la resistencia mexica en Tenochtitlan y Tlatelolco. El Fragmento 4 indica que la ciudad debió rendirse el 13 de agosto, marcando así el inicio del dominio español.
+
+Fuentes: Fragmento 4, Fragmento 5.
+2026-05-17 16:58:01,320 [INFO] ======================================================================
