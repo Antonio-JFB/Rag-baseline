@@ -1,0 +1,43 @@
+{
+  "aggregate": {
+    "n_preguntas_anotadas": 2,
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "recall_at_5_cobertura": 1,
+    "mrr": 0.5,
+    "faithfulness": 0.8333,
+    "faithfulness_cobertura": 2,
+    "latencia_total_s_media": 41.916,
+    "latencia_total_s_max": 78.85773611068726
+  },
+  "per_question": [
+    {
+      "question_id": "F1",
+      "precision_at_5": 0.4,
+      "recall_at_5": 1.0,
+      "mrr": 1.0,
+      "faithfulness": 0.6666666666666666,
+      "n_chunks_relevantes": 2,
+      "n_chunks_total": 5,
+      "n_claims_respaldadas": 2,
+      "n_claims_total": 3,
+      "t_retrieval_s": 6.830333948135376,
+      "t_generacion_s": 72.02740216255188,
+      "t_total_s": 78.85773611068726
+    },
+    {
+      "question_id": "T1",
+      "precision_at_5": 0.0,
+      "recall_at_5": null,
+      "mrr": 0.0,
+      "faithfulness": 1.0,
+      "n_chunks_relevantes": 0,
+      "n_chunks_total": 5,
+      "n_claims_respaldadas": 2,
+      "n_claims_total": 2,
+      "t_retrieval_s": 0.01962113380432129,
+      "t_generacion_s": 4.954733610153198,
+      "t_total_s": 4.9743547439575195
+    }
+  ]
+}

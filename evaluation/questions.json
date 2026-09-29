@@ -1,0 +1,147 @@
+{
+  "questions": [
+    {
+      "id": "F1",
+      "tipo": "factual",
+      "pregunta": "¿En qué año cayó Tenochtitlan?",
+      "puntos_clave": ["1521", "Cuauhtémoc", "tlaxcaltecas"],
+      "is_trap": false
+    },
+    {
+      "id": "F2",
+      "tipo": "factual",
+      "pregunta": "¿Quién dio el Grito de Independencia?",
+      "puntos_clave": ["Miguel Hidalgo", "Dolores Hidalgo", "16 septiembre 1810"],
+      "is_trap": false
+    },
+    {
+      "id": "F3",
+      "tipo": "factual",
+      "pregunta": "¿Cuándo comenzó el Porfiriato?",
+      "puntos_clave": ["1876", "Porfirio Díaz", "reelección continua"],
+      "is_trap": false
+    },
+    {
+      "id": "F4",
+      "tipo": "factual",
+      "pregunta": "¿Qué civilización construyó Teotihuacán?",
+      "puntos_clave": ["Cultura teotihuacana", "nombre propio desconocido", "periodo clásico"],
+      "is_trap": false
+    },
+    {
+      "id": "F5",
+      "tipo": "factual",
+      "pregunta": "¿Quién fue el último emperador azteca?",
+      "puntos_clave": ["Cuauhtémoc", "sobrino de Moctezuma II", "capturado 1521"],
+      "is_trap": false
+    },
+    {
+      "id": "C1",
+      "tipo": "causalidad",
+      "pregunta": "¿Cuáles fueron las causas de la Revolución Mexicana?",
+      "puntos_clave": ["Reelección de Díaz", "desigualdad agraria", "Plan de San Luis", "crisis de 1907", "Madero"],
+      "is_trap": false
+    },
+    {
+      "id": "C2",
+      "tipo": "causalidad",
+      "pregunta": "¿Por qué cayó el Imperio Azteca?",
+      "puntos_clave": ["Alianzas con tlaxcaltecas", "enfermedades", "superioridad militar española", "muerte de Moctezuma"],
+      "is_trap": false
+    },
+    {
+      "id": "C3",
+      "tipo": "causalidad",
+      "pregunta": "¿Qué provocó la Guerra de Reforma?",
+      "puntos_clave": ["Constitución de 1857", "liberales vs conservadores", "Ley Juárez", "Ley Lerdo"],
+      "is_trap": false
+    },
+    {
+      "id": "C4",
+      "tipo": "causalidad",
+      "pregunta": "¿Por qué terminó el Porfiriato?",
+      "puntos_clave": ["Revolución Mexicana", "renuncia de Díaz en 1911", "Plan de San Luis", "descontento social"],
+      "is_trap": false
+    },
+    {
+      "id": "V1",
+      "tipo": "comparativa",
+      "pregunta": "¿En qué se diferencian los mayas y los olmecas?",
+      "puntos_clave": ["Olmecas: civilización madre, cabezas colosales, zona costera", "Mayas: escritura, calendario, ciudades-estado"],
+      "is_trap": false
+    },
+    {
+      "id": "V2",
+      "tipo": "comparativa",
+      "pregunta": "¿Qué diferencias hay entre Zapata y Villa?",
+      "puntos_clave": ["Zapata: agrarismo, sur, Plan de Ayala", "Villa: norte, División del Norte, carácter militar"],
+      "is_trap": false
+    },
+    {
+      "id": "V3",
+      "tipo": "comparativa",
+      "pregunta": "¿En qué se parecen el Virreinato y el Imperio Azteca?",
+      "puntos_clave": ["Control centralizado", "tributo", "dominio territorial", "jerarquía religiosa ligada al poder"],
+      "is_trap": false
+    },
+    {
+      "id": "R1",
+      "tipo": "relacional",
+      "pregunta": "¿Qué relación tuvo Juárez con la Guerra de Reforma?",
+      "puntos_clave": ["Juárez lideró el bando liberal", "promulgó las Leyes de Reforma", "fue presidente durante el conflicto"],
+      "is_trap": false
+    },
+    {
+      "id": "R2",
+      "tipo": "relacional",
+      "pregunta": "¿Cómo se relacionan Hernán Cortés y Moctezuma II?",
+      "puntos_clave": ["Encuentro en Tenochtitlan en 1519", "Moctezuma tomado como rehén", "su muerte", "destrucción del imperio"],
+      "is_trap": false
+    },
+    {
+      "id": "R3",
+      "tipo": "relacional",
+      "pregunta": "¿Qué papel jugó el Virreinato en la Independencia?",
+      "puntos_clave": ["Agravios acumulados", "criollos excluidos del poder", "influencia ilustrada", "debilitamiento de España"],
+      "is_trap": false
+    },
+    {
+      "id": "M1",
+      "tipo": "multihop",
+      "pregunta": "¿Qué civilizaciones existían antes de los españoles y cuál dominaba en 1519?",
+      "puntos_clave": ["Olmecas", "mayas", "teotihuacanos", "aztecas", "el Imperio Azteca dominaba en 1519"],
+      "is_trap": false
+    },
+    {
+      "id": "M2",
+      "tipo": "multihop",
+      "pregunta": "¿Cómo influyeron las reformas de Juárez en la Revolución décadas después?",
+      "puntos_clave": ["Constitución de 1857", "separación Iglesia-Estado", "antecedente liberal que Díaz traicionó"],
+      "is_trap": false
+    },
+    {
+      "id": "T1",
+      "tipo": "trampa",
+      "pregunta": "¿Quién es el presidente actual de México?",
+      "puntos_clave": [],
+      "is_trap": true,
+      "nota": "Dato político actual, no presente en el corpus histórico"
+    },
+    {
+      "id": "T2",
+      "tipo": "trampa",
+      "pregunta": "¿Cuál es el PIB actual de México?",
+      "puntos_clave": [],
+      "is_trap": true,
+      "nota": "Dato económico, fuera del dominio del corpus"
+    },
+    {
+      "id": "T3",
+      "tipo": "trampa",
+      "pregunta": "¿Qué equipos jugaron la final del fútbol mexicano en 2024?",
+      "puntos_clave": [],
+      "is_trap": true,
+      "nota": "Completamente fuera del dominio del corpus"
+    }
+  ]
+}
