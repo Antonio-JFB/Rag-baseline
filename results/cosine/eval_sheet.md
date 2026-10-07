@@ -10,7 +10,7 @@ Total de preguntas: 20
 
 **Tipo:** factual
 **Puntos clave esperados:** 1521; Cuauhtémoc; tlaxcaltecas
-**Tiempos:** retrieval=6.830s · generación=72.027s · total=78.858s
+**Tiempos:** retrieval=7.750s · generación=55.174s · total=62.924s
 
 **Respuesta del sistema:**
 > Según el Fragmento 5, el fin del Imperio azteca ocurrió el 13 de agosto de 1521, cuando los españoles derrotaron la resistencia mexica en Tenochtitlan y Tlatelolco. El Fragmento 4 indica que la ciudad debió rendirse el 13 de agosto, marcando así el inicio del dominio español.
@@ -45,10 +45,10 @@ _Marca `[x]` si la afirmación está respaldada por el texto de los chunks recup
 
 **Tipo:** factual
 **Puntos clave esperados:** Miguel Hidalgo; Dolores Hidalgo; 16 septiembre 1810
-**Tiempos:** retrieval=0.019s · generación=5.321s · total=5.341s
+**Tiempos:** retrieval=0.022s · generación=4.748s · total=4.770s
 
 **Respuesta del sistema:**
-> Miguel Hidalgo y Costilla convocó al pueblo de Dolores a sublevarse en contra de las autoridades españolas el 16 de septiembre de 1810, marcando el inicio de la Guerra de Independencia de México.
+> Miguel Hidalgo y Costilla convocó al pueblo de Dolores a sublevarse en contra de las autoridades españolas el 16 de septiembre de 1810, dando inicio a la Guerra de Independencia de México.
 
 Fuentes: Fragmento 1, Fragmento 2.
 
@@ -70,7 +70,7 @@ _Marca `[x]` si la afirmación está respaldada por el texto de los chunks recup
 
 | # | Afirmación | Respaldada |
 |---|------------|------------|
-| 1 | Miguel Hidalgo y Costilla convocó al pueblo de Dolores a sublevarse en contra de las autoridades españolas el 16 de septiembre de 1810, marcando el inicio de la Guerra de Independencia de México. | [ ] |
+| 1 | Miguel Hidalgo y Costilla convocó al pueblo de Dolores a sublevarse en contra de las autoridades españolas el 16 de septiembre de 1810, dando inicio a la Guerra de Independencia de México. | [ ] |
 | 2 | Fuentes: Fragmento 1, Fragmento 2. | [ ] |
 
 ---
@@ -79,7 +79,7 @@ _Marca `[x]` si la afirmación está respaldada por el texto de los chunks recup
 
 **Tipo:** factual
 **Puntos clave esperados:** 1876; Porfirio Díaz; reelección continua
-**Tiempos:** retrieval=0.019s · generación=4.810s · total=4.829s
+**Tiempos:** retrieval=0.020s · generación=4.295s · total=4.315s
 
 **Respuesta del sistema:**
 > El Porfiriato comenzó el 28 de noviembre de 1876.
@@ -115,10 +115,10 @@ _Marca `[x]` si la afirmación está respaldada por el texto de los chunks recup
 
 **Tipo:** factual
 **Puntos clave esperados:** Cultura teotihuacana; nombre propio desconocido; periodo clásico
-**Tiempos:** retrieval=0.019s · generación=6.318s · total=6.337s
+**Tiempos:** retrieval=0.022s · generación=5.541s · total=5.563s
 
 **Respuesta del sistema:**
-> De acuerdo con las fuentes, la identidad de los fundadores de Teotihuacán es desconocida. Los nahuas pensaban que Teotihuacán fue construida por los quinametzin, una raza de gigantes que pobló el mundo durante la era anterior. Aun así, la evidencia arqueológica sugiere que la urbe estuvo situada en un enclave regional donde a lo largo de siglos existió una fuerte convergencia de grupos étnicos y lingüísticos que influyeron en cantidad a sus habitantes.
+> De acuerdo con las fuentes, la identidad de los fundadores de Teotihuacán es desconocida. Los nahuas pensaban que Teotihuacán fue construida por los quinametzin, una raza de gigantes que pobló el mundo durante la era anterior. Aun así, la evidencia arqueológica sugiere que la urbe estuvo situada en un enclave regional donde a lo largo de siglos existió una fuerte convergencia de grupos étnicos y lingüísticos que influyeron en sus habitantes.
 
 Fuentes: Fragmento 3
 
@@ -142,7 +142,7 @@ _Marca `[x]` si la afirmación está respaldada por el texto de los chunks recup
 |---|------------|------------|
 | 1 | De acuerdo con las fuentes, la identidad de los fundadores de Teotihuacán es desconocida. | [ ] |
 | 2 | Los nahuas pensaban que Teotihuacán fue construida por los quinametzin, una raza de gigantes que pobló el mundo durante la era anterior. | [ ] |
-| 3 | Aun así, la evidencia arqueológica sugiere que la urbe estuvo situada en un enclave regional donde a lo largo de siglos existió una fuerte convergencia de grupos étnicos y lingüísticos que influyeron en cantidad a sus habitantes. | [ ] |
+| 3 | Aun así, la evidencia arqueológica sugiere que la urbe estuvo situada en un enclave regional donde a lo largo de siglos existió una fuerte convergencia de grupos étnicos y lingüísticos que influyeron en sus habitantes. | [ ] |
 | 4 | Fuentes: Fragmento 3 | [ ] |
 
 ---
@@ -151,12 +151,13 @@ _Marca `[x]` si la afirmación está respaldada por el texto de los chunks recup
 
 **Tipo:** factual
 **Puntos clave esperados:** Cuauhtémoc; sobrino de Moctezuma II; capturado 1521
-**Tiempos:** retrieval=0.019s · generación=4.646s · total=4.665s
+**Tiempos:** retrieval=0.021s · generación=4.227s · total=4.248s
 
 **Respuesta del sistema:**
 > Moctezuma Xocoyotzin fue el último emperador azteca.
 
-Fuentes: Fragmento 4.
+Fuentes:
+* Fragmento 4
 
 **Total de chunks relevantes en el corpus (estimado, para Recall@5):** ___
 
@@ -177,7 +178,8 @@ _Marca `[x]` si la afirmación está respaldada por el texto de los chunks recup
 | # | Afirmación | Respaldada |
 |---|------------|------------|
 | 1 | Moctezuma Xocoyotzin fue el último emperador azteca. | [ ] |
-| 2 | Fuentes: Fragmento 4. | [ ] |
+| 2 | Fuentes:
+* Fragmento 4 | [ ] |
 
 ---
 
@@ -185,7 +187,7 @@ _Marca `[x]` si la afirmación está respaldada por el texto de los chunks recup
 
 **Tipo:** causalidad
 **Puntos clave esperados:** Reelección de Díaz; desigualdad agraria; Plan de San Luis; crisis de 1907; Madero
-**Tiempos:** retrieval=0.021s · generación=8.552s · total=8.573s
+**Tiempos:** retrieval=0.021s · generación=7.047s · total=7.068s
 
 **Respuesta del sistema:**
 > Las causas de la Revolución Mexicana se remontan a la situación de México bajo la dictadura del porfiriato, donde Porfirio Díaz Mori ejerció el poder de manera dictatorial desde 1876 hasta 1911. Durante este periodo, México experimentó crecimiento económico y estabilidad política, pero a altos costos sociales, que fueron pagados por los estratos menos favorecidos de la sociedad y la oposición política al régimen de Díaz. Además, varias crisis en diversas esferas de la vida nacional reflejaban el creciente descontento de algunos sectores con el porfiriato. Cuando Porfirio Díaz aseguró en una entrevista que se retiraría al finalizar su mandato sin buscar la reelección, la situación política comenzó a agitarse.
@@ -194,7 +196,6 @@ Fuentes:
 *   Revolución mexicana (Fragmento 1)
 *   Historia de México (Fragmento 2)
 *   Revolución mexicana (Fragmento 3)
-*   Historia de México (Fragmento 4)
 
 **Total de chunks relevantes en el corpus (estimado, para Recall@5):** ___
 
@@ -221,8 +222,7 @@ _Marca `[x]` si la afirmación está respaldada por el texto de los chunks recup
 | 5 | Fuentes:
 *   Revolución mexicana (Fragmento 1)
 *   Historia de México (Fragmento 2)
-*   Revolución mexicana (Fragmento 3)
-*   Historia de México (Fragmento 4) | [ ] |
+*   Revolución mexicana (Fragmento 3) | [ ] |
 
 ---
 
@@ -230,7 +230,7 @@ _Marca `[x]` si la afirmación está respaldada por el texto de los chunks recup
 
 **Tipo:** causalidad
 **Puntos clave esperados:** Alianzas con tlaxcaltecas; enfermedades; superioridad militar española; muerte de Moctezuma
-**Tiempos:** retrieval=0.019s · generación=5.966s · total=5.985s
+**Tiempos:** retrieval=0.017s · generación=5.199s · total=5.216s
 
 **Respuesta del sistema:**
 > El Imperio azteca cayó el 13 de agosto de 1521, cuando los españoles —en alianza con los tlaxcaltecas y totonacas, entre otros pueblos indígenas— derrotaron la resistencia mexica en Tenochtitlan y Tlatelolco.
@@ -268,7 +268,7 @@ _Marca `[x]` si la afirmación está respaldada por el texto de los chunks recup
 
 **Tipo:** causalidad
 **Puntos clave esperados:** Constitución de 1857; liberales vs conservadores; Ley Juárez; Ley Lerdo
-**Tiempos:** retrieval=0.018s · generación=5.722s · total=5.740s
+**Tiempos:** retrieval=0.021s · generación=5.027s · total=5.048s
 
 **Respuesta del sistema:**
 > La Guerra de Reforma, también conocida como la guerra de los tres años, fue provocada por la promulgación de la Constitución de 1857 y en especial de las llamadas Leyes de Reforma. El país estaba dividido en dos grandes grupos: liberales (a favor de las Leyes de Reforma) y los conservadores (en contra).
@@ -303,7 +303,7 @@ _Marca `[x]` si la afirmación está respaldada por el texto de los chunks recup
 
 **Tipo:** causalidad
 **Puntos clave esperados:** Revolución Mexicana; renuncia de Díaz en 1911; Plan de San Luis; descontento social
-**Tiempos:** retrieval=0.016s · generación=5.855s · total=5.872s
+**Tiempos:** retrieval=0.016s · generación=5.236s · total=5.252s
 
 **Respuesta del sistema:**
 > El Porfiriato terminó meses después de que Porfirio Díaz renunció a la presidencia y salió rumbo a Francia, esto ocurrió el 27 de mayo de 1911, después de que estallara la Revolución.
@@ -341,12 +341,13 @@ _Marca `[x]` si la afirmación está respaldada por el texto de los chunks recup
 
 **Tipo:** comparativa
 **Puntos clave esperados:** Olmecas: civilización madre, cabezas colosales, zona costera; Mayas: escritura, calendario, ciudades-estado
-**Tiempos:** retrieval=0.024s · generación=6.839s · total=6.862s
+**Tiempos:** retrieval=0.026s · generación=5.703s · total=5.729s
 
 **Respuesta del sistema:**
-> Los olmecas se pueden definir como la cultura madre de la América precolombina, y surgieron alrededor de los años 1200 a. n. e. en la región costera del Golfo de México (actualmente Veracruz y Tabasco). Se cree que los sacerdotes eran la clase dirigente por poseer conocimientos astronómicos sobre los períodos de lluvia y la siembra. Los mayas, cuya estructura más antigua conocida es la de Aguada Fénix en Tabasco, datan de alrededor del año 1500 a. n. e.
+> Los olmecas se pueden definir como la cultura madre de la América precolombina, y su surgimiento alrededor de los años 1200 a. n. e. marcó la tendencia del resto de los pueblos prehispánicos en cuanto a organización, economía, desarrollo, creencias, etc. Mientras que los mayas, cuya estructura más antigua conocida es la de Aguada Fénix en Tabasco, se datan alrededor del año 1500 a. n. e.
 
-Fuentes: Fragmento 4, Fragmento 5.
+Fuentes:
+* Fragmento 4: Historia de México
 
 **Total de chunks relevantes en el corpus (estimado, para Recall@5):** ___
 
@@ -366,11 +367,11 @@ _Marca `[x]` si la afirmación está respaldada por el texto de los chunks recup
 
 | # | Afirmación | Respaldada |
 |---|------------|------------|
-| 1 | Los olmecas se pueden definir como la cultura madre de la América precolombina, y surgieron alrededor de los años 1200 a. | [ ] |
-| 2 | en la región costera del Golfo de México (actualmente Veracruz y Tabasco). | [ ] |
-| 3 | Se cree que los sacerdotes eran la clase dirigente por poseer conocimientos astronómicos sobre los períodos de lluvia y la siembra. | [ ] |
-| 4 | Los mayas, cuya estructura más antigua conocida es la de Aguada Fénix en Tabasco, datan de alrededor del año 1500 a. | [ ] |
-| 5 | Fuentes: Fragmento 4, Fragmento 5. | [ ] |
+| 1 | Los olmecas se pueden definir como la cultura madre de la América precolombina, y su surgimiento alrededor de los años 1200 a. | [ ] |
+| 2 | marcó la tendencia del resto de los pueblos prehispánicos en cuanto a organización, economía, desarrollo, creencias, etc. | [ ] |
+| 3 | Mientras que los mayas, cuya estructura más antigua conocida es la de Aguada Fénix en Tabasco, se datan alrededor del año 1500 a. | [ ] |
+| 4 | Fuentes:
+* Fragmento 4: Historia de México | [ ] |
 
 ---
 
@@ -378,14 +379,14 @@ _Marca `[x]` si la afirmación está respaldada por el texto de los chunks recup
 
 **Tipo:** comparativa
 **Puntos clave esperados:** Zapata: agrarismo, sur, Plan de Ayala; Villa: norte, División del Norte, carácter militar
-**Tiempos:** retrieval=0.019s · generación=7.545s · total=7.564s
+**Tiempos:** retrieval=0.023s · generación=6.416s · total=6.439s
 
 **Respuesta del sistema:**
 > Según los fragmentos proporcionados, las diferencias entre Zapata y Villa incluyen:
 
 *   Zapata se unió con Francisco Villa y ambos reconocieron a Eulalio Gutiérrez como presidente provisional de México, mientras que no reconocieron a Venustiano Carranza, lo que provocó la continuación de la guerra civil.
-*   Villa aceptó el plan de Ayala, a excepción de sus acusaciones a Francisco I. Madero, mientras que Zapata se enfureció al que Madero le ofreciera una hacienda como "pago a sus servicios a la Revolución".
-*   Zapata se mantuvo a la defensiva para mantener aislada su región, mientras que Villa intentó tomar Celaya, pero sufrió derrotas significativas.
+*   Villa aceptó el plan de Ayala, a excepción de sus acusaciones a Francisco I. Madero, mientras que Zapata golpeó con fuerza su carabina sobre el escritorio de Madero en señal de enojo.
+*   Zapata se enfocó en mantener aislada su región, mientras que Villa sufrió derrotas que debilitaron su ejército.
 
 Fuentes: Fragmento 1, Fragmento 2, Fragmento 5.
 
@@ -411,8 +412,8 @@ _Marca `[x]` si la afirmación está respaldada por el texto de los chunks recup
 
 *   Zapata se unió con Francisco Villa y ambos reconocieron a Eulalio Gutiérrez como presidente provisional de México, mientras que no reconocieron a Venustiano Carranza, lo que provocó la continuación de la guerra civil. | [ ] |
 | 2 | *   Villa aceptó el plan de Ayala, a excepción de sus acusaciones a Francisco I. | [ ] |
-| 3 | Madero, mientras que Zapata se enfureció al que Madero le ofreciera una hacienda como "pago a sus servicios a la Revolución". | [ ] |
-| 4 | *   Zapata se mantuvo a la defensiva para mantener aislada su región, mientras que Villa intentó tomar Celaya, pero sufrió derrotas significativas. | [ ] |
+| 3 | Madero, mientras que Zapata golpeó con fuerza su carabina sobre el escritorio de Madero en señal de enojo. | [ ] |
+| 4 | *   Zapata se enfocó en mantener aislada su región, mientras que Villa sufrió derrotas que debilitaron su ejército. | [ ] |
 | 5 | Fuentes: Fragmento 1, Fragmento 2, Fragmento 5. | [ ] |
 
 ---
@@ -421,7 +422,7 @@ _Marca `[x]` si la afirmación está respaldada por el texto de los chunks recup
 
 **Tipo:** comparativa
 **Puntos clave esperados:** Control centralizado; tributo; dominio territorial; jerarquía religiosa ligada al poder
-**Tiempos:** retrieval=0.035s · generación=4.275s · total=4.310s
+**Tiempos:** retrieval=0.024s · generación=3.915s · total=3.939s
 
 **Respuesta del sistema:**
 > No encontré esta información en el corpus.
@@ -452,7 +453,7 @@ _Marca `[x]` si la afirmación está respaldada por el texto de los chunks recup
 
 **Tipo:** relacional
 **Puntos clave esperados:** Juárez lideró el bando liberal; promulgó las Leyes de Reforma; fue presidente durante el conflicto
-**Tiempos:** retrieval=0.018s · generación=5.338s · total=5.356s
+**Tiempos:** retrieval=0.020s · generación=4.765s · total=4.785s
 
 **Respuesta del sistema:**
 > Benito Juárez volvió a entrar triunfante a la capital en julio de 1867 tras el triunfo sobre los invasores franceses y austríacos, aunque al poco tiempo después enfrentaría la rebelión de Porfirio Díaz.
@@ -488,10 +489,10 @@ _Marca `[x]` si la afirmación está respaldada por el texto de los chunks recup
 
 **Tipo:** relacional
 **Puntos clave esperados:** Encuentro en Tenochtitlan en 1519; Moctezuma tomado como rehén; su muerte; destrucción del imperio
-**Tiempos:** retrieval=0.023s · generación=6.666s · total=6.689s
+**Tiempos:** retrieval=0.022s · generación=5.801s · total=5.823s
 
 **Respuesta del sistema:**
-> Hernán Cortés le pidió a Moctezuma II que hiciera algo al respecto sobre Cacamatzin, quien amenazaba con iniciar una guerra civil. Moctezuma sugirió que Cacamatzin fuera arrestado y que Ixtlilxóchitl tomara su lugar en el trono. Además, la convivencia entre Cortés y Moctezuma había creado un vínculo de amistad y el tlatoani, antes de morir, pidió a Cortés que favoreciese a su hijo, Chimalpopoca.
+> Hernán Cortés le pidió a Moctezuma II que hiciera algo al respecto sobre Cacamatzin, quien amenazaba con iniciar una guerra civil. Moctezuma sugirió que Cacamatzin fuera arrestado y que Ixtlilxóchitl tomara su lugar en el trono. Además, la convivencia entre Cortés y Moctezuma había creado un vínculo de amistad y, antes de morir, Moctezuma pidió a Cortés que favoreciese a su hijo, Chimalpopoca.
 
 Fuentes: Fragmento 1, Fragmento 4.
 
@@ -515,7 +516,7 @@ _Marca `[x]` si la afirmación está respaldada por el texto de los chunks recup
 |---|------------|------------|
 | 1 | Hernán Cortés le pidió a Moctezuma II que hiciera algo al respecto sobre Cacamatzin, quien amenazaba con iniciar una guerra civil. | [ ] |
 | 2 | Moctezuma sugirió que Cacamatzin fuera arrestado y que Ixtlilxóchitl tomara su lugar en el trono. | [ ] |
-| 3 | Además, la convivencia entre Cortés y Moctezuma había creado un vínculo de amistad y el tlatoani, antes de morir, pidió a Cortés que favoreciese a su hijo, Chimalpopoca. | [ ] |
+| 3 | Además, la convivencia entre Cortés y Moctezuma había creado un vínculo de amistad y, antes de morir, Moctezuma pidió a Cortés que favoreciese a su hijo, Chimalpopoca. | [ ] |
 | 4 | Fuentes: Fragmento 1, Fragmento 4. | [ ] |
 
 ---
@@ -524,10 +525,10 @@ _Marca `[x]` si la afirmación está respaldada por el texto de los chunks recup
 
 **Tipo:** relacional
 **Puntos clave esperados:** Agravios acumulados; criollos excluidos del poder; influencia ilustrada; debilitamiento de España
-**Tiempos:** retrieval=0.020s · generación=6.688s · total=6.709s
+**Tiempos:** retrieval=0.020s · generación=6.026s · total=6.047s
 
 **Respuesta del sistema:**
-> El Virreinato jugó un papel importante en la Independencia de México debido a que el gobierno de la metrópoli implementó medidas que restaron facultades autónomas a las autoridades civiles y eclesiásticas en Nueva España. El aumento de tributos causó un déficit en las finanzas de cada territorio, restringiendo su capacidad de desarrollarse. La ocupación de España por Napoleón Bonaparte fue el momento idóneo para que las ideas de independencia florecieran.
+> El Virreinato jugó un papel importante en la Independencia de México debido a varios factores. La centralización del poder político en Madrid y la reducción de facultades autónomas de las autoridades civiles y eclesiásticas en Nueva España generaron descontento. Además, el aumento de tributos a la metrópoli causó un déficit financiero que restringió el desarrollo del virreinato. La ocupación de España por Napoleón Bonaparte proporcionó el momento oportuno para que las ideas de independencia florecieran.
 
 Fuentes: Fragmento 5, Fragmento 1, Fragmento 2, Fragmento 3, Fragmento 4.
 
@@ -549,10 +550,11 @@ _Marca `[x]` si la afirmación está respaldada por el texto de los chunks recup
 
 | # | Afirmación | Respaldada |
 |---|------------|------------|
-| 1 | El Virreinato jugó un papel importante en la Independencia de México debido a que el gobierno de la metrópoli implementó medidas que restaron facultades autónomas a las autoridades civiles y eclesiásticas en Nueva España. | [ ] |
-| 2 | El aumento de tributos causó un déficit en las finanzas de cada territorio, restringiendo su capacidad de desarrollarse. | [ ] |
-| 3 | La ocupación de España por Napoleón Bonaparte fue el momento idóneo para que las ideas de independencia florecieran. | [ ] |
-| 4 | Fuentes: Fragmento 5, Fragmento 1, Fragmento 2, Fragmento 3, Fragmento 4. | [ ] |
+| 1 | El Virreinato jugó un papel importante en la Independencia de México debido a varios factores. | [ ] |
+| 2 | La centralización del poder político en Madrid y la reducción de facultades autónomas de las autoridades civiles y eclesiásticas en Nueva España generaron descontento. | [ ] |
+| 3 | Además, el aumento de tributos a la metrópoli causó un déficit financiero que restringió el desarrollo del virreinato. | [ ] |
+| 4 | La ocupación de España por Napoleón Bonaparte proporcionó el momento oportuno para que las ideas de independencia florecieran. | [ ] |
+| 5 | Fuentes: Fragmento 5, Fragmento 1, Fragmento 2, Fragmento 3, Fragmento 4. | [ ] |
 
 ---
 
@@ -560,7 +562,7 @@ _Marca `[x]` si la afirmación está respaldada por el texto de los chunks recup
 
 **Tipo:** multihop
 **Puntos clave esperados:** Olmecas; mayas; teotihuacanos; aztecas; el Imperio Azteca dominaba en 1519
-**Tiempos:** retrieval=0.024s · generación=5.736s · total=5.760s
+**Tiempos:** retrieval=0.026s · generación=5.059s · total=5.085s
 
 **Respuesta del sistema:**
 > Antes de la llegada de los españoles, existían civilizaciones como los mexicas, acolhuas y tepanecas. La Triple Alianza, comúnmente llamada Imperio mexica, dominaba en 1519.
@@ -599,7 +601,7 @@ _Marca `[x]` si la afirmación está respaldada por el texto de los chunks recup
 
 **Tipo:** multihop
 **Puntos clave esperados:** Constitución de 1857; separación Iglesia-Estado; antecedente liberal que Díaz traicionó
-**Tiempos:** retrieval=0.021s · generación=4.125s · total=4.147s
+**Tiempos:** retrieval=0.021s · generación=3.831s · total=3.852s
 
 **Respuesta del sistema:**
 > No encontré esta información en el corpus.
@@ -629,7 +631,7 @@ _Marca `[x]` si la afirmación está respaldada por el texto de los chunks recup
 ## T1 — ¿Quién es el presidente actual de México?
 
 **Tipo:** trampa  (pregunta trampa)
-**Tiempos:** retrieval=0.020s · generación=4.955s · total=4.974s
+**Tiempos:** retrieval=0.019s · generación=4.410s · total=4.429s
 
 **Respuesta del sistema:**
 > El presidente de México desde el 1 de diciembre de 2018 hasta el 30 de septiembre de 2024.
@@ -662,7 +664,7 @@ _Marca `[x]` si la afirmación está respaldada por el texto de los chunks recup
 ## T2 — ¿Cuál es el PIB actual de México?
 
 **Tipo:** trampa  (pregunta trampa)
-**Tiempos:** retrieval=0.022s · generación=4.471s · total=4.494s
+**Tiempos:** retrieval=0.019s · generación=4.085s · total=4.104s
 
 **Respuesta del sistema:**
 > No encontré esta información en el corpus.
@@ -692,7 +694,7 @@ _Marca `[x]` si la afirmación está respaldada por el texto de los chunks recup
 ## T3 — ¿Qué equipos jugaron la final del fútbol mexicano en 2024?
 
 **Tipo:** trampa  (pregunta trampa)
-**Tiempos:** retrieval=0.022s · generación=4.142s · total=4.163s
+**Tiempos:** retrieval=0.023s · generación=3.832s · total=3.855s
 
 **Respuesta del sistema:**
 > No encontré esta información en el corpus.
