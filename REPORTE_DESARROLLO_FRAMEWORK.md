@@ -61,7 +61,7 @@ Corrida real el 29/09/2026: **20/20 preguntas completadas en 187.3s** (~9.4s pro
 
 ### 4.1 Cómo se genera la hoja
 
-`eval_sheet.py` lee `results.jsonl` y produce `eval_sheet.md`: una sección por pregunta con la respuesta del sistema, los puntos clave esperados (como referencia para el evaluador, no como respuesta automática), una tabla de chunks recuperados con una casilla `[ ]` por chunk, y una tabla de afirmaciones de la respuesta (partida automáticamente por oración) con una casilla `[ ]` por afirmación.
+`eval_sheet.py` lee `results.jsonl` y produce `eval_sheet.md`: una sección por pregunta con la respuesta del sistema, los puntos clave esperados (como referencia para el evaluador, no como respuesta automática), una tabla de chunks recuperados con una casilla `[ ]` por chunk, y una tabla de afirmaciones de la respuesta (partida automáticamente por oración) con una casilla `[ ]` por afirmación. Cada pregunta incluye además una casilla `**Anotada:** [ ]` que el evaluador marca al terminarla (ver paso 6 de la sección 4.2).
 
 ```
 $ python evaluation/eval_sheet.py --results results/cosine/results.jsonl
@@ -77,6 +77,7 @@ Para que dos evaluadores distintos lleguen al mismo resultado dado el mismo `res
 3. **Para preguntas trampa**, si el sistema declaró correctamente que no encontró la información, no hay chunks "relevantes" que marcar (el criterio correcto es que ninguno lo sea) y la respuesta se considera fiel automáticamente.
 4. **Para cada afirmación de la respuesta**, marca `[x]` solo si esa afirmación específica está respaldada por el texto de los chunks — una afirmación históricamente correcta pero ausente del contexto recuperado cuenta como **no respaldada**, porque el sistema no pudo haberla sacado de ahí (esto es lo que mide Faithfulness: fidelidad al contexto, no verdad absoluta).
 5. **Campo opcional "Total de chunks relevantes en el corpus"**: si el evaluador reconoce, por conocimiento del corpus, que hay más chunks relevantes de los que aparecieron en el top-5 (p. ej. en preguntas comparativas que necesitan dos artículos), puede estimar ese total para habilitar el cálculo de Recall@5 en esa pregunta. Si se deja en blanco, esa pregunta simplemente no cuenta para el promedio de Recall@5 (se reporta la cobertura, no se inventa un valor).
+6. **Al terminar cada pregunta, marcar la casilla `**Anotada:** [x]`.** Es lo que le dice a `metrics.py` que esa pregunta ya fue revisada. Sin la marca, la pregunta se excluye de los promedios; con ella, una pregunta donde ningún chunk resultó relevante cuenta como 0, que es un resultado real y distinto de "pendiente". El avance se consulta con `python evaluation/metrics.py --results ... --sheet ... --status`.
 
 ### 4.3 Validación del protocolo
 
@@ -90,7 +91,9 @@ Lee una `eval_sheet.md` ya anotada (parseando las casillas `[x]`/`[ ]` de cada t
 - **MRR** = 1 / posición del primer chunk relevante marcado (0 si ninguno).
 - **Recall@5** = chunks relevantes recuperados / total de chunks relevantes estimado — solo en las preguntas donde el evaluador llenó ese campo opcional; se reporta la cobertura (cuántas preguntas lo tienen) en vez de forzar un promedio incompleto.
 - **Faithfulness** = afirmaciones respaldadas / afirmaciones totales de la respuesta.
-- **Latencia** = tiempos ya logueados por `evaluador.py` (no requiere anotación manual).
+- **Latencia** = tiempos ya logueados por `evaluador.py` (no requiere anotación manual; se calcula sobre todas las preguntas, estén o no anotadas).
+
+**Preguntas anotadas vs. pendientes.** Solo cuentan para los promedios las preguntas con la casilla `**Anotada:** [x]`. El resultado reporta `n_preguntas_anotadas` sobre `n_preguntas_total` y la lista de `preguntas_pendientes`, y `--status` muestra solo ese avance. Esto evita que una pregunta sin revisar (todas sus casillas vacías) se lea como una pregunta revisada donde todo salió irrelevante. Si se le pasa una hoja generada antes de este cambio (sin el marcador), el script avisa y trata todas las preguntas como anotadas, en lugar de fallar en silencio.
 
 ## 6. Ejemplo real de punta a punta
 
@@ -116,8 +119,12 @@ Verificación manual: cada uno de estos valores se recalculó a mano contra las 
 
 **Un bug real encontrado y corregido durante esta validación:** la primera versión de `metrics.py` usaba una sola expresión regular multilínea para detectar las casillas `[x]` marcadas en las tablas Markdown. Esa expresión confundía la fila separadora de la tabla (`|------|-------|...`) con una fila de datos, porque `\S+` no se detiene en el carácter `|`. El resultado eran conteos de relevancia incorrectos (subestimados) sin ningún error visible -- el script corría "bien" pero calculaba mal. Se reescribió el parser para procesar la tabla línea por línea, separando cada fila en celdas explícitamente y validando que la primera celda sea numérica antes de contarla como dato. Tras el cambio, los 4 valores por pregunta coinciden exactamente con el cálculo manual de control. Se documenta aquí porque es precisamente el tipo de falla silenciosa que un framework de evaluación no se puede dar el lujo de tener sin detectar.
 
+**Una limitación de diseño detectada y corregida (07/10/2026):** al validar con solo 2 preguntas anotadas y 18 sin tocar, los promedios salían divididos entre 20 en lugar de entre 2. Las preguntas pendientes tienen todas sus casillas vacías, y el script no podía distinguirlas de preguntas revisadas donde nada resultó relevante, así que las contaba como ceros. En una prueba equivalente con una sola pregunta anotada (F1, Precision@5 = 0.4), el comportamiento anterior dio 0.02 (= 0.4 / 20) en lugar de 0.4. Se agregó la casilla `**Anotada:**` por pregunta: `metrics.py` excluye de los promedios las no marcadas, reporta el avance (`n_preguntas_anotadas` / `n_preguntas_total`) y ofrece `--status`. Se probó con cinco casos (el ejemplo F1+T1, una hoja en blanco, una hoja a medias con una sola pregunta anotada, la hoja en blanco sin `--status` y una hoja en formato anterior sin el marcador); los valores del ejemplo no cambiaron (Precision@5 0.2, MRR 0.5, Recall@5 1.0, Faithfulness 0.833).
+
+**Nota sobre las corridas.** Las cifras de esta sección (187.3 s en total, F1 en 78.9 s) y las dos anotaciones de ejemplo corresponden a la corrida del 29/09/2026. El 05/10/2026 se volvió a correr el baseline (158.5 s) y `results/cosine/results.jsonl` y `eval_sheet.md` en el repositorio son de esa segunda corrida. Como `gemma3:12b` no es determinista, las respuestas pueden variar entre corridas; por eso `eval_sheet_ejemplo.md` se conserva como evidencia histórica de la corrida del 29/09 y no como anotación de la hoja vigente.
+
 ## 7. Estado y siguientes pasos
 
-**Completo:** arquitectura SoC (`src/`, del milestone anterior), `questions.json` validado, `evaluador.py` corrido de punta a punta sobre el baseline, `eval_sheet.py` generando hojas correctamente, `metrics.py` validado contra anotación manual real, protocolo documentado y probado.
+**Completo:** arquitectura SoC (`src/`, del milestone anterior), `questions.json` validado, `evaluador.py` corrido de punta a punta sobre el baseline, `eval_sheet.py` generando hojas correctamente, `metrics.py` validado contra anotación manual real (con control de preguntas anotadas vs. pendientes y `--status` para ver el avance), protocolo documentado y probado.
 
 **Pendiente (milestone 15/10/2026):** evaluación manual humana de las 20 preguntas completas sobre el baseline, para obtener los valores de referencia (Precision@5, Recall@5, MRR, Faithfulness) que sirven de punto de comparación para las 4 configuraciones experimentales de la Fase 2. La maquinaria para hacerlo ya está lista; lo que falta es el trabajo de anotación en sí, que es deliberadamente manual y no se automatiza en esta fase.

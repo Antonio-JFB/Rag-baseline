@@ -14,6 +14,8 @@ siguiente milestone del cronograma (15/10/2026) y se hace sobre
 **Puntos clave esperados:** 1521; Cuauhtémoc; tlaxcaltecas
 **Tiempos:** retrieval=6.830s · generación=72.027s · total=78.858s
 
+**Anotada:** [x]
+
 **Respuesta del sistema:**
 > Según el Fragmento 5, el fin del Imperio azteca ocurrió el 13 de agosto de 1521, cuando los españoles derrotaron la resistencia mexica en Tenochtitlan y Tlatelolco. El Fragmento 4 indica que la ciudad debió rendirse el 13 de agosto, marcando así el inicio del dominio español.
 
@@ -47,6 +49,8 @@ Fuentes: Fragmento 4, Fragmento 5.
 
 **Tipo:** trampa (pregunta trampa)
 **Tiempos:** retrieval=0.020s · generación=4.955s · total=4.974s
+
+**Anotada:** [x]
 
 **Respuesta del sistema:**
 > El presidente de México desde el 1 de diciembre de 2018 hasta el 30 de septiembre de 2024.

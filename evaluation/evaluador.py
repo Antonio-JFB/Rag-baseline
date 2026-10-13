@@ -18,8 +18,7 @@ from datetime import datetime, timezone
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from evaluation.schema import Question, load_questions
-from src.config import build_pipeline, load_config
-from src.pipeline import load_chunks
+from src.config import build_pipeline, load_chunks_for, load_config
 
 log = logging.getLogger(__name__)
 
@@ -35,6 +34,10 @@ def setup_logging(out_dir: str) -> None:
             logging.StreamHandler(),
         ],
     )
+    # Cada carga del modelo de embeddings dispara decenas de lineas HTTP INFO
+    # (verificacion de cache contra Hugging Face) que no aportan al log real.
+    for noisy in ("httpx", "httpcore", "huggingface_hub", "sentence_transformers", "urllib3", "filelock"):
+        logging.getLogger(noisy).setLevel(logging.WARNING)
 
 
 def result_to_record(config_name: str, question: Question, result) -> dict:
@@ -81,7 +84,7 @@ def main():
     log.info(f"{len(questions)} preguntas cargadas desde {args.questions}")
 
     pipeline = build_pipeline(cfg)
-    chunks = load_chunks()
+    chunks = load_chunks_for(cfg, pipeline.chunker)
     log.info(f"Indexando {len(chunks)} chunks...")
     pipeline.index(chunks)
 

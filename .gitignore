@@ -6,3 +6,6 @@ __pycache__/
 # OS junk
 Thumbs.db
 desktop.ini
+
+# Indices regenerables (evaluador.py los reconstruye si faltan)
+embeddings/paragraph/

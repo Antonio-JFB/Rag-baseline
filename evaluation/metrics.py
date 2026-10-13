@@ -3,9 +3,14 @@ metrics.py -- calcula Precision@5, Recall@5, MRR, Faithfulness y Latencia
 a partir de una hoja de evaluacion manual ya anotada (eval_sheet.md) y los
 resultados crudos (results.jsonl) de evaluador.py.
 
+Solo cuentan las preguntas con la casilla '**Anotada:** [x]'; las demas se
+excluyen de los promedios (la latencia se calcula sobre todas, no requiere
+anotacion).
+
 Uso:
     python evaluation/metrics.py --results results/cosine/results.jsonl \
         --sheet results/cosine/eval_sheet.md
+    python evaluation/metrics.py --results ... --sheet ... --status   # avance
 """
 
 import argparse
@@ -22,6 +27,14 @@ def split_question_blocks(sheet_text: str) -> list[str]:
 def parse_question_id(block: str) -> str:
     m = re.match(r"## (\S+) —", block)
     return m.group(1) if m else "?"
+
+
+def parse_anotada(block: str) -> bool | None:
+    """True/False segun la casilla '**Anotada:** [x]'; None si la hoja no trae el marcador."""
+    m = re.search(r"\*\*Anotada:\*\*\s*\[( |x|X)\]", block)
+    if not m:
+        return None
+    return m.group(1).lower() == "x"
 
 
 def parse_total_relevantes(block: str) -> int | None:
@@ -76,6 +89,7 @@ def compute_question_metrics(block: str) -> dict:
 
     return {
         "question_id": qid,
+        "anotada": parse_anotada(block),
         "precision_at_5": precision_at_k,
         "recall_at_5": recall_at_k,
         "mrr": mrr,
@@ -108,6 +122,8 @@ def main():
     parser.add_argument("--results", required=True)
     parser.add_argument("--sheet", required=True)
     parser.add_argument("--out", default=None)
+    parser.add_argument("--status", action="store_true",
+                        help="Solo lista que preguntas estan anotadas y cuales faltan")
     args = parser.parse_args()
 
     out_path = args.out or args.sheet.replace("eval_sheet.md", "metrics.json")
@@ -117,21 +133,39 @@ def main():
         sheet_text = f.read()
 
     blocks = split_question_blocks(sheet_text)
+    all_questions = [compute_question_metrics(b) for b in blocks]
 
-    per_question = []
-    for block in blocks:
-        m = compute_question_metrics(block)
-        rec = results.get(m["question_id"])
+    has_markers = any(q["anotada"] is not None for q in all_questions)
+    if not has_markers:
+        print("AVISO: la hoja no trae la casilla '**Anotada:**'. Se tratan TODAS las "
+              "preguntas como anotadas; las que no hayas revisado contaran como 0 y "
+              "los promedios saldran sesgados. Regenera la hoja con eval_sheet.py.")
+        for q in all_questions:
+            q["anotada"] = True
+
+    annotated_ids = [q["question_id"] for q in all_questions if q["anotada"]]
+    pending_ids = [q["question_id"] for q in all_questions if not q["anotada"]]
+
+    if args.status:
+        print(f"Anotadas: {len(annotated_ids)}/{len(all_questions)}")
+        print("Pendientes:", ", ".join(pending_ids) if pending_ids else "ninguna")
+        return
+
+    for q in all_questions:
+        rec = results.get(q["question_id"])
         if rec:
-            m["t_retrieval_s"] = rec["t_retrieval_s"]
-            m["t_generacion_s"] = rec["t_generacion_s"]
-            m["t_total_s"] = rec["t_total_s"]
-        per_question.append(m)
+            q["t_retrieval_s"] = rec["t_retrieval_s"]
+            q["t_generacion_s"] = rec["t_generacion_s"]
+            q["t_total_s"] = rec["t_total_s"]
 
-    latencias_totales = [q.get("t_total_s") for q in per_question if q.get("t_total_s") is not None]
+    # La latencia no requiere anotacion: se calcula sobre todas las preguntas.
+    latencias_totales = [q["t_total_s"] for q in all_questions if "t_total_s" in q]
+    per_question = [q for q in all_questions if q["anotada"]]
 
     aggregate = {
+        "n_preguntas_total": len(all_questions),
         "n_preguntas_anotadas": len(per_question),
+        "preguntas_pendientes": pending_ids,
         "precision_at_5": mean_or_none([q["precision_at_5"] for q in per_question]),
         "recall_at_5": mean_or_none([q["recall_at_5"] for q in per_question]),
         "recall_at_5_cobertura": sum(1 for q in per_question if q["recall_at_5"] is not None),

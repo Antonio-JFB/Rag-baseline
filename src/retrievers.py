@@ -7,6 +7,7 @@ BM25Retriever         -> retrieval léxico (frecuencia de términos), método al
                          componente de retrieval sin tocar el pipeline.
 """
 
+import logging
 import os
 import pickle
 import re
@@ -17,6 +18,8 @@ from rank_bm25 import BM25Okapi
 from sentence_transformers import SentenceTransformer
 
 from src.interfaces import BaseRetriever, Chunk, RetrievedChunk
+
+log = logging.getLogger(__name__)
 
 
 class CosineFaissRetriever(BaseRetriever):
@@ -45,8 +48,14 @@ class CosineFaissRetriever(BaseRetriever):
         self.chunks = chunks
 
         if os.path.exists(self.index_path):
-            self.index = faiss.read_index(self.index_path)
-            return
+            cached = faiss.read_index(self.index_path)
+            if cached.ntotal == len(chunks):
+                self.index = cached
+                return
+            log.warning(
+                f"Indice {self.index_path} tiene {cached.ntotal} vectores pero hay "
+                f"{len(chunks)} chunks; se reconstruye."
+            )
 
         textos = [c.texto for c in chunks]
         embeddings = self.model.encode(
@@ -97,8 +106,14 @@ class BM25Retriever(BaseRetriever):
 
         if os.path.exists(self.index_path):
             with open(self.index_path, "rb") as f:
-                self.bm25 = pickle.load(f)
-            return
+                cached = pickle.load(f)
+            if cached.corpus_size == len(chunks):
+                self.bm25 = cached
+                return
+            log.warning(
+                f"Indice {self.index_path} tiene {cached.corpus_size} documentos pero hay "
+                f"{len(chunks)} chunks; se reconstruye."
+            )
 
         corpus = [_tokenize(c.texto) for c in chunks]
         self.bm25 = BM25Okapi(corpus)

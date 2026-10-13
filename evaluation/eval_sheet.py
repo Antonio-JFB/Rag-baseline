@@ -31,6 +31,8 @@ def render_question(record: dict) -> str:
         f"generación={record['t_generacion_s']:.3f}s · total={record['t_total_s']:.3f}s"
     )
     lines.append("")
+    lines.append("**Anotada:** [ ]  _(marca `[x]` cuando termines esta pregunta; las no marcadas no cuentan en las métricas)_")
+    lines.append("")
     lines.append("**Respuesta del sistema:**")
     lines.append(f"> {record['respuesta'].strip()}")
     lines.append("")
@@ -87,7 +89,9 @@ def main():
         "**no respaldada**, porque el sistema no la pudo haber sacado del "
         "contexto. Para preguntas trampa, la respuesta correcta es que el "
         "sistema declare que no encontró la información -- marca eso como "
-        "relevante/respaldado si ocurre así.\n\n"
+        "relevante/respaldado si ocurre así. Al terminar cada pregunta, marca "
+        "la casilla **Anotada** (así `metrics.py` sabe cuáles ya revisaste y no "
+        "confunde una pregunta pendiente con una donde todo resultó irrelevante).\n\n"
         f"Total de preguntas: {len(records)}\n\n---\n\n"
     )
 

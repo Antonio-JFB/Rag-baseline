@@ -1,6 +1,6 @@
 # Hoja de evaluación manual
 
-Protocolo: para cada pregunta, (1) marca qué chunks recuperados son genuinamente relevantes para responderla -- usa los **puntos clave esperados** como referencia, no tu propio conocimiento de historia; (2) marca qué afirmaciones de la respuesta están respaldadas por el texto de los chunks recuperados (Faithfulness) -- si una afirmación es correcta históricamente pero no aparece en los chunks, cuenta como **no respaldada**, porque el sistema no la pudo haber sacado del contexto. Para preguntas trampa, la respuesta correcta es que el sistema declare que no encontró la información -- marca eso como relevante/respaldado si ocurre así.
+Protocolo: para cada pregunta, (1) marca qué chunks recuperados son genuinamente relevantes para responderla -- usa los **puntos clave esperados** como referencia, no tu propio conocimiento de historia; (2) marca qué afirmaciones de la respuesta están respaldadas por el texto de los chunks recuperados (Faithfulness) -- si una afirmación es correcta históricamente pero no aparece en los chunks, cuenta como **no respaldada**, porque el sistema no la pudo haber sacado del contexto. Para preguntas trampa, la respuesta correcta es que el sistema declare que no encontró la información -- marca eso como relevante/respaldado si ocurre así. Al terminar cada pregunta, marca la casilla **Anotada** (así `metrics.py` sabe cuáles ya revisaste y no confunde una pregunta pendiente con una donde todo resultó irrelevante).
 
 Total de preguntas: 20
 
@@ -11,6 +11,8 @@ Total de preguntas: 20
 **Tipo:** factual
 **Puntos clave esperados:** 1521; Cuauhtémoc; tlaxcaltecas
 **Tiempos:** retrieval=7.750s · generación=55.174s · total=62.924s
+
+**Anotada:** [ ]  _(marca `[x]` cuando termines esta pregunta; las no marcadas no cuentan en las métricas)_
 
 **Respuesta del sistema:**
 > Según el Fragmento 5, el fin del Imperio azteca ocurrió el 13 de agosto de 1521, cuando los españoles derrotaron la resistencia mexica en Tenochtitlan y Tlatelolco. El Fragmento 4 indica que la ciudad debió rendirse el 13 de agosto, marcando así el inicio del dominio español.
@@ -47,6 +49,8 @@ _Marca `[x]` si la afirmación está respaldada por el texto de los chunks recup
 **Puntos clave esperados:** Miguel Hidalgo; Dolores Hidalgo; 16 septiembre 1810
 **Tiempos:** retrieval=0.022s · generación=4.748s · total=4.770s
 
+**Anotada:** [ ]  _(marca `[x]` cuando termines esta pregunta; las no marcadas no cuentan en las métricas)_
+
 **Respuesta del sistema:**
 > Miguel Hidalgo y Costilla convocó al pueblo de Dolores a sublevarse en contra de las autoridades españolas el 16 de septiembre de 1810, dando inicio a la Guerra de Independencia de México.
 
@@ -80,6 +84,8 @@ _Marca `[x]` si la afirmación está respaldada por el texto de los chunks recup
 **Tipo:** factual
 **Puntos clave esperados:** 1876; Porfirio Díaz; reelección continua
 **Tiempos:** retrieval=0.020s · generación=4.295s · total=4.315s
+
+**Anotada:** [ ]  _(marca `[x]` cuando termines esta pregunta; las no marcadas no cuentan en las métricas)_
 
 **Respuesta del sistema:**
 > El Porfiriato comenzó el 28 de noviembre de 1876.
@@ -117,6 +123,8 @@ _Marca `[x]` si la afirmación está respaldada por el texto de los chunks recup
 **Puntos clave esperados:** Cultura teotihuacana; nombre propio desconocido; periodo clásico
 **Tiempos:** retrieval=0.022s · generación=5.541s · total=5.563s
 
+**Anotada:** [ ]  _(marca `[x]` cuando termines esta pregunta; las no marcadas no cuentan en las métricas)_
+
 **Respuesta del sistema:**
 > De acuerdo con las fuentes, la identidad de los fundadores de Teotihuacán es desconocida. Los nahuas pensaban que Teotihuacán fue construida por los quinametzin, una raza de gigantes que pobló el mundo durante la era anterior. Aun así, la evidencia arqueológica sugiere que la urbe estuvo situada en un enclave regional donde a lo largo de siglos existió una fuerte convergencia de grupos étnicos y lingüísticos que influyeron en sus habitantes.
 
@@ -153,6 +161,8 @@ _Marca `[x]` si la afirmación está respaldada por el texto de los chunks recup
 **Puntos clave esperados:** Cuauhtémoc; sobrino de Moctezuma II; capturado 1521
 **Tiempos:** retrieval=0.021s · generación=4.227s · total=4.248s
 
+**Anotada:** [ ]  _(marca `[x]` cuando termines esta pregunta; las no marcadas no cuentan en las métricas)_
+
 **Respuesta del sistema:**
 > Moctezuma Xocoyotzin fue el último emperador azteca.
 
@@ -188,6 +198,8 @@ _Marca `[x]` si la afirmación está respaldada por el texto de los chunks recup
 **Tipo:** causalidad
 **Puntos clave esperados:** Reelección de Díaz; desigualdad agraria; Plan de San Luis; crisis de 1907; Madero
 **Tiempos:** retrieval=0.021s · generación=7.047s · total=7.068s
+
+**Anotada:** [ ]  _(marca `[x]` cuando termines esta pregunta; las no marcadas no cuentan en las métricas)_
 
 **Respuesta del sistema:**
 > Las causas de la Revolución Mexicana se remontan a la situación de México bajo la dictadura del porfiriato, donde Porfirio Díaz Mori ejerció el poder de manera dictatorial desde 1876 hasta 1911. Durante este periodo, México experimentó crecimiento económico y estabilidad política, pero a altos costos sociales, que fueron pagados por los estratos menos favorecidos de la sociedad y la oposición política al régimen de Díaz. Además, varias crisis en diversas esferas de la vida nacional reflejaban el creciente descontento de algunos sectores con el porfiriato. Cuando Porfirio Díaz aseguró en una entrevista que se retiraría al finalizar su mandato sin buscar la reelección, la situación política comenzó a agitarse.
@@ -232,6 +244,8 @@ _Marca `[x]` si la afirmación está respaldada por el texto de los chunks recup
 **Puntos clave esperados:** Alianzas con tlaxcaltecas; enfermedades; superioridad militar española; muerte de Moctezuma
 **Tiempos:** retrieval=0.017s · generación=5.199s · total=5.216s
 
+**Anotada:** [ ]  _(marca `[x]` cuando termines esta pregunta; las no marcadas no cuentan en las métricas)_
+
 **Respuesta del sistema:**
 > El Imperio azteca cayó el 13 de agosto de 1521, cuando los españoles —en alianza con los tlaxcaltecas y totonacas, entre otros pueblos indígenas— derrotaron la resistencia mexica en Tenochtitlan y Tlatelolco.
 
@@ -270,6 +284,8 @@ _Marca `[x]` si la afirmación está respaldada por el texto de los chunks recup
 **Puntos clave esperados:** Constitución de 1857; liberales vs conservadores; Ley Juárez; Ley Lerdo
 **Tiempos:** retrieval=0.021s · generación=5.027s · total=5.048s
 
+**Anotada:** [ ]  _(marca `[x]` cuando termines esta pregunta; las no marcadas no cuentan en las métricas)_
+
 **Respuesta del sistema:**
 > La Guerra de Reforma, también conocida como la guerra de los tres años, fue provocada por la promulgación de la Constitución de 1857 y en especial de las llamadas Leyes de Reforma. El país estaba dividido en dos grandes grupos: liberales (a favor de las Leyes de Reforma) y los conservadores (en contra).
 
@@ -304,6 +320,8 @@ _Marca `[x]` si la afirmación está respaldada por el texto de los chunks recup
 **Tipo:** causalidad
 **Puntos clave esperados:** Revolución Mexicana; renuncia de Díaz en 1911; Plan de San Luis; descontento social
 **Tiempos:** retrieval=0.016s · generación=5.236s · total=5.252s
+
+**Anotada:** [ ]  _(marca `[x]` cuando termines esta pregunta; las no marcadas no cuentan en las métricas)_
 
 **Respuesta del sistema:**
 > El Porfiriato terminó meses después de que Porfirio Díaz renunció a la presidencia y salió rumbo a Francia, esto ocurrió el 27 de mayo de 1911, después de que estallara la Revolución.
@@ -343,6 +361,8 @@ _Marca `[x]` si la afirmación está respaldada por el texto de los chunks recup
 **Puntos clave esperados:** Olmecas: civilización madre, cabezas colosales, zona costera; Mayas: escritura, calendario, ciudades-estado
 **Tiempos:** retrieval=0.026s · generación=5.703s · total=5.729s
 
+**Anotada:** [ ]  _(marca `[x]` cuando termines esta pregunta; las no marcadas no cuentan en las métricas)_
+
 **Respuesta del sistema:**
 > Los olmecas se pueden definir como la cultura madre de la América precolombina, y su surgimiento alrededor de los años 1200 a. n. e. marcó la tendencia del resto de los pueblos prehispánicos en cuanto a organización, economía, desarrollo, creencias, etc. Mientras que los mayas, cuya estructura más antigua conocida es la de Aguada Fénix en Tabasco, se datan alrededor del año 1500 a. n. e.
 
@@ -380,6 +400,8 @@ _Marca `[x]` si la afirmación está respaldada por el texto de los chunks recup
 **Tipo:** comparativa
 **Puntos clave esperados:** Zapata: agrarismo, sur, Plan de Ayala; Villa: norte, División del Norte, carácter militar
 **Tiempos:** retrieval=0.023s · generación=6.416s · total=6.439s
+
+**Anotada:** [ ]  _(marca `[x]` cuando termines esta pregunta; las no marcadas no cuentan en las métricas)_
 
 **Respuesta del sistema:**
 > Según los fragmentos proporcionados, las diferencias entre Zapata y Villa incluyen:
@@ -424,6 +446,8 @@ _Marca `[x]` si la afirmación está respaldada por el texto de los chunks recup
 **Puntos clave esperados:** Control centralizado; tributo; dominio territorial; jerarquía religiosa ligada al poder
 **Tiempos:** retrieval=0.024s · generación=3.915s · total=3.939s
 
+**Anotada:** [ ]  _(marca `[x]` cuando termines esta pregunta; las no marcadas no cuentan en las métricas)_
+
 **Respuesta del sistema:**
 > No encontré esta información en el corpus.
 
@@ -454,6 +478,8 @@ _Marca `[x]` si la afirmación está respaldada por el texto de los chunks recup
 **Tipo:** relacional
 **Puntos clave esperados:** Juárez lideró el bando liberal; promulgó las Leyes de Reforma; fue presidente durante el conflicto
 **Tiempos:** retrieval=0.020s · generación=4.765s · total=4.785s
+
+**Anotada:** [ ]  _(marca `[x]` cuando termines esta pregunta; las no marcadas no cuentan en las métricas)_
 
 **Respuesta del sistema:**
 > Benito Juárez volvió a entrar triunfante a la capital en julio de 1867 tras el triunfo sobre los invasores franceses y austríacos, aunque al poco tiempo después enfrentaría la rebelión de Porfirio Díaz.
@@ -491,6 +517,8 @@ _Marca `[x]` si la afirmación está respaldada por el texto de los chunks recup
 **Puntos clave esperados:** Encuentro en Tenochtitlan en 1519; Moctezuma tomado como rehén; su muerte; destrucción del imperio
 **Tiempos:** retrieval=0.022s · generación=5.801s · total=5.823s
 
+**Anotada:** [ ]  _(marca `[x]` cuando termines esta pregunta; las no marcadas no cuentan en las métricas)_
+
 **Respuesta del sistema:**
 > Hernán Cortés le pidió a Moctezuma II que hiciera algo al respecto sobre Cacamatzin, quien amenazaba con iniciar una guerra civil. Moctezuma sugirió que Cacamatzin fuera arrestado y que Ixtlilxóchitl tomara su lugar en el trono. Además, la convivencia entre Cortés y Moctezuma había creado un vínculo de amistad y, antes de morir, Moctezuma pidió a Cortés que favoreciese a su hijo, Chimalpopoca.
 
@@ -526,6 +554,8 @@ _Marca `[x]` si la afirmación está respaldada por el texto de los chunks recup
 **Tipo:** relacional
 **Puntos clave esperados:** Agravios acumulados; criollos excluidos del poder; influencia ilustrada; debilitamiento de España
 **Tiempos:** retrieval=0.020s · generación=6.026s · total=6.047s
+
+**Anotada:** [ ]  _(marca `[x]` cuando termines esta pregunta; las no marcadas no cuentan en las métricas)_
 
 **Respuesta del sistema:**
 > El Virreinato jugó un papel importante en la Independencia de México debido a varios factores. La centralización del poder político en Madrid y la reducción de facultades autónomas de las autoridades civiles y eclesiásticas en Nueva España generaron descontento. Además, el aumento de tributos a la metrópoli causó un déficit financiero que restringió el desarrollo del virreinato. La ocupación de España por Napoleón Bonaparte proporcionó el momento oportuno para que las ideas de independencia florecieran.
@@ -563,6 +593,8 @@ _Marca `[x]` si la afirmación está respaldada por el texto de los chunks recup
 **Tipo:** multihop
 **Puntos clave esperados:** Olmecas; mayas; teotihuacanos; aztecas; el Imperio Azteca dominaba en 1519
 **Tiempos:** retrieval=0.026s · generación=5.059s · total=5.085s
+
+**Anotada:** [ ]  _(marca `[x]` cuando termines esta pregunta; las no marcadas no cuentan en las métricas)_
 
 **Respuesta del sistema:**
 > Antes de la llegada de los españoles, existían civilizaciones como los mexicas, acolhuas y tepanecas. La Triple Alianza, comúnmente llamada Imperio mexica, dominaba en 1519.
@@ -603,6 +635,8 @@ _Marca `[x]` si la afirmación está respaldada por el texto de los chunks recup
 **Puntos clave esperados:** Constitución de 1857; separación Iglesia-Estado; antecedente liberal que Díaz traicionó
 **Tiempos:** retrieval=0.021s · generación=3.831s · total=3.852s
 
+**Anotada:** [ ]  _(marca `[x]` cuando termines esta pregunta; las no marcadas no cuentan en las métricas)_
+
 **Respuesta del sistema:**
 > No encontré esta información en el corpus.
 
@@ -632,6 +666,8 @@ _Marca `[x]` si la afirmación está respaldada por el texto de los chunks recup
 
 **Tipo:** trampa  (pregunta trampa)
 **Tiempos:** retrieval=0.019s · generación=4.410s · total=4.429s
+
+**Anotada:** [ ]  _(marca `[x]` cuando termines esta pregunta; las no marcadas no cuentan en las métricas)_
 
 **Respuesta del sistema:**
 > El presidente de México desde el 1 de diciembre de 2018 hasta el 30 de septiembre de 2024.
@@ -666,6 +702,8 @@ _Marca `[x]` si la afirmación está respaldada por el texto de los chunks recup
 **Tipo:** trampa  (pregunta trampa)
 **Tiempos:** retrieval=0.019s · generación=4.085s · total=4.104s
 
+**Anotada:** [ ]  _(marca `[x]` cuando termines esta pregunta; las no marcadas no cuentan en las métricas)_
+
 **Respuesta del sistema:**
 > No encontré esta información en el corpus.
 
@@ -695,6 +733,8 @@ _Marca `[x]` si la afirmación está respaldada por el texto de los chunks recup
 
 **Tipo:** trampa  (pregunta trampa)
 **Tiempos:** retrieval=0.023s · generación=3.832s · total=3.855s
+
+**Anotada:** [ ]  _(marca `[x]` cuando termines esta pregunta; las no marcadas no cuentan en las métricas)_
 
 **Respuesta del sistema:**
 > No encontré esta información en el corpus.

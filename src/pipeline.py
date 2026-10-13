@@ -1,7 +1,9 @@
 """Orquestador del framework (Proposal 2)."""
 
+import glob
 import json
 import logging
+import os
 import time
 
 from src.interfaces import (
@@ -21,6 +23,16 @@ def load_chunks(meta_path: str = "embeddings/metadata.json") -> list[Chunk]:
     with open(meta_path, "r", encoding="utf-8") as f:
         raw = json.load(f)
     return [Chunk(**c) for c in raw]
+
+
+def load_corpus_chunks(chunker: BaseChunker, data_dir: str = "data") -> list[Chunk]:
+    """Chunkea el corpus de data/ con el chunker dado (mismo criterio de titulo que rag_ollama.py)."""
+    chunks: list[Chunk] = []
+    for path in sorted(glob.glob(os.path.join(data_dir, "*.txt"))):
+        titulo = os.path.basename(path).replace(".txt", "").replace("_", " ")
+        with open(path, "r", encoding="utf-8") as f:
+            chunks.extend(chunker.chunk(f.read(), titulo))
+    return chunks
 
 
 class RAGPipeline:
