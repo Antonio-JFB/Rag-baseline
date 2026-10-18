@@ -79,6 +79,8 @@ Para que dos evaluadores distintos lleguen al mismo resultado dado el mismo `res
 5. **Campo opcional "Total de chunks relevantes en el corpus"**: si el evaluador reconoce, por conocimiento del corpus, que hay más chunks relevantes de los que aparecieron en el top-5 (p. ej. en preguntas comparativas que necesitan dos artículos), puede estimar ese total para habilitar el cálculo de Recall@5 en esa pregunta. Si se deja en blanco, esa pregunta simplemente no cuenta para el promedio de Recall@5 (se reporta la cobertura, no se inventa un valor).
 6. **Al terminar cada pregunta, marcar la casilla `**Anotada:** [x]`.** Es lo que le dice a `metrics.py` que esa pregunta ya fue revisada. Sin la marca, la pregunta se excluye de los promedios; con ella, una pregunta donde ningún chunk resultó relevante cuenta como 0, que es un resultado real y distinto de "pendiente". El avance se consulta con `python evaluation/metrics.py --results ... --sheet ... --status`.
 
+7. **Reglas que aplica `metrics.py`** (para que todas las configuraciones se cuenten igual): la fila «Fuentes:» de la respuesta no es una afirmación y no se evalúa; los chunks con texto idéntico (copias) cuentan una sola vez, y el distinto es relevante si alguna copia está marcada; y el «Total de chunks relevantes» debe contar chunks distintos. Para estimar ese total, la hoja incluye por pregunta una línea de ayuda y `python evaluation/candidates.py` lista los chunks del corpus que mencionan los puntos clave.
+
 ### 4.3 Validación del protocolo
 
 Se aplicó este protocolo a mano sobre 2 preguntas reales (F1 y T1) para confirmar que el criterio es aplicable sin ambigüedad y que `metrics.py` calcula correctamente a partir de la hoja anotada — ver sección 6.
@@ -111,9 +113,11 @@ El sistema **no** declaró que le faltaba información -- el comportamiento espe
 
 | Pregunta | Precision@5 | MRR | Recall@5 | Faithfulness |
 |---|---|---|---|---|
-| F1 | 0.4 (2/5) | 1.0 | 1.0 (2/2 estimado) | 0.667 (2/3) |
-| T1 | 0.0 (0/5) | 0.0 | N/A (pregunta trampa) | 1.0 (2/2) |
-| **Promedio** | **0.2** | **0.5** | 1.0 (cobertura 1/2) | **0.833** |
+| F1 | 0.4 (2/5) | 1.0 | 1.0 (2/2 estimado) | 0.5 (1/2) |
+| T1 | 0.0 (0/5) | 0.0 | N/A (pregunta trampa) | 1.0 (1/1) |
+| **Promedio** | **0.2** | **0.5** | 1.0 (cobertura 1/2) | **0.75** |
+
+*(Faithfulness del ejemplo: en la primera versión del cálculo salía 0.667 y 0.833 porque la fila «Fuentes:» contaba como una afirmación respaldada; desde la corrección del 18/10/2026 esa fila se excluye, ver sección 8.)*
 
 Verificación manual: cada uno de estos valores se recalculó a mano contra las casillas marcadas y coincide exactamente con la salida del script.
 
@@ -128,3 +132,25 @@ Verificación manual: cada uno de estos valores se recalculó a mano contra las 
 **Completo:** arquitectura SoC (`src/`, del milestone anterior), `questions.json` validado, `evaluador.py` corrido de punta a punta sobre el baseline, `eval_sheet.py` generando hojas correctamente, `metrics.py` validado contra anotación manual real (con control de preguntas anotadas vs. pendientes y `--status` para ver el avance), protocolo documentado y probado.
 
 **Pendiente (milestone 15/10/2026):** evaluación manual humana de las 20 preguntas completas sobre el baseline, para obtener los valores de referencia (Precision@5, Recall@5, MRR, Faithfulness) que sirven de punto de comparación para las 4 configuraciones experimentales de la Fase 2. La maquinaria para hacerlo ya está lista; lo que falta es el trabajo de anotación en sí, que es deliberadamente manual y no se automatiza en esta fase.
+
+## 8. Revisión de la primera anotación del baseline y correcciones (18/10/2026)
+
+Con las 20 preguntas del baseline anotadas por primera vez, la revisión encontró problemas que afectaban a los números. Algunos eran de la herramienta y otros de datos o criterio:
+
+| Hallazgo | Efecto | Qué se hizo |
+|---|---|---|
+| Filas de la tabla de afirmaciones de varias líneas (respuestas con viñetas) | `metrics.py` las descartaba **sin avisar**: se contaban menos afirmaciones de las que había (F3 contaba 1 en vez de 2, C1 y V2 contaban 4 en vez de 5) | `metrics.py` lee la fila completa y avisa (`filas_descartadas`) si alguna está mal formada |
+| La línea «Fuentes:» contada como afirmación, y marcada de forma inconsistente (9 respaldadas, 5 sin marcar) | Faithfulness desfasada (p. ej. F2 salía 0.5 con su única afirmación factual respaldada) | Se excluye de Faithfulness; el generador de hojas ya no la incluye |
+| El partidor de oraciones cortaba en abreviaturas («1200 a. \| n. e.») e iniciales («Francisco I. \| Madero») | Afirmaciones partidas a la mitad, denominador inflado | Partidor consciente de abreviaturas; una viñeta es una afirmación |
+| Artículo duplicado en el corpus: `Independencia_de_México.txt` y `Guerra_de_Independencia_de_México.txt` son idénticos | 8 de las 100 posiciones del top-5 (20 preguntas) repiten un chunk (F2 y R3 tienen 2 de 5 duplicadas); infla o distorsiona Precision@5 | `metrics.py` cuenta los chunks idénticos una sola vez; la hoja marca las copias. El corpus **no** se modificó (ver decisión abajo) |
+| Recall@5 estimado mirando solo el top-5 | Seis preguntas con Recall exactamente 1.0 por construcción. En F5, 31 chunks del corpus mencionan a Cuauhtémoc y el estimado era 3; en F1, 8 mencionan la fecha y el estimado era 3 | `candidates.py` lista los chunks distintos candidatos; la hoja trae una línea de ayuda por pregunta |
+| Vista previa de 100 caracteres en la hoja | F2 se anotó con 0 chunks relevantes cuando el chunk 1 contenía la respuesta exacta (corregido por el evaluador) | La vista previa pasa a 300 caracteres y se muestran los puntos clave presentes en cada chunk (ayuda, no decide) |
+
+**Efecto en los agregados del baseline** (anotaciones del evaluador sin cambios salvo la corrección de F2): Precision@5 0.53 → 0.55, MRR 0.754 → 0.804, Recall@5 0.73 → 0.73 (cobertura 18/20), Faithfulness 0.854 → 0.925. Siguen siendo **provisionales**: faltan las decisiones de abajo y la reestimación de Recall con la ayuda de candidatos.
+
+**Decisiones pendientes**
+1. **Artículo duplicado.** Quitarlo es lo más limpio, pero cambia los chunks del índice y obliga a re-correr las tres configuraciones, y con un modelo generativo no determinista las respuestas ya anotadas cambiarían. Por ahora se compensa en la métrica; conviene decidirlo antes de fijar los valores de referencia definitivos o, a más tardar, antes de la configuración de búsqueda híbrida.
+2. **Regla para T1** (la pregunta sobre el presidente actual): ¿cuenta como relevante un chunk con información desactualizada? Además, el corpus sí contiene a la presidenta actual (la Configuración 1 la recuperó), así que la premisa de «fuera del corpus» no se sostiene.
+3. **Criterio en preguntas multi-hop.** M2 tiene 5/5 chunks relevantes (incluido uno sobre tropas francesas) y el sistema rechazó responder; conviene releer qué chunks ayudan realmente.
+
+Hallazgo de comportamiento: V3 y M2 son **rechazos excesivos** (el sistema dijo no encontrar la información con 5/5 chunks marcados relevantes), una falla de generación distinta de las de retrieval.

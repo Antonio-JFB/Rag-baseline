@@ -1,4 +1,9 @@
 {
+  "reglas": [
+    "Las filas 'Fuentes:' no cuentan como afirmaciones de Faithfulness.",
+    "Los chunks con texto identico cuentan una sola vez (relevante si alguna copia esta marcada).",
+    "El total estimado de Recall@5 se interpreta como chunks DISTINTOS."
+  ],
   "aggregate": {
     "n_preguntas_total": 2,
     "n_preguntas_anotadas": 2,
@@ -7,8 +12,9 @@
     "recall_at_5": 1.0,
     "recall_at_5_cobertura": 1,
     "mrr": 0.5,
-    "faithfulness": 0.8333,
+    "faithfulness": 0.75,
     "faithfulness_cobertura": 2,
+    "filas_descartadas_total": 0,
     "latencia_total_s_media": 33.6769,
     "latencia_total_s_max": 62.924320936203
   },
@@ -19,11 +25,14 @@
       "precision_at_5": 0.4,
       "recall_at_5": 1.0,
       "mrr": 1.0,
-      "faithfulness": 0.6666666666666666,
+      "faithfulness": 0.5,
       "n_chunks_relevantes": 2,
+      "n_chunks_distintos": 5,
       "n_chunks_total": 5,
-      "n_claims_respaldadas": 2,
-      "n_claims_total": 3,
+      "n_claims_respaldadas": 1,
+      "n_claims_total": 2,
+      "n_filas_fuentes_excluidas": 1,
+      "filas_descartadas": 0,
       "t_retrieval_s": 7.750025987625122,
       "t_generacion_s": 55.17429494857788,
       "t_total_s": 62.924320936203
@@ -36,9 +45,12 @@
       "mrr": 0.0,
       "faithfulness": 1.0,
       "n_chunks_relevantes": 0,
+      "n_chunks_distintos": 5,
       "n_chunks_total": 5,
-      "n_claims_respaldadas": 2,
-      "n_claims_total": 2,
+      "n_claims_respaldadas": 1,
+      "n_claims_total": 1,
+      "n_filas_fuentes_excluidas": 1,
+      "filas_descartadas": 0,
       "t_retrieval_s": 0.019163846969604492,
       "t_generacion_s": 4.409769535064697,
       "t_total_s": 4.429433107376099

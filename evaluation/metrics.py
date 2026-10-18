@@ -7,6 +7,13 @@ Solo cuentan las preguntas con la casilla '**Anotada:** [x]'; las demas se
 excluyen de los promedios (la latencia se calcula sobre todas, no requiere
 anotacion).
 
+Reglas de calculo (tambien quedan escritas en el metrics.json):
+  - Las filas 'Fuentes:' de la tabla de afirmaciones no cuentan para Faithfulness.
+  - Los chunks recuperados con texto identico (articulo duplicado en el corpus)
+    cuentan una sola vez; el distinto es relevante si alguna copia esta marcada.
+  - Las filas de tabla de varias lineas se leen completas; si alguna fila esta
+    mal formada se descarta y se avisa.
+
 Uso:
     python evaluation/metrics.py --results results/cosine/results.jsonl \
         --sheet results/cosine/eval_sheet.md
@@ -42,29 +49,52 @@ def parse_total_relevantes(block: str) -> int | None:
     return int(m.group(1)) if m else None
 
 
-def parse_checked_ranks(table_text: str) -> tuple[list[int], int]:
-    """Devuelve (ranks marcados como relevantes/respaldados, total de filas de datos).
-    Parseo linea por linea (no regex multi-linea) para no confundir la fila
-    separadora de Markdown (|---|---|) con una fila de datos."""
-    checked = []
-    total = 0
-    for raw_line in table_text.splitlines():
-        line = raw_line.strip()
-        if not line.startswith("|") or not line.endswith("|"):
-            continue
-        cells = [c.strip() for c in line.strip("|").split("|")]
-        if len(cells) < 2:
-            continue
-        first, last = cells[0], cells[-1]
+ROW_START = re.compile(r"^\|\s*\d+\s*\|")
+SOURCES_LINE = re.compile(r"^[\s*_>\-]*fuentes?\b", re.IGNORECASE)
+
+
+def parse_table_rows(table_text: str) -> tuple[list[tuple[int, str, bool]], int]:
+    """Filas de datos de una tabla Markdown como (numero, texto, marcada), mas el
+    numero de filas descartadas por estar mal formadas.
+
+    Una fila puede ocupar varias lineas (una celda con viñetas o saltos de linea):
+    se acumulan lineas hasta que la fila cierra con '|'. Solo se usan la primera
+    celda (numero) y la ultima (casilla); el texto intermedio puede contener '|'."""
+    rows: list[tuple[int, str, bool]] = []
+    dropped = 0
+
+    def flush(buf: str) -> None:
+        nonlocal dropped
+        cells = buf.strip().strip("|").split("|")
+        first = cells[0].strip()
         if not re.fullmatch(r"\d+", first):
-            continue  # salta encabezado ("Rank"/"#") y separador ("---")
-        m = re.fullmatch(r"\[([ xX])\]", last)
+            return  # encabezado ("Rank"/"#") o separador ("---")
+        m = re.fullmatch(r"\[([ xX])\]", cells[-1].strip()) if len(cells) >= 2 else None
         if not m:
-            continue
-        total += 1
-        if m.group(1).lower() == "x":
-            checked.append(int(first))
-    return checked, total
+            dropped += 1
+            return
+        rows.append((int(first), "|".join(cells[1:-1]).strip(), m.group(1).lower() == "x"))
+
+    buf = None
+    for raw in table_text.splitlines():
+        line = raw.strip()
+        if buf is None:
+            if line.startswith("|"):
+                buf = line
+            else:
+                continue
+        else:
+            if ROW_START.match(line):
+                dropped += 1  # la fila anterior nunca cerro: se descarta y se avisa
+                buf = line
+            else:
+                buf += "\n" + line
+        if buf.endswith("|"):
+            flush(buf)
+            buf = None
+    if buf is not None:
+        dropped += 1
+    return rows, dropped
 
 
 def extract_table(block: str, section_title: str) -> str:
@@ -72,20 +102,45 @@ def extract_table(block: str, section_title: str) -> str:
     return m.group(1) if m else ""
 
 
-def compute_question_metrics(block: str) -> dict:
+def duplicate_groups(rec: dict | None, ranks: list[int]) -> dict[int, int]:
+    """rank -> grupo; los chunks con texto identico (p. ej. un articulo duplicado en
+    el corpus) comparten grupo y cuentan una sola vez."""
+    texts = {}
+    if rec:
+        texts = {c["rank"]: c["texto"] for c in rec["chunks"]}
+    first_seen: dict[str, int] = {}
+    groups: dict[int, int] = {}
+    for r in ranks:
+        key = texts.get(r)
+        if key is None:
+            groups[r] = r
+        else:
+            groups[r] = first_seen.setdefault(key, r)
+    return groups
+
+
+def compute_question_metrics(block: str, rec: dict | None = None) -> dict:
     qid = parse_question_id(block)
 
-    chunks_table = extract_table(block, "Chunks recuperados")
-    relevant_ranks, n_chunks = parse_checked_ranks(chunks_table)
-    precision_at_k = (len(relevant_ranks) / n_chunks) if n_chunks else None
-    mrr = (1.0 / min(relevant_ranks)) if relevant_ranks else 0.0
+    chunk_rows, dropped_chunks = parse_table_rows(extract_table(block, "Chunks recuperados"))
+    ranks = [r for r, _, _ in chunk_rows]
+    groups = duplicate_groups(rec, ranks)
+    distinct = sorted(set(groups.values()))
+    relevant_groups = {groups[r] for r, _, checked in chunk_rows if checked}
+    n_distinct, n_relevant = len(distinct), len(relevant_groups)
+
+    precision_at_k = (n_relevant / n_distinct) if n_distinct else None
+    first_relevant = next((i for i, g in enumerate(distinct, 1) if g in relevant_groups), None)
+    mrr = (1.0 / first_relevant) if first_relevant else 0.0
 
     total_relevantes = parse_total_relevantes(block)
-    recall_at_k = (len(relevant_ranks) / total_relevantes) if total_relevantes else None
+    recall_at_k = (n_relevant / total_relevantes) if total_relevantes else None
 
-    claims_table = extract_table(block, "Faithfulness — afirmaciones de la respuesta")
-    backed_claims, n_claims = parse_checked_ranks(claims_table)
-    faithfulness = (len(backed_claims) / n_claims) if n_claims else None
+    claim_rows, dropped_claims = parse_table_rows(
+        extract_table(block, "Faithfulness — afirmaciones de la respuesta"))
+    factual = [(n, t, c) for n, t, c in claim_rows if not SOURCES_LINE.match(t)]
+    backed = sum(1 for _, _, c in factual if c)
+    faithfulness = (backed / len(factual)) if factual else None
 
     return {
         "question_id": qid,
@@ -94,10 +149,13 @@ def compute_question_metrics(block: str) -> dict:
         "recall_at_5": recall_at_k,
         "mrr": mrr,
         "faithfulness": faithfulness,
-        "n_chunks_relevantes": len(relevant_ranks),
-        "n_chunks_total": n_chunks,
-        "n_claims_respaldadas": len(backed_claims),
-        "n_claims_total": n_claims,
+        "n_chunks_relevantes": n_relevant,
+        "n_chunks_distintos": n_distinct,
+        "n_chunks_total": len(chunk_rows),
+        "n_claims_respaldadas": backed,
+        "n_claims_total": len(factual),
+        "n_filas_fuentes_excluidas": len(claim_rows) - len(factual),
+        "filas_descartadas": dropped_chunks + dropped_claims,
     }
 
 
@@ -133,7 +191,7 @@ def main():
         sheet_text = f.read()
 
     blocks = split_question_blocks(sheet_text)
-    all_questions = [compute_question_metrics(b) for b in blocks]
+    all_questions = [compute_question_metrics(b, results.get(parse_question_id(b))) for b in blocks]
 
     has_markers = any(q["anotada"] is not None for q in all_questions)
     if not has_markers:
@@ -172,11 +230,25 @@ def main():
         "mrr": mean_or_none([q["mrr"] for q in per_question]),
         "faithfulness": mean_or_none([q["faithfulness"] for q in per_question]),
         "faithfulness_cobertura": sum(1 for q in per_question if q["faithfulness"] is not None),
+        "filas_descartadas_total": sum(q["filas_descartadas"] for q in per_question),
         "latencia_total_s_media": mean_or_none(latencias_totales),
         "latencia_total_s_max": max(latencias_totales) if latencias_totales else None,
     }
 
-    output = {"aggregate": aggregate, "per_question": per_question}
+    if aggregate["filas_descartadas_total"]:
+        bad = [q["question_id"] for q in per_question if q["filas_descartadas"]]
+        print(f"AVISO: se descartaron filas mal formadas en {', '.join(bad)}; "
+              "esas preguntas pueden tener metricas incompletas. Revisa las tablas.")
+
+    output = {
+        "reglas": [
+            "Las filas 'Fuentes:' no cuentan como afirmaciones de Faithfulness.",
+            "Los chunks con texto identico cuentan una sola vez (relevante si alguna copia esta marcada).",
+            "El total estimado de Recall@5 se interpreta como chunks DISTINTOS.",
+        ],
+        "aggregate": aggregate,
+        "per_question": per_question,
+    }
 
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
