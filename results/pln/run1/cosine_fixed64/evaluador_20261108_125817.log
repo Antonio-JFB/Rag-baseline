@@ -1,0 +1,45 @@
+2026-11-08 12:58:17,182 [INFO] === evaluador.py -- config: Densa con control de tamaño: ventana fija de 64 palabras, sin traslape (PLN) (configs/cosine_fixed64.yaml) ===
+2026-11-08 12:58:17,182 [INFO] 20 preguntas cargadas desde evaluation/questions.json
+2026-11-08 12:58:17,234 [INFO] Indexando 5197 chunks...
+2026-11-08 12:58:17,247 [INFO] [1/20] F1 (factual): ¿En qué año cayó Tenochtitlan?
+2026-11-08 12:58:17,737 [WARNING] Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-11-08 12:58:23,442 [INFO]     retrieval=6.195s  generacion=0.000s  total=6.195s
+2026-11-08 12:58:23,442 [INFO] [2/20] F2 (factual): ¿Quién dio el Grito de Independencia?
+2026-11-08 12:58:23,459 [INFO]     retrieval=0.017s  generacion=0.000s  total=0.017s
+2026-11-08 12:58:23,459 [INFO] [3/20] F3 (factual): ¿Cuándo comenzó el Porfiriato?
+2026-11-08 12:58:23,474 [INFO]     retrieval=0.015s  generacion=0.000s  total=0.015s
+2026-11-08 12:58:23,474 [INFO] [4/20] F4 (factual): ¿Qué civilización construyó Teotihuacán?
+2026-11-08 12:58:23,490 [INFO]     retrieval=0.015s  generacion=0.000s  total=0.015s
+2026-11-08 12:58:23,490 [INFO] [5/20] F5 (factual): ¿Quién fue el último emperador azteca?
+2026-11-08 12:58:23,505 [INFO]     retrieval=0.015s  generacion=0.000s  total=0.015s
+2026-11-08 12:58:23,505 [INFO] [6/20] C1 (causalidad): ¿Cuáles fueron las causas de la Revolución Mexicana?
+2026-11-08 12:58:23,522 [INFO]     retrieval=0.016s  generacion=0.000s  total=0.016s
+2026-11-08 12:58:23,522 [INFO] [7/20] C2 (causalidad): ¿Por qué cayó el Imperio Azteca?
+2026-11-08 12:58:23,538 [INFO]     retrieval=0.015s  generacion=0.000s  total=0.015s
+2026-11-08 12:58:23,538 [INFO] [8/20] C3 (causalidad): ¿Qué provocó la Guerra de Reforma?
+2026-11-08 12:58:23,552 [INFO]     retrieval=0.015s  generacion=0.000s  total=0.015s
+2026-11-08 12:58:23,552 [INFO] [9/20] C4 (causalidad): ¿Por qué terminó el Porfiriato?
+2026-11-08 12:58:23,570 [INFO]     retrieval=0.017s  generacion=0.000s  total=0.017s
+2026-11-08 12:58:23,570 [INFO] [10/20] V1 (comparativa): ¿En qué se diferencian los mayas y los olmecas?
+2026-11-08 12:58:23,589 [INFO]     retrieval=0.019s  generacion=0.000s  total=0.019s
+2026-11-08 12:58:23,589 [INFO] [11/20] V2 (comparativa): ¿Qué diferencias hay entre Zapata y Villa?
+2026-11-08 12:58:23,604 [INFO]     retrieval=0.015s  generacion=0.000s  total=0.015s
+2026-11-08 12:58:23,604 [INFO] [12/20] V3 (comparativa): ¿En qué se parecen el Virreinato y el Imperio Azteca?
+2026-11-08 12:58:23,622 [INFO]     retrieval=0.018s  generacion=0.000s  total=0.018s
+2026-11-08 12:58:23,623 [INFO] [13/20] R1 (relacional): ¿Qué relación tuvo Juárez con la Guerra de Reforma?
+2026-11-08 12:58:23,644 [INFO]     retrieval=0.021s  generacion=0.000s  total=0.021s
+2026-11-08 12:58:23,644 [INFO] [14/20] R2 (relacional): ¿Cómo se relacionan Hernán Cortés y Moctezuma II?
+2026-11-08 12:58:23,666 [INFO]     retrieval=0.022s  generacion=0.000s  total=0.022s
+2026-11-08 12:58:23,666 [INFO] [15/20] R3 (relacional): ¿Qué papel jugó el Virreinato en la Independencia?
+2026-11-08 12:58:23,686 [INFO]     retrieval=0.019s  generacion=0.000s  total=0.019s
+2026-11-08 12:58:23,687 [INFO] [16/20] M1 (multihop): ¿Qué civilizaciones existían antes de los españoles y cuál dominaba en 1519?
+2026-11-08 12:58:23,707 [INFO]     retrieval=0.020s  generacion=0.000s  total=0.020s
+2026-11-08 12:58:23,707 [INFO] [17/20] M2 (multihop): ¿Cómo influyeron las reformas de Juárez en la Revolución décadas después?
+2026-11-08 12:58:23,732 [INFO]     retrieval=0.024s  generacion=0.000s  total=0.024s
+2026-11-08 12:58:23,732 [INFO] [18/20] T1 (trampa): ¿Quién es el presidente actual de México?
+2026-11-08 12:58:23,755 [INFO]     retrieval=0.022s  generacion=0.000s  total=0.022s
+2026-11-08 12:58:23,755 [INFO] [19/20] T2 (trampa): ¿Cuál es el PIB actual de México?
+2026-11-08 12:58:23,774 [INFO]     retrieval=0.020s  generacion=0.000s  total=0.020s
+2026-11-08 12:58:23,775 [INFO] [20/20] T3 (trampa): ¿Qué equipos jugaron la final del fútbol mexicano en 2024?
+2026-11-08 12:58:23,798 [INFO]     retrieval=0.021s  generacion=0.000s  total=0.021s
+2026-11-08 12:58:23,798 [INFO] === Listo: 20 preguntas en 6.6s -> results/pln/run1/cosine_fixed64/results.jsonl ===

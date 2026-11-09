@@ -1,0 +1,2476 @@
+{
+ "F1": {
+  "Moctezuma II#12428-12433": [
+   "denso"
+  ],
+  "Conquista de México#17851-17873": [
+   "denso"
+  ],
+  "Tenochtitlan#2-7": [
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Moctezuma II#5508-5519": [
+   "denso"
+  ],
+  "Conquista de México#13666-13677": [
+   "denso"
+  ],
+  "Tenochtitlan#13-21": [
+   "denso"
+  ],
+  "Virreinato de Nueva España#70-99": [
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Hernán Cortés#7408-7467": [
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Moctezuma II#16467-16487": [
+   "bm25",
+   "bm25_lemma",
+   "chunk_recuperado"
+  ],
+  "Historia de México#8738-8749": [
+   "bm25"
+  ],
+  "Benito Juárez#7567-7580": [
+   "bm25"
+  ],
+  "Moctezuma II#12369-12387": [
+   "bm25"
+  ],
+  "Miguel Hidalgo y Costilla#1469-1491": [
+   "bm25"
+  ],
+  "Moctezuma II#3987-4013": [
+   "bm25"
+  ],
+  "Historia de México#8777-8799": [
+   "bm25",
+   "puntos_clave"
+  ],
+  "Benito Juárez#9846-9865": [
+   "bm25"
+  ],
+  "Moctezuma II#692-717": [
+   "bm25_lemma"
+  ],
+  "Moctezuma II#12387-12394": [
+   "bm25_lemma"
+  ],
+  "Conquista de México#16021-16077": [
+   "bm25_lemma",
+   "chunk_recuperado",
+   "puntos_clave"
+  ],
+  "Moctezuma II#8860-8897": [
+   "bm25_lemma"
+  ],
+  "Conquista de México#14955-14965": [
+   "bm25_lemma"
+  ],
+  "Conquista de México#12307-12327": [
+   "bm25_lemma"
+  ],
+  "Historia de México#49007-49014": [
+   "bm25_lemma"
+  ],
+  "Imperio azteca#254-288": [
+   "chunk_recuperado",
+   "puntos_clave"
+  ],
+  "Moctezuma II#20352-20381": [
+   "puntos_clave"
+  ],
+  "Moctezuma II#2633-2685": [
+   "puntos_clave"
+  ],
+  "Historia de México#8524-8567": [
+   "chunk_recuperado",
+   "puntos_clave"
+  ],
+  "Historia de México#45330-45357": [
+   "chunk_recuperado",
+   "puntos_clave"
+  ],
+  "Hernán Cortés#7890-7919": [
+   "chunk_recuperado",
+   "puntos_clave"
+  ],
+  "Moctezuma II#14262-14338": [
+   "chunk_recuperado"
+  ],
+  "Virreinato de Nueva España#1517-1550": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#6581-6614": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#8410-8432": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#525-562": [
+   "chunk_recuperado"
+  ],
+  "Moctezuma II#12904-12918": [
+   "chunk_recuperado"
+  ],
+  "Conquista de México#14989-15007": [
+   "chunk_recuperado"
+  ]
+ },
+ "F2": {
+  "Miguel Hidalgo y Costilla#9313-9319": [
+   "denso"
+  ],
+  "Guerra de Independencia de México#33480-33488": [
+   "denso"
+  ],
+  "Miguel Hidalgo y Costilla#9095-9115": [
+   "denso"
+  ],
+  "Miguel Hidalgo y Costilla#9124-9146": [
+   "denso"
+  ],
+  "Guerra de Independencia de México#32436-32443": [
+   "denso"
+  ],
+  "Miguel Hidalgo y Costilla#9173-9180": [
+   "denso"
+  ],
+  "Guerra de Independencia de México#2453-2466": [
+   "denso"
+  ],
+  "Historia de México#17714-17751": [
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Benito Juárez#4727-4738": [
+   "bm25",
+   "bm25_lemma",
+   "chunk_recuperado"
+  ],
+  "Miguel Hidalgo y Costilla#2202-2228": [
+   "bm25",
+   "bm25_lemma",
+   "chunk_recuperado",
+   "puntos_clave"
+  ],
+  "Historia de México#57383-57410": [
+   "bm25",
+   "bm25_lemma"
+  ],
+  "Virreinato de Nueva España#5261-5295": [
+   "bm25",
+   "bm25_lemma",
+   "chunk_recuperado"
+  ],
+  "Miguel Hidalgo y Costilla#65-89": [
+   "bm25",
+   "bm25_lemma"
+  ],
+  "Guerra de Independencia de México#6294-6330": [
+   "bm25",
+   "bm25_lemma"
+  ],
+  "Virreinato de Nueva España#624-660": [
+   "bm25"
+  ],
+  "Historia de México#21917-21937": [
+   "bm25"
+  ],
+  "Guerra de Independencia de México#32699-32707": [
+   "bm25_lemma"
+  ],
+  "Historia de México#51986-51996": [
+   "bm25_lemma"
+  ],
+  "Guerra de Independencia de México#355-403": [
+   "puntos_clave"
+  ],
+  "Historia de México#15465-15486": [
+   "puntos_clave"
+  ],
+  "Guerra de Independencia de México#5895-5935": [
+   "puntos_clave"
+  ],
+  "Virreinato de Nueva España#14030-14046": [
+   "puntos_clave"
+  ],
+  "Guerra de Independencia de México#14013-14088": [
+   "puntos_clave"
+  ],
+  "Guerra de Independencia de México#5849-5870": [
+   "puntos_clave"
+  ],
+  "Miguel Hidalgo y Costilla#8873-8898": [
+   "puntos_clave"
+  ],
+  "Guerra de Independencia de México#5723-5794": [
+   "chunk_recuperado"
+  ],
+  "Guerra de Independencia de México#14157-14236": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#48503-48531": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#16655-16679": [
+   "chunk_recuperado"
+  ],
+  "Miguel Hidalgo y Costilla#6008-6045": [
+   "chunk_recuperado"
+  ],
+  "Guerra de Independencia de México#14242-14293": [
+   "chunk_recuperado"
+  ],
+  "Guerra de Independencia de México#5794-5844": [
+   "chunk_recuperado"
+  ],
+  "Guerra de Independencia de México#32241-32258": [
+   "chunk_recuperado"
+  ],
+  "Guerra de Independencia de México#32712-32718": [
+   "chunk_recuperado"
+  ],
+  "Miguel Hidalgo y Costilla#89-143": [
+   "chunk_recuperado"
+  ]
+ },
+ "F3": {
+  "Historia de México#43232-43238": [
+   "bm25",
+   "bm25_lemma",
+   "denso"
+  ],
+  "Historia de México#1749-1773": [
+   "chunk_recuperado",
+   "denso",
+   "puntos_clave"
+  ],
+  "Porfiriato#1895-1908": [
+   "bm25",
+   "bm25_lemma",
+   "denso"
+  ],
+  "Historia de México#44107-44119": [
+   "denso"
+  ],
+  "Porfiriato#3204-3237": [
+   "chunk_recuperado",
+   "denso",
+   "puntos_clave"
+  ],
+  "Historia de México#40333-40356": [
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Civilización maya#3282-3287": [
+   "denso"
+  ],
+  "Benito Juárez#15705-15713": [
+   "denso"
+  ],
+  "Revolución mexicana#668-679": [
+   "bm25"
+  ],
+  "Porfiriato#5050-5057": [
+   "bm25",
+   "bm25_lemma",
+   "chunk_recuperado"
+  ],
+  "Porfiriato#5064-5074": [
+   "bm25",
+   "bm25_lemma"
+  ],
+  "Porfiriato#3962-3980": [
+   "bm25"
+  ],
+  "Porfiriato#47-63": [
+   "bm25",
+   "bm25_lemma"
+  ],
+  "Guerra de Independencia de México#22004-22015": [
+   "bm25"
+  ],
+  "Emiliano Zapata#1725-1744": [
+   "bm25_lemma"
+  ],
+  "Historia de México#39155-39183": [
+   "bm25_lemma"
+  ],
+  "Revolución mexicana#29-47": [
+   "bm25_lemma",
+   "chunk_recuperado"
+  ],
+  "Porfiriato#2-47": [
+   "chunk_recuperado",
+   "puntos_clave"
+  ],
+  "Revolución mexicana#746-803": [
+   "chunk_recuperado",
+   "puntos_clave"
+  ],
+  "Historia de México#36820-36852": [
+   "puntos_clave"
+  ],
+  "Revolución mexicana#47-63": [
+   "puntos_clave"
+  ],
+  "Historia de México#36919-36961": [
+   "puntos_clave"
+  ],
+  "Benito Juárez#15863-15867": [
+   "puntos_clave"
+  ],
+  "Historia de México#786-825": [
+   "chunk_recuperado"
+  ],
+  "Cultura teotihuacana#4330-4342": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#2581-2628": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#40471-40487": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#43095-43112": [
+   "chunk_recuperado"
+  ],
+  "Porfiriato#5016-5028": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#40516-40537": [
+   "chunk_recuperado"
+  ]
+ },
+ "F4": {
+  "Cultura teotihuacana#4330-4342": [
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Cultura teotihuacana#13740-13744": [
+   "denso"
+  ],
+  "Cultura teotihuacana#4715-4747": [
+   "denso"
+  ],
+  "Cultura teotihuacana#3849-3874": [
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Cultura teotihuacana#10863-10897": [
+   "bm25_lemma",
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Cultura teotihuacana#12674-12678": [
+   "denso"
+  ],
+  "Cultura teotihuacana#12905-12911": [
+   "denso"
+  ],
+  "Historia de México#4412-4446": [
+   "denso"
+  ],
+  "Cultura teotihuacana#10721-10739": [
+   "bm25",
+   "bm25_lemma",
+   "chunk_recuperado"
+  ],
+  "Cultura teotihuacana#9575-9609": [
+   "bm25",
+   "bm25_lemma",
+   "chunk_recuperado"
+  ],
+  "Historia de México#317-339": [
+   "bm25"
+  ],
+  "Cultura teotihuacana#1912-1944": [
+   "bm25",
+   "bm25_lemma"
+  ],
+  "Cultura olmeca#1914-1923": [
+   "bm25"
+  ],
+  "Benito Juárez#7567-7580": [
+   "bm25"
+  ],
+  "Pancho Villa#644-679": [
+   "bm25"
+  ],
+  "Moctezuma II#2996-3013": [
+   "bm25"
+  ],
+  "Cultura olmeca#1589-1605": [
+   "bm25_lemma"
+  ],
+  "Cultura teotihuacana#10822-10859": [
+   "bm25_lemma",
+   "chunk_recuperado"
+  ],
+  "Historia de México#104-116": [
+   "bm25_lemma"
+  ],
+  "Civilización maya#819-832": [
+   "bm25_lemma"
+  ],
+  "Cultura teotihuacana#5062-5096": [
+   "chunk_recuperado",
+   "puntos_clave"
+  ],
+  "Cultura teotihuacana#702-720": [
+   "chunk_recuperado",
+   "puntos_clave"
+  ],
+  "Cultura teotihuacana#3458-3473": [
+   "puntos_clave"
+  ],
+  "Cultura teotihuacana#7107-7125": [
+   "puntos_clave"
+  ],
+  "Cultura teotihuacana#3552-3576": [
+   "puntos_clave"
+  ],
+  "Civilización maya#152-247": [
+   "puntos_clave"
+  ],
+  "Historia de México#4216-4234": [
+   "puntos_clave"
+  ],
+  "Cultura teotihuacana#13879-13891": [
+   "puntos_clave"
+  ],
+  "Cultura teotihuacana#6023-6056": [
+   "chunk_recuperado"
+  ],
+  "Cultura teotihuacana#6741-6750": [
+   "chunk_recuperado"
+  ],
+  "Cultura teotihuacana#6247-6280": [
+   "chunk_recuperado"
+  ],
+  "Cultura teotihuacana#4376-4400": [
+   "chunk_recuperado"
+  ],
+  "Cultura teotihuacana#4805-4840": [
+   "chunk_recuperado"
+  ],
+  "Cultura teotihuacana#2885-2898": [
+   "chunk_recuperado"
+  ],
+  "Cultura teotihuacana#1804-1831": [
+   "chunk_recuperado"
+  ],
+  "Cultura olmeca#129-168": [
+   "chunk_recuperado"
+  ],
+  "Cultura teotihuacana#1505-1531": [
+   "chunk_recuperado"
+  ],
+  "Civilización maya#1172-1188": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#4176-4216": [
+   "chunk_recuperado"
+  ],
+  "Cultura teotihuacana#192-225": [
+   "chunk_recuperado"
+  ],
+  "Cultura teotihuacana#13790-13811": [
+   "chunk_recuperado"
+  ],
+  "Cultura teotihuacana#1597-1661": [
+   "chunk_recuperado"
+  ]
+ },
+ "F5": {
+  "Imperio azteca#10716-10725": [
+   "denso"
+  ],
+  "Historia de México#6060-6067": [
+   "bm25",
+   "bm25_lemma",
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Cultura teotihuacana#13172-13184": [
+   "denso"
+  ],
+  "Hernán Cortés#3-80": [
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Imperio azteca#10875-10886": [
+   "bm25",
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Virreinato de Nueva España#20854-20861": [
+   "denso"
+  ],
+  "Imperio azteca#10217-10230": [
+   "bm25_lemma",
+   "denso"
+  ],
+  "Cultura teotihuacana#13569-13584": [
+   "denso"
+  ],
+  "Virreinato de Nueva España#7982-7992": [
+   "bm25"
+  ],
+  "Conquista de México#20210-20232": [
+   "bm25"
+  ],
+  "Virreinato de Nueva España#1745-1760": [
+   "bm25"
+  ],
+  "Imperio azteca#10197-10217": [
+   "bm25"
+  ],
+  "Cultura olmeca#1489-1506": [
+   "bm25"
+  ],
+  "Conquista de México#22404-22416": [
+   "bm25"
+  ],
+  "Virreinato de Nueva España#1511-1517": [
+   "bm25_lemma"
+  ],
+  "Hernán Cortés#4600-4642": [
+   "bm25_lemma",
+   "chunk_recuperado"
+  ],
+  "Hernán Cortés#4418-4460": [
+   "bm25_lemma",
+   "chunk_recuperado"
+  ],
+  "Benito Juárez#11740-11753": [
+   "bm25_lemma"
+  ],
+  "Historia de México#34116-34128": [
+   "bm25_lemma"
+  ],
+  "Moctezuma II#12433-12445": [
+   "bm25_lemma"
+  ],
+  "Conquista de México#12442-12478": [
+   "puntos_clave"
+  ],
+  "Conquista de México#16021-16077": [
+   "puntos_clave"
+  ],
+  "Virreinato de Nueva España#1664-1697": [
+   "chunk_recuperado",
+   "puntos_clave"
+  ],
+  "Hernán Cortés#7546-7593": [
+   "puntos_clave"
+  ],
+  "Hernán Cortés#8680-8711": [
+   "puntos_clave"
+  ],
+  "Moctezuma II#669-692": [
+   "puntos_clave"
+  ],
+  "Conquista de México#20298-20334": [
+   "puntos_clave"
+  ],
+  "Historia de México#8777-8799": [
+   "puntos_clave"
+  ],
+  "Imperio azteca#254-288": [
+   "chunk_recuperado"
+  ],
+  "Imperio azteca#3-67": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#6528-6544": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#5284-5295": [
+   "chunk_recuperado"
+  ],
+  "Cultura teotihuacana#6321-6377": [
+   "chunk_recuperado"
+  ],
+  "Virreinato de Nueva España#1074-1126": [
+   "chunk_recuperado"
+  ],
+  "Virreinato de Nueva España#1396-1418": [
+   "chunk_recuperado"
+  ],
+  "Imperio azteca#9794-9803": [
+   "chunk_recuperado"
+  ]
+ },
+ "C1": {
+  "Revolución mexicana#12503-12510": [
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Guerra de Independencia de México#32712-32718": [
+   "denso"
+  ],
+  "Historia de México#48413-48424": [
+   "bm25",
+   "denso"
+  ],
+  "Benito Juárez#15867-15877": [
+   "denso"
+  ],
+  "Guerra de Independencia de México#32443-32453": [
+   "denso"
+  ],
+  "Historia de México#66124-66149": [
+   "denso"
+  ],
+  "Porfiriato#5112-5119": [
+   "denso"
+  ],
+  "Guerra de Independencia de México#33353-33378": [
+   "bm25_lemma",
+   "denso"
+  ],
+  "Revolución mexicana#14581-14586": [
+   "bm25"
+  ],
+  "Revolución mexicana#12342-12355": [
+   "bm25"
+  ],
+  "Revolución mexicana#12019-12036": [
+   "bm25"
+  ],
+  "Revolución mexicana#14481-14504": [
+   "bm25",
+   "bm25_lemma"
+  ],
+  "Revolución mexicana#13150-13172": [
+   "bm25",
+   "bm25_lemma"
+  ],
+  "Porfiriato#709-735": [
+   "bm25",
+   "chunk_recuperado",
+   "puntos_clave"
+  ],
+  "Miguel Hidalgo y Costilla#9258-9273": [
+   "bm25"
+  ],
+  "Historia de México#49647-49674": [
+   "bm25_lemma"
+  ],
+  "Guerra de Independencia de México#10144-10160": [
+   "bm25_lemma"
+  ],
+  "Historia de México#64883-64911": [
+   "bm25_lemma"
+  ],
+  "Historia de México#58503-58535": [
+   "bm25_lemma"
+  ],
+  "Historia de México#41225-41265": [
+   "bm25_lemma"
+  ],
+  "Emiliano Zapata#887-928": [
+   "puntos_clave"
+  ],
+  "Revolución mexicana#5018-5052": [
+   "puntos_clave"
+  ],
+  "Historia de México#43247-43278": [
+   "puntos_clave"
+  ],
+  "Revolución mexicana#4236-4273": [
+   "puntos_clave"
+  ],
+  "Revolución mexicana#4559-4595": [
+   "puntos_clave"
+  ],
+  "Historia de México#42155-42177": [
+   "puntos_clave"
+  ],
+  "Emiliano Zapata#1797-1847": [
+   "chunk_recuperado",
+   "puntos_clave"
+  ],
+  "Revolución mexicana#29-47": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#1773-1817": [
+   "chunk_recuperado"
+  ],
+  "Revolución mexicana#13720-13733": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#1241-1297": [
+   "chunk_recuperado"
+  ],
+  "Guerra de Independencia de México#124-147": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#34914-34950": [
+   "chunk_recuperado"
+  ],
+  "Guerra de Independencia de México#5849-5870": [
+   "chunk_recuperado"
+  ],
+  "Revolución mexicana#14452-14461": [
+   "chunk_recuperado"
+  ],
+  "Revolución mexicana#13339-13450": [
+   "chunk_recuperado"
+  ],
+  "Conquista de México#2738-2765": [
+   "chunk_recuperado"
+  ],
+  "Revolución mexicana#679-724": [
+   "chunk_recuperado"
+  ],
+  "Revolución mexicana#13008-13022": [
+   "chunk_recuperado"
+  ],
+  "Emiliano Zapata#2189-2382": [
+   "chunk_recuperado"
+  ]
+ },
+ "C2": {
+  "Historia de México#6060-6067": [
+   "bm25",
+   "bm25_lemma",
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Imperio azteca#10716-10725": [
+   "denso"
+  ],
+  "Imperio azteca#10217-10230": [
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Cultura teotihuacana#13172-13184": [
+   "denso"
+  ],
+  "Hernán Cortés#4642-4660": [
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Hernán Cortés#4517-4536": [
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Imperio azteca#10875-10886": [
+   "bm25",
+   "bm25_lemma",
+   "denso"
+  ],
+  "Civilización maya#1948-1982": [
+   "denso"
+  ],
+  "Imperio azteca#2235-2253": [
+   "bm25",
+   "bm25_lemma"
+  ],
+  "Hernán Cortés#5433-5450": [
+   "bm25"
+  ],
+  "Imperio azteca#10197-10217": [
+   "bm25",
+   "bm25_lemma"
+  ],
+  "Imperio azteca#10948-10957": [
+   "bm25",
+   "bm25_lemma"
+  ],
+  "Historia de México#6282-6303": [
+   "bm25"
+  ],
+  "Civilización maya#429-455": [
+   "bm25"
+  ],
+  "Virreinato de Nueva España#1396-1418": [
+   "bm25_lemma"
+  ],
+  "Moctezuma II#692-717": [
+   "bm25_lemma"
+  ],
+  "Imperio azteca#9978-10006": [
+   "bm25_lemma"
+  ],
+  "Moctezuma II#4036-4083": [
+   "puntos_clave"
+  ],
+  "Moctezuma II#2633-2685": [
+   "puntos_clave"
+  ],
+  "Virreinato de Nueva España#9016-9069": [
+   "puntos_clave"
+  ],
+  "Virreinato de Nueva España#10169-10186": [
+   "puntos_clave"
+  ],
+  "Moctezuma II#14852-14916": [
+   "puntos_clave"
+  ],
+  "Historia de México#12105-12152": [
+   "puntos_clave"
+  ],
+  "Conquista de México#689-725": [
+   "puntos_clave"
+  ],
+  "Conquista de México#7332-7370": [
+   "puntos_clave"
+  ],
+  "Imperio azteca#254-288": [
+   "chunk_recuperado"
+  ],
+  "Imperio azteca#1244-1290": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#5284-5295": [
+   "chunk_recuperado"
+  ],
+  "Virreinato de Nueva España#1074-1126": [
+   "chunk_recuperado"
+  ],
+  "Imperio azteca#3-67": [
+   "chunk_recuperado"
+  ],
+  "Virreinato de Nueva España#1550-1583": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#6528-6544": [
+   "chunk_recuperado"
+  ],
+  "Imperio azteca#219-254": [
+   "chunk_recuperado"
+  ],
+  "Civilización maya#3409-3436": [
+   "chunk_recuperado"
+  ],
+  "Virreinato de Nueva España#1460-1476": [
+   "chunk_recuperado"
+  ],
+  "Moctezuma II#12428-12433": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#8706-8738": [
+   "chunk_recuperado"
+  ]
+ },
+ "C3": {
+  "Benito Juárez#16041-16045": [
+   "denso"
+  ],
+  "Guerra de Reforma#4-57": [
+   "bm25",
+   "bm25_lemma",
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Guerra de Reforma#1840-1847": [
+   "denso"
+  ],
+  "Historia de México#53202-53216": [
+   "denso"
+  ],
+  "Porfiriato#4819-4839": [
+   "bm25",
+   "bm25_lemma",
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Benito Juárez#2900-2908": [
+   "denso"
+  ],
+  "Historia de México#55200-55212": [
+   "denso"
+  ],
+  "Historia de México#1128-1171": [
+   "denso"
+  ],
+  "Guerra de Reforma#1857-1867": [
+   "bm25",
+   "bm25_lemma"
+  ],
+  "Benito Juárez#180-206": [
+   "bm25",
+   "bm25_lemma"
+  ],
+  "Historia de México#51674-51704": [
+   "bm25",
+   "chunk_recuperado"
+  ],
+  "Benito Juárez#71-98": [
+   "bm25"
+  ],
+  "Porfiriato#387-422": [
+   "bm25"
+  ],
+  "Conquista de México#6439-6473": [
+   "bm25"
+  ],
+  "Guerra de Independencia de México#8359-8371": [
+   "bm25_lemma"
+  ],
+  "Historia de México#63277-63292": [
+   "bm25_lemma"
+  ],
+  "Historia de México#33428-33456": [
+   "bm25_lemma"
+  ],
+  "Historia de México#31550-31576": [
+   "bm25_lemma"
+  ],
+  "Benito Juárez#4919-4974": [
+   "puntos_clave"
+  ],
+  "Benito Juárez#2719-2757": [
+   "puntos_clave"
+  ],
+  "Historia de México#36043-36084": [
+   "puntos_clave"
+  ],
+  "Historia de México#43647-43671": [
+   "puntos_clave"
+  ],
+  "Benito Juárez#2795-2841": [
+   "puntos_clave"
+  ],
+  "Historia de México#35175-35215": [
+   "puntos_clave"
+  ],
+  "Historia de México#34498-34546": [
+   "puntos_clave"
+  ],
+  "Historia de México#35782-35818": [
+   "puntos_clave"
+  ],
+  "Revolución mexicana#10043-10082": [
+   "chunk_recuperado"
+  ],
+  "Guerra de Independencia de México#8532-8544": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#59497-59540": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#40298-40308": [
+   "chunk_recuperado"
+  ],
+  "Guerra de Reforma#1094-1112": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#41339-41411": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#50519-50530": [
+   "chunk_recuperado"
+  ],
+  "Benito Juárez#9846-9865": [
+   "chunk_recuperado"
+  ],
+  "Benito Juárez#3837-3853": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#68531-68570": [
+   "chunk_recuperado"
+  ],
+  "Benito Juárez#9645-9654": [
+   "chunk_recuperado"
+  ],
+  "Virreinato de Nueva España#567-624": [
+   "chunk_recuperado"
+  ],
+  "Moctezuma II#2753-2780": [
+   "chunk_recuperado"
+  ],
+  "Moctezuma II#6758-6795": [
+   "chunk_recuperado"
+  ]
+ },
+ "C4": {
+  "Historia de México#43232-43238": [
+   "bm25",
+   "bm25_lemma",
+   "denso"
+  ],
+  "Historia de México#37170-37178": [
+   "denso"
+  ],
+  "Historia de México#40333-40356": [
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Historia de México#57226-57232": [
+   "denso"
+  ],
+  "Historia de México#41339-41411": [
+   "denso"
+  ],
+  "Historia de México#43095-43112": [
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Historia de México#1749-1773": [
+   "chunk_recuperado",
+   "denso",
+   "puntos_clave"
+  ],
+  "Historia de México#11690-11729": [
+   "denso"
+  ],
+  "Porfiriato#5050-5057": [
+   "bm25",
+   "bm25_lemma"
+  ],
+  "Benito Juárez#9846-9865": [
+   "bm25",
+   "chunk_recuperado"
+  ],
+  "Historia de México#55855-55899": [
+   "bm25",
+   "bm25_lemma"
+  ],
+  "Historia de México#317-339": [
+   "bm25"
+  ],
+  "Pancho Villa#644-679": [
+   "bm25"
+  ],
+  "Porfiriato#1895-1908": [
+   "bm25",
+   "bm25_lemma"
+  ],
+  "Porfiriato#5064-5074": [
+   "bm25"
+  ],
+  "Porfiriato#3204-3237": [
+   "bm25_lemma",
+   "chunk_recuperado"
+  ],
+  "Porfiriato#47-63": [
+   "bm25_lemma"
+  ],
+  "Emiliano Zapata#1725-1744": [
+   "bm25_lemma"
+  ],
+  "Revolución mexicana#29-47": [
+   "bm25_lemma",
+   "chunk_recuperado"
+  ],
+  "Emiliano Zapata#979-1053": [
+   "puntos_clave"
+  ],
+  "Porfiriato#2-47": [
+   "chunk_recuperado",
+   "puntos_clave"
+  ],
+  "Pancho Villa#6577-6611": [
+   "puntos_clave"
+  ],
+  "Conquista de México#9789-9848": [
+   "puntos_clave"
+  ],
+  "Emiliano Zapata#1135-1188": [
+   "puntos_clave"
+  ],
+  "Historia de México#32228-32261": [
+   "puntos_clave"
+  ],
+  "Historia de México#47852-47895": [
+   "puntos_clave"
+  ],
+  "Historia de México#47534-47540": [
+   "chunk_recuperado"
+  ],
+  "Cultura teotihuacana#3781-3808": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#11798-11843": [
+   "chunk_recuperado"
+  ],
+  "Moctezuma II#12557-12602": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#1171-1194": [
+   "chunk_recuperado"
+  ],
+  "Porfiriato#4739-4761": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#55992-56010": [
+   "chunk_recuperado"
+  ],
+  "Pancho Villa#501-544": [
+   "chunk_recuperado"
+  ]
+ },
+ "V1": {
+  "Imperio azteca#4930-4940": [
+   "denso"
+  ],
+  "Civilización maya#1111-1139": [
+   "bm25",
+   "chunk_recuperado",
+   "denso",
+   "puntos_clave"
+  ],
+  "Civilización maya#17752-17761": [
+   "denso"
+  ],
+  "Civilización maya#8903-8923": [
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Cultura teotihuacana#1391-1422": [
+   "denso"
+  ],
+  "Cultura teotihuacana#3343-3389": [
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Porfiriato#230-243": [
+   "bm25",
+   "denso"
+  ],
+  "Civilización maya#13102-13126": [
+   "denso"
+  ],
+  "Cultura olmeca#129-168": [
+   "bm25"
+  ],
+  "Cultura olmeca#309-331": [
+   "bm25"
+  ],
+  "Historia de México#317-339": [
+   "bm25"
+  ],
+  "Civilización maya#4450-4481": [
+   "bm25"
+  ],
+  "Cultura olmeca#2135-2152": [
+   "bm25",
+   "puntos_clave"
+  ],
+  "Cultura olmeca#168-192": [
+   "bm25"
+  ],
+  "Cultura olmeca#1330-1339": [
+   "bm25_lemma"
+  ],
+  "Historia de México#3233-3248": [
+   "bm25_lemma"
+  ],
+  "Historia de México#3578-3601": [
+   "bm25_lemma",
+   "chunk_recuperado"
+  ],
+  "Virreinato de Nueva España#9832-9863": [
+   "bm25_lemma"
+  ],
+  "Virreinato de Nueva España#12042-12068": [
+   "bm25_lemma"
+  ],
+  "Civilización maya#14403-14420": [
+   "bm25_lemma",
+   "puntos_clave"
+  ],
+  "Cultura olmeca#936-980": [
+   "bm25_lemma"
+  ],
+  "Cultura olmeca#2535-2564": [
+   "bm25_lemma"
+  ],
+  "Civilización maya#16039-16080": [
+   "chunk_recuperado",
+   "puntos_clave"
+  ],
+  "Civilización maya#4662-4706": [
+   "puntos_clave"
+  ],
+  "Civilización maya#13313-13353": [
+   "puntos_clave"
+  ],
+  "Civilización maya#1652-1720": [
+   "puntos_clave"
+  ],
+  "Civilización maya#4306-4348": [
+   "puntos_clave"
+  ],
+  "Imperio azteca#8261-8285": [
+   "chunk_recuperado"
+  ],
+  "Civilización maya#9510-9531": [
+   "chunk_recuperado"
+  ],
+  "Civilización maya#3-78": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#3453-3502": [
+   "chunk_recuperado"
+  ],
+  "Civilización maya#12937-12954": [
+   "chunk_recuperado"
+  ],
+  "Civilización maya#16903-16926": [
+   "chunk_recuperado"
+  ],
+  "Civilización maya#13972-14006": [
+   "chunk_recuperado"
+  ],
+  "Cultura olmeca#1960-1975": [
+   "chunk_recuperado"
+  ],
+  "Cultura olmeca#220-305": [
+   "chunk_recuperado"
+  ],
+  "Cultura olmeca#1736-1759": [
+   "chunk_recuperado"
+  ],
+  "Cultura olmeca#2567-2601": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#3200-3213": [
+   "chunk_recuperado"
+  ],
+  "Virreinato de Nueva España#9976-9985": [
+   "chunk_recuperado"
+  ],
+  "Virreinato de Nueva España#12068-12087": [
+   "chunk_recuperado"
+  ],
+  "Civilización maya#1586-1615": [
+   "chunk_recuperado"
+  ]
+ },
+ "V2": {
+  "Revolución mexicana#9339-9356": [
+   "bm25_lemma",
+   "denso"
+  ],
+  "Historia de México#47235-47248": [
+   "bm25",
+   "bm25_lemma",
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Revolución mexicana#13882-13891": [
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Pancho Villa#2386-2423": [
+   "bm25_lemma",
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Emiliano Zapata#1586-1613": [
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Historia de México#47329-47372": [
+   "denso"
+  ],
+  "Historia de México#47140-47169": [
+   "denso"
+  ],
+  "Pancho Villa#5326-5358": [
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Moctezuma II#19099-19130": [
+   "bm25"
+  ],
+  "Historia de México#317-339": [
+   "bm25"
+  ],
+  "Pancho Villa#644-679": [
+   "bm25"
+  ],
+  "Emiliano Zapata#3132-3155": [
+   "bm25",
+   "chunk_recuperado"
+  ],
+  "Revolución mexicana#383-409": [
+   "bm25",
+   "bm25_lemma",
+   "chunk_recuperado"
+  ],
+  "Virreinato de Nueva España#7382-7408": [
+   "bm25"
+  ],
+  "Miguel Hidalgo y Costilla#6048-6071": [
+   "bm25"
+  ],
+  "Pancho Villa#6879-6894": [
+   "bm25_lemma"
+  ],
+  "Historia de México#47188-47213": [
+   "bm25_lemma"
+  ],
+  "Historia de México#48858-48882": [
+   "bm25_lemma"
+  ],
+  "Pancho Villa#2304-2327": [
+   "bm25_lemma"
+  ],
+  "Emiliano Zapata#3155-3185": [
+   "puntos_clave"
+  ],
+  "Emiliano Zapata#2817-2860": [
+   "puntos_clave"
+  ],
+  "Revolución mexicana#8799-8839": [
+   "puntos_clave"
+  ],
+  "Pancho Villa#2092-2134": [
+   "puntos_clave"
+  ],
+  "Pancho Villa#2570-2612": [
+   "puntos_clave"
+  ],
+  "Pancho Villa#3-78": [
+   "puntos_clave"
+  ],
+  "Revolución mexicana#7681-7697": [
+   "puntos_clave"
+  ],
+  "Pancho Villa#6424-6447": [
+   "puntos_clave"
+  ],
+  "Historia de México#50844-50850": [
+   "chunk_recuperado"
+  ],
+  "Pancho Villa#6541-6570": [
+   "chunk_recuperado"
+  ],
+  "Revolución mexicana#9772-9808": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#46791-46839": [
+   "chunk_recuperado"
+  ],
+  "Pancho Villa#1929-1955": [
+   "chunk_recuperado"
+  ],
+  "Revolución mexicana#9685-9772": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#47372-47377": [
+   "chunk_recuperado"
+  ],
+  "Revolución mexicana#608-636": [
+   "chunk_recuperado"
+  ],
+  "Emiliano Zapata#2777-2793": [
+   "chunk_recuperado"
+  ],
+  "Benito Juárez#9945-9973": [
+   "chunk_recuperado"
+  ]
+ },
+ "V3": {
+  "Imperio azteca#10217-10230": [
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Historia de México#6060-6067": [
+   "bm25",
+   "bm25_lemma",
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Cultura teotihuacana#13172-13184": [
+   "denso"
+  ],
+  "Imperio azteca#10716-10725": [
+   "denso"
+  ],
+  "Imperio azteca#10930-10938": [
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Hernán Cortés#4642-4660": [
+   "denso"
+  ],
+  "Imperio azteca#3-67": [
+   "bm25",
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Imperio azteca#10875-10886": [
+   "bm25",
+   "bm25_lemma",
+   "denso"
+  ],
+  "Imperio azteca#10197-10217": [
+   "bm25",
+   "bm25_lemma"
+  ],
+  "Imperio azteca#2235-2253": [
+   "bm25",
+   "bm25_lemma",
+   "chunk_recuperado"
+  ],
+  "Imperio azteca#254-288": [
+   "bm25",
+   "chunk_recuperado"
+  ],
+  "Historia de México#6282-6303": [
+   "bm25"
+  ],
+  "Imperio azteca#9978-10006": [
+   "bm25",
+   "bm25_lemma"
+  ],
+  "Imperio azteca#10948-10957": [
+   "bm25_lemma",
+   "chunk_recuperado"
+  ],
+  "Virreinato de Nueva España#1396-1418": [
+   "bm25_lemma"
+  ],
+  "Civilización maya#4734-4758": [
+   "bm25_lemma"
+  ],
+  "Hernán Cortés#11967-12037": [
+   "puntos_clave"
+  ],
+  "Imperio azteca#1207-1244": [
+   "puntos_clave"
+  ],
+  "Cultura olmeca#168-192": [
+   "puntos_clave"
+  ],
+  "Historia de México#7897-7940": [
+   "puntos_clave"
+  ],
+  "Imperio azteca#8942-8965": [
+   "puntos_clave"
+  ],
+  "Imperio azteca#2276-2339": [
+   "puntos_clave"
+  ],
+  "Imperio azteca#6586-6638": [
+   "puntos_clave"
+  ],
+  "Imperio azteca#6407-6445": [
+   "puntos_clave"
+  ],
+  "Imperio azteca#1244-1290": [
+   "chunk_recuperado"
+  ],
+  "Imperio azteca#8261-8285": [
+   "chunk_recuperado"
+  ],
+  "Virreinato de Nueva España#11872-11906": [
+   "chunk_recuperado"
+  ],
+  "Imperio azteca#9091-9109": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#6528-6544": [
+   "chunk_recuperado"
+  ],
+  "Virreinato de Nueva España#1460-1476": [
+   "chunk_recuperado"
+  ]
+ },
+ "R1": {
+  "Historia de México#33428-33456": [
+   "bm25",
+   "bm25_lemma",
+   "chunk_recuperado",
+   "denso",
+   "puntos_clave"
+  ],
+  "Miguel Hidalgo y Costilla#9319-9326": [
+   "denso"
+  ],
+  "Benito Juárez#5129-5135": [
+   "denso"
+  ],
+  "Benito Juárez#14905-14914": [
+   "denso"
+  ],
+  "Benito Juárez#15476-15483": [
+   "denso"
+  ],
+  "Historia de México#33293-33314": [
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Benito Juárez#15833-15839": [
+   "denso"
+  ],
+  "Benito Juárez#16119-16123": [
+   "denso"
+  ],
+  "Benito Juárez#71-98": [
+   "bm25",
+   "bm25_lemma",
+   "chunk_recuperado"
+  ],
+  "Guerra de Reforma#4-57": [
+   "bm25",
+   "bm25_lemma",
+   "chunk_recuperado",
+   "puntos_clave"
+  ],
+  "Historia de México#32081-32108": [
+   "bm25",
+   "bm25_lemma"
+  ],
+  "Porfiriato#4819-4839": [
+   "bm25",
+   "bm25_lemma"
+  ],
+  "Benito Juárez#11221-11249": [
+   "bm25",
+   "bm25_lemma",
+   "chunk_recuperado"
+  ],
+  "Hernán Cortés#216-243": [
+   "bm25"
+  ],
+  "Benito Juárez#14240-14273": [
+   "bm25",
+   "bm25_lemma"
+  ],
+  "Guerra de Reforma#935-973": [
+   "bm25_lemma",
+   "chunk_recuperado",
+   "puntos_clave"
+  ],
+  "Guerra de Reforma#1857-1867": [
+   "chunk_recuperado",
+   "puntos_clave"
+  ],
+  "Guerra de Reforma#768-811": [
+   "puntos_clave"
+  ],
+  "Historia de México#36043-36084": [
+   "puntos_clave"
+  ],
+  "Virreinato de Nueva España#16726-16800": [
+   "puntos_clave"
+  ],
+  "Historia de México#34498-34546": [
+   "puntos_clave"
+  ],
+  "Historia de México#34971-35035": [
+   "chunk_recuperado"
+  ],
+  "Benito Juárez#4486-4508": [
+   "chunk_recuperado"
+  ],
+  "Benito Juárez#12074-12088": [
+   "chunk_recuperado"
+  ],
+  "Benito Juárez#13756-13780": [
+   "chunk_recuperado"
+  ],
+  "Benito Juárez#163-180": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#31368-31386": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#35035-35086": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#33243-33264": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#35782-35818": [
+   "chunk_recuperado"
+  ],
+  "Benito Juárez#3585-3593": [
+   "chunk_recuperado"
+  ],
+  "Benito Juárez#11185-11209": [
+   "chunk_recuperado"
+  ],
+  "Benito Juárez#9654-9691": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#29716-29733": [
+   "chunk_recuperado"
+  ],
+  "Guerra de Reforma#644-672": [
+   "chunk_recuperado"
+  ],
+  "Benito Juárez#2757-2795": [
+   "chunk_recuperado"
+  ]
+ },
+ "R2": {
+  "Moctezuma II#14338-14354": [
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Virreinato de Nueva España#21581-21588": [
+   "denso"
+  ],
+  "Conquista de México#24685-24690": [
+   "denso"
+  ],
+  "Conquista de México#24205-24220": [
+   "bm25",
+   "denso"
+  ],
+  "Conquista de México#16118-16138": [
+   "denso"
+  ],
+  "Hernán Cortés#4600-4642": [
+   "denso"
+  ],
+  "Virreinato de Nueva España#21603-21620": [
+   "denso"
+  ],
+  "Hernán Cortés#5462-5496": [
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Moctezuma II#19198-19215": [
+   "bm25",
+   "bm25_lemma",
+   "chunk_recuperado",
+   "puntos_clave"
+  ],
+  "Moctezuma II#20302-20325": [
+   "bm25",
+   "bm25_lemma",
+   "chunk_recuperado"
+  ],
+  "Moctezuma II#19055-19067": [
+   "bm25",
+   "bm25_lemma"
+  ],
+  "Moctezuma II#19436-19454": [
+   "bm25",
+   "bm25_lemma"
+  ],
+  "Hernán Cortés#934-949": [
+   "bm25"
+  ],
+  "Moctezuma II#20005-20051": [
+   "bm25"
+  ],
+  "Moctezuma II#19668-19680": [
+   "bm25",
+   "bm25_lemma"
+  ],
+  "Moctezuma II#15441-15482": [
+   "bm25_lemma",
+   "chunk_recuperado"
+  ],
+  "Moctezuma II#182-216": [
+   "bm25_lemma"
+  ],
+  "Hernán Cortés#14294-14301": [
+   "bm25_lemma"
+  ],
+  "Hernán Cortés#7090-7111": [
+   "puntos_clave"
+  ],
+  "Hernán Cortés#7613-7672": [
+   "chunk_recuperado",
+   "puntos_clave"
+  ],
+  "Moctezuma II#14852-14916": [
+   "puntos_clave"
+  ],
+  "Hernán Cortés#6627-6657": [
+   "puntos_clave"
+  ],
+  "Hernán Cortés#12460-12546": [
+   "puntos_clave"
+  ],
+  "Conquista de México#16654-16718": [
+   "puntos_clave"
+  ],
+  "Moctezuma II#18256-18270": [
+   "puntos_clave"
+  ],
+  "Moctezuma II#12064-12076": [
+   "chunk_recuperado"
+  ],
+  "Conquista de México#20427-20466": [
+   "chunk_recuperado"
+  ],
+  "Conquista de México#11788-11817": [
+   "chunk_recuperado"
+  ],
+  "Conquista de México#3759-3773": [
+   "chunk_recuperado"
+  ],
+  "Hernán Cortés#14312-14324": [
+   "chunk_recuperado"
+  ],
+  "Moctezuma II#14383-14429": [
+   "chunk_recuperado"
+  ],
+  "Moctezuma II#932-986": [
+   "chunk_recuperado"
+  ],
+  "Moctezuma II#12697-12730": [
+   "chunk_recuperado"
+  ],
+  "Moctezuma II#17567-17648": [
+   "chunk_recuperado"
+  ],
+  "Moctezuma II#149-182": [
+   "chunk_recuperado"
+  ],
+  "Moctezuma II#19680-19713": [
+   "chunk_recuperado"
+  ],
+  "Hernán Cortés#6657-6711": [
+   "chunk_recuperado"
+  ],
+  "Moctezuma II#3-58": [
+   "chunk_recuperado"
+  ],
+  "Moctezuma II#11960-12007": [
+   "chunk_recuperado"
+  ]
+ },
+ "R3": {
+  "Guerra de Independencia de México#33480-33488": [
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Miguel Hidalgo y Costilla#9313-9319": [
+   "denso"
+  ],
+  "Miguel Hidalgo y Costilla#9095-9115": [
+   "denso"
+  ],
+  "Miguel Hidalgo y Costilla#9124-9146": [
+   "denso"
+  ],
+  "Guerra de Independencia de México#32436-32443": [
+   "denso"
+  ],
+  "Miguel Hidalgo y Costilla#9173-9180": [
+   "denso"
+  ],
+  "Guerra de Independencia de México#8507-8532": [
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Guerra de Independencia de México#14157-14236": [
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Virreinato de Nueva España#19405-19429": [
+   "bm25",
+   "bm25_lemma"
+  ],
+  "Civilización maya#5136-5165": [
+   "bm25",
+   "bm25_lemma"
+  ],
+  "Virreinato de Nueva España#15130-15162": [
+   "bm25",
+   "bm25_lemma"
+  ],
+  "Historia de México#33236-33243": [
+   "bm25",
+   "bm25_lemma"
+  ],
+  "Historia de México#34146-34154": [
+   "bm25",
+   "bm25_lemma"
+  ],
+  "Virreinato de Nueva España#624-660": [
+   "bm25"
+  ],
+  "Historia de México#14205-14259": [
+   "bm25"
+  ],
+  "Guerra de Independencia de México#32621-32631": [
+   "bm25"
+  ],
+  "Virreinato de Nueva España#6304-6324": [
+   "bm25_lemma"
+  ],
+  "Civilización maya#4974-5001": [
+   "bm25_lemma"
+  ],
+  "Conquista de México#112-143": [
+   "bm25_lemma"
+  ],
+  "Guerra de Independencia de México#1474-1506": [
+   "puntos_clave"
+  ],
+  "Guerra de Independencia de México#2929-2968": [
+   "puntos_clave"
+  ],
+  "Guerra de Independencia de México#5794-5844": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#15309-15324": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#17714-17751": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#17036-17042": [
+   "chunk_recuperado"
+  ],
+  "Emiliano Zapata#1368-1403": [
+   "chunk_recuperado"
+  ],
+  "Virreinato de Nueva España#15093-15101": [
+   "chunk_recuperado"
+  ],
+  "Virreinato de Nueva España#19429-19451": [
+   "chunk_recuperado"
+  ],
+  "Civilización maya#5026-5055": [
+   "chunk_recuperado"
+  ],
+  "Virreinato de Nueva España#14687-14759": [
+   "chunk_recuperado"
+  ],
+  "Virreinato de Nueva España#6268-6288": [
+   "chunk_recuperado"
+  ],
+  "Conquista de México#5857-5887": [
+   "chunk_recuperado"
+  ],
+  "Guerra de Independencia de México#852-880": [
+   "chunk_recuperado"
+  ]
+ },
+ "M1": {
+  "Historia de México#59-77": [
+   "bm25",
+   "bm25_lemma",
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Civilización maya#3824-3833": [
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Historia de México#3138-3161": [
+   "denso"
+  ],
+  "Conquista de México#25013-25027": [
+   "denso"
+  ],
+  "Virreinato de Nueva España#21526-21540": [
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Imperio azteca#127-156": [
+   "denso"
+  ],
+  "Moctezuma II#16881-16966": [
+   "denso"
+  ],
+  "Guerra de Independencia de México#2775-2786": [
+   "denso"
+  ],
+  "Conquista de México#11304-11335": [
+   "bm25"
+  ],
+  "Moctezuma II#11912-11960": [
+   "bm25"
+  ],
+  "Civilización maya#16962-17000": [
+   "bm25"
+  ],
+  "Virreinato de Nueva España#11872-11906": [
+   "bm25",
+   "chunk_recuperado"
+  ],
+  "Imperio azteca#1183-1207": [
+   "bm25"
+  ],
+  "Conquista de México#6439-6473": [
+   "bm25"
+  ],
+  "Moctezuma II#8466-8504": [
+   "bm25"
+  ],
+  "Virreinato de Nueva España#19339-19362": [
+   "bm25_lemma"
+  ],
+  "Civilización maya#3766-3782": [
+   "bm25_lemma"
+  ],
+  "Conquista de México#14547-14579": [
+   "bm25_lemma"
+  ],
+  "Cultura teotihuacana#10721-10739": [
+   "bm25_lemma"
+  ],
+  "Civilización maya#3871-3929": [
+   "bm25_lemma",
+   "puntos_clave"
+  ],
+  "Historia de México#64786-64798": [
+   "bm25_lemma"
+  ],
+  "Conquista de México#7496-7516": [
+   "bm25_lemma"
+  ],
+  "Civilización maya#1111-1139": [
+   "puntos_clave"
+  ],
+  "Cultura olmeca#936-980": [
+   "puntos_clave"
+  ],
+  "Civilización maya#9569-9604": [
+   "puntos_clave"
+  ],
+  "Virreinato de Nueva España#1074-1126": [
+   "chunk_recuperado",
+   "puntos_clave"
+  ],
+  "Virreinato de Nueva España#986-1031": [
+   "puntos_clave"
+  ],
+  "Imperio azteca#10621-10633": [
+   "puntos_clave"
+  ],
+  "Guerra de Independencia de México#902-964": [
+   "puntos_clave"
+  ],
+  "Conquista de México#248-276": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#1026-1052": [
+   "chunk_recuperado"
+  ],
+  "Virreinato de Nueva España#2285-2304": [
+   "chunk_recuperado"
+  ],
+  "Imperio azteca#1053-1078": [
+   "chunk_recuperado"
+  ],
+  "Virreinato de Nueva España#15234-15278": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#116-141": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#1566-1585": [
+   "chunk_recuperado"
+  ],
+  "Moctezuma II#12767-12826": [
+   "chunk_recuperado"
+  ],
+  "Hernán Cortés#5573-5585": [
+   "chunk_recuperado"
+  ],
+  "Conquista de México#16419-16454": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#7409-7437": [
+   "chunk_recuperado"
+  ],
+  "Moctezuma II#17039-17168": [
+   "chunk_recuperado"
+  ]
+ },
+ "M2": {
+  "Revolución mexicana#12503-12510": [
+   "denso"
+  ],
+  "Historia de México#37012-37040": [
+   "denso"
+  ],
+  "Benito Juárez#139-163": [
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Historia de México#33010-33030": [
+   "bm25_lemma",
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Benito Juárez#2448-2463": [
+   "bm25_lemma",
+   "denso"
+  ],
+  "Benito Juárez#11185-11209": [
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Benito Juárez#6697-6720": [
+   "denso"
+  ],
+  "Guerra de Reforma#1857-1867": [
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Guerra de Reforma#768-811": [
+   "bm25",
+   "chunk_recuperado"
+  ],
+  "Imperio azteca#9834-9842": [
+   "bm25",
+   "bm25_lemma"
+  ],
+  "Moctezuma II#12537-12557": [
+   "bm25"
+  ],
+  "Pancho Villa#4925-4941": [
+   "bm25"
+  ],
+  "Guerra de Independencia de México#1506-1531": [
+   "bm25"
+  ],
+  "Imperio azteca#5991-6013": [
+   "bm25"
+  ],
+  "Moctezuma II#4594-4644": [
+   "bm25"
+  ],
+  "Historia de México#65254-65274": [
+   "bm25"
+  ],
+  "Historia de México#73872-73907": [
+   "bm25_lemma"
+  ],
+  "Benito Juárez#11221-11249": [
+   "bm25_lemma"
+  ],
+  "Revolución mexicana#13817-13846": [
+   "bm25_lemma"
+  ],
+  "Historia de México#33428-33456": [
+   "bm25_lemma"
+  ],
+  "Historia de México#29716-29733": [
+   "bm25_lemma"
+  ],
+  "Historia de México#34498-34546": [
+   "chunk_recuperado",
+   "puntos_clave"
+  ],
+  "Benito Juárez#2719-2757": [
+   "puntos_clave"
+  ],
+  "Benito Juárez#98-120": [
+   "puntos_clave"
+  ],
+  "Historia de México#48089-48215": [
+   "puntos_clave"
+  ],
+  "Guerra de Reforma#4-57": [
+   "puntos_clave"
+  ],
+  "Benito Juárez#4919-4974": [
+   "puntos_clave"
+  ],
+  "Historia de México#30512-30569": [
+   "puntos_clave"
+  ],
+  "Porfiriato#588-642": [
+   "puntos_clave"
+  ],
+  "Historia de México#34565-34595": [
+   "chunk_recuperado"
+  ],
+  "Benito Juárez#12074-12088": [
+   "chunk_recuperado"
+  ],
+  "Revolución mexicana#63-103": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#34478-34498": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#30647-30668": [
+   "chunk_recuperado"
+  ],
+  "Guerra de Independencia de México#1316-1341": [
+   "chunk_recuperado"
+  ],
+  "Guerra de Reforma#935-973": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#33243-33264": [
+   "chunk_recuperado"
+  ],
+  "Benito Juárez#71-98": [
+   "chunk_recuperado"
+  ],
+  "Imperio azteca#4716-4738": [
+   "chunk_recuperado"
+  ],
+  "Benito Juárez#4727-4738": [
+   "chunk_recuperado"
+  ],
+  "Revolución mexicana#14452-14461": [
+   "chunk_recuperado"
+  ],
+  "Revolución mexicana#13720-13733": [
+   "chunk_recuperado"
+  ],
+  "Benito Juárez#4285-4296": [
+   "chunk_recuperado"
+  ]
+ },
+ "T1": {
+  "Historia de México#54680-54692": [
+   "bm25_lemma",
+   "denso"
+  ],
+  "Benito Juárez#206-224": [
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Porfiriato#5112-5119": [
+   "denso"
+  ],
+  "Benito Juárez#8406-8418": [
+   "denso"
+  ],
+  "Historia de México#75912-75916": [
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Miguel Hidalgo y Costilla#55-65": [
+   "denso"
+  ],
+  "Historia de México#63983-63995": [
+   "denso"
+  ],
+  "Miguel Hidalgo y Costilla#9389-9393": [
+   "denso"
+  ],
+  "Moctezuma II#20187-20202": [
+   "bm25",
+   "bm25_lemma"
+  ],
+  "Historia de México#4-32": [
+   "bm25",
+   "bm25_lemma"
+  ],
+  "Conquista de México#23805-23864": [
+   "bm25"
+  ],
+  "Benito Juárez#15184-15218": [
+   "bm25"
+  ],
+  "Cultura teotihuacana#2358-2389": [
+   "bm25"
+  ],
+  "Hernán Cortés#13950-13969": [
+   "bm25"
+  ],
+  "Historia de México#75242-75267": [
+   "bm25",
+   "chunk_recuperado"
+  ],
+  "Historia de México#1998-2020": [
+   "bm25"
+  ],
+  "Historia de México#9947-9961": [
+   "bm25_lemma"
+  ],
+  "Historia de México#1877-1895": [
+   "bm25_lemma"
+  ],
+  "Revolución mexicana#2192-2225": [
+   "bm25_lemma"
+  ],
+  "Imperio azteca#10197-10217": [
+   "bm25_lemma"
+  ],
+  "Cultura olmeca#3-26": [
+   "bm25_lemma"
+  ],
+  "Revolución mexicana#7246-7272": [
+   "chunk_recuperado"
+  ],
+  "Benito Juárez#15504-15572": [
+   "chunk_recuperado"
+  ],
+  "Benito Juárez#11511-11525": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#1849-1877": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#70890-70963": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#55166-55184": [
+   "chunk_recuperado"
+  ],
+  "Benito Juárez#3-71": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#75892-75904": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#54377-54418": [
+   "chunk_recuperado"
+  ],
+  "Conquista de México#23936-23940": [
+   "chunk_recuperado"
+  ],
+  "Conquista de México#20276-20298": [
+   "chunk_recuperado"
+  ],
+  "Conquista de México#22479-22510": [
+   "chunk_recuperado"
+  ],
+  "Imperio azteca#1509-1519": [
+   "chunk_recuperado"
+  ],
+  "Virreinato de Nueva España#156-290": [
+   "chunk_recuperado"
+  ],
+  "Conquista de México#22652-22673": [
+   "chunk_recuperado"
+  ],
+  "Revolución mexicana#2145-2192": [
+   "chunk_recuperado"
+  ]
+ },
+ "T2": {
+  "Historia de México#75912-75916": [
+   "denso"
+  ],
+  "Guerra de Independencia de México#32515-32520": [
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Benito Juárez#15627-15632": [
+   "denso"
+  ],
+  "Guerra de Independencia de México#32574-32579": [
+   "denso"
+  ],
+  "Guerra de Independencia de México#33437-33442": [
+   "denso"
+  ],
+  "Guerra de Independencia de México#33411-33416": [
+   "denso"
+  ],
+  "Guerra de Independencia de México#32413-32429": [
+   "denso"
+  ],
+  "Guerra de Independencia de México#32599-32615": [
+   "denso"
+  ],
+  "Moctezuma II#20187-20202": [
+   "bm25",
+   "bm25_lemma"
+  ],
+  "Historia de México#4-32": [
+   "bm25",
+   "bm25_lemma",
+   "chunk_recuperado"
+  ],
+  "Conquista de México#23805-23864": [
+   "bm25"
+  ],
+  "Benito Juárez#15184-15218": [
+   "bm25"
+  ],
+  "Cultura teotihuacana#2241-2264": [
+   "bm25"
+  ],
+  "Cultura teotihuacana#2358-2389": [
+   "bm25"
+  ],
+  "Historia de México#1998-2020": [
+   "bm25",
+   "bm25_lemma"
+  ],
+  "Imperio azteca#10197-10217": [
+   "bm25",
+   "bm25_lemma"
+  ],
+  "Historia de México#9947-9961": [
+   "bm25_lemma"
+  ],
+  "Historia de México#1877-1895": [
+   "bm25_lemma",
+   "chunk_recuperado"
+  ],
+  "Cultura olmeca#3-26": [
+   "bm25_lemma"
+  ],
+  "Imperio azteca#1019-1052": [
+   "bm25_lemma"
+  ],
+  "Historia de México#75242-75267": [
+   "chunk_recuperado"
+  ],
+  "Guerra de Independencia de México#54-90": [
+   "chunk_recuperado"
+  ],
+  "Porfiriato#1155-1183": [
+   "chunk_recuperado"
+  ],
+  "Revolución mexicana#63-103": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#70639-70665": [
+   "chunk_recuperado"
+  ],
+  "Porfiriato#5241-5255": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#68442-68479": [
+   "chunk_recuperado"
+  ],
+  "Revolución mexicana#12036-12060": [
+   "chunk_recuperado"
+  ],
+  "Cultura teotihuacana#2776-2799": [
+   "chunk_recuperado"
+  ],
+  "Cultura teotihuacana#2521-2542": [
+   "chunk_recuperado"
+  ],
+  "Conquista de México#23936-23940": [
+   "chunk_recuperado"
+  ],
+  "Cultura teotihuacana#493-512": [
+   "chunk_recuperado"
+  ],
+  "Virreinato de Nueva España#156-290": [
+   "chunk_recuperado"
+  ],
+  "Conquista de México#23355-23411": [
+   "chunk_recuperado"
+  ],
+  "Imperio azteca#6475-6548": [
+   "chunk_recuperado"
+  ]
+ },
+ "T3": {
+  "Historia de México#75912-75916": [
+   "chunk_recuperado",
+   "denso"
+  ],
+  "Guerra de Independencia de México#32536-32540": [
+   "denso"
+  ],
+  "Cultura teotihuacana#13343-13349": [
+   "denso"
+  ],
+  "Conquista de México#23936-23940": [
+   "denso"
+  ],
+  "Guerra de Independencia de México#32688-32695": [
+   "denso"
+  ],
+  "Guerra de Independencia de México#32499-32506": [
+   "denso"
+  ],
+  "Guerra de Reforma#1885-1892": [
+   "denso"
+  ],
+  "Virreinato de Nueva España#23403-23407": [
+   "denso"
+  ],
+  "Historia de México#67347-67366": [
+   "bm25",
+   "bm25_lemma",
+   "chunk_recuperado"
+  ],
+  "Historia de México#75858-75892": [
+   "bm25"
+  ],
+  "Guerra de Independencia de México#19710-19724": [
+   "bm25"
+  ],
+  "Revolución mexicana#2918-2933": [
+   "bm25"
+  ],
+  "Conquista de México#15149-15155": [
+   "bm25"
+  ],
+  "Guerra de Independencia de México#1356-1378": [
+   "bm25"
+  ],
+  "Cultura olmeca#1975-1997": [
+   "bm25"
+  ],
+  "Pancho Villa#6411-6424": [
+   "bm25"
+  ],
+  "Guerra de Independencia de México#32775-32782": [
+   "bm25_lemma"
+  ],
+  "Imperio azteca#10832-10839": [
+   "bm25_lemma"
+  ],
+  "Historia de México#33236-33243": [
+   "bm25_lemma"
+  ],
+  "Historia de México#34146-34154": [
+   "bm25_lemma"
+  ],
+  "Historia de México#75892-75904": [
+   "bm25_lemma"
+  ],
+  "Cultura teotihuacana#8962-8976": [
+   "bm25_lemma"
+  ],
+  "Cultura teotihuacana#3742-3762": [
+   "bm25_lemma"
+  ],
+  "Guerra de Independencia de México#124-147": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#26038-26104": [
+   "chunk_recuperado"
+  ],
+  "Revolución mexicana#63-103": [
+   "chunk_recuperado"
+  ],
+  "Pancho Villa#6774-6803": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#1877-1895": [
+   "chunk_recuperado"
+  ],
+  "Guerra de Independencia de México#32158-32184": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#48413-48424": [
+   "chunk_recuperado"
+  ],
+  "Revolución mexicana#12355-12379": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#1773-1817": [
+   "chunk_recuperado"
+  ],
+  "Guerra de Independencia de México#32241-32258": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#67369-67456": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#26623-26649": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#75242-75267": [
+   "chunk_recuperado"
+  ],
+  "Cultura olmeca#26-62": [
+   "chunk_recuperado"
+  ],
+  "Historia de México#25890-25933": [
+   "chunk_recuperado"
+  ]
+ }
+}

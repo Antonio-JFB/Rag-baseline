@@ -1,0 +1,44 @@
+2026-11-08 12:58:45,133 [INFO] === evaluador.py -- config: Léxica con preprocesamiento: BM25 + lematización + palabras vacías (PLN) (configs/bm25_lemma.yaml) ===
+2026-11-08 12:58:45,134 [INFO] 20 preguntas cargadas desde evaluation/questions.json
+2026-11-08 12:58:45,153 [INFO] Indexando 1334 chunks...
+2026-11-08 12:58:45,201 [INFO] [1/20] F1 (factual): ¿En qué año cayó Tenochtitlan?
+2026-11-08 12:58:46,353 [INFO]     retrieval=1.151s  generacion=0.000s  total=1.151s
+2026-11-08 12:58:46,353 [INFO] [2/20] F2 (factual): ¿Quién dio el Grito de Independencia?
+2026-11-08 12:58:46,358 [INFO]     retrieval=0.005s  generacion=0.000s  total=0.005s
+2026-11-08 12:58:46,358 [INFO] [3/20] F3 (factual): ¿Cuándo comenzó el Porfiriato?
+2026-11-08 12:58:46,361 [INFO]     retrieval=0.003s  generacion=0.000s  total=0.003s
+2026-11-08 12:58:46,361 [INFO] [4/20] F4 (factual): ¿Qué civilización construyó Teotihuacán?
+2026-11-08 12:58:46,366 [INFO]     retrieval=0.004s  generacion=0.000s  total=0.004s
+2026-11-08 12:58:46,366 [INFO] [5/20] F5 (factual): ¿Quién fue el último emperador azteca?
+2026-11-08 12:58:46,371 [INFO]     retrieval=0.004s  generacion=0.000s  total=0.004s
+2026-11-08 12:58:46,371 [INFO] [6/20] C1 (causalidad): ¿Cuáles fueron las causas de la Revolución Mexicana?
+2026-11-08 12:58:46,375 [INFO]     retrieval=0.004s  generacion=0.000s  total=0.004s
+2026-11-08 12:58:46,376 [INFO] [7/20] C2 (causalidad): ¿Por qué cayó el Imperio Azteca?
+2026-11-08 12:58:46,380 [INFO]     retrieval=0.004s  generacion=0.000s  total=0.004s
+2026-11-08 12:58:46,380 [INFO] [8/20] C3 (causalidad): ¿Qué provocó la Guerra de Reforma?
+2026-11-08 12:58:46,384 [INFO]     retrieval=0.004s  generacion=0.000s  total=0.004s
+2026-11-08 12:58:46,384 [INFO] [9/20] C4 (causalidad): ¿Por qué terminó el Porfiriato?
+2026-11-08 12:58:46,387 [INFO]     retrieval=0.004s  generacion=0.000s  total=0.004s
+2026-11-08 12:58:46,388 [INFO] [10/20] V1 (comparativa): ¿En qué se diferencian los mayas y los olmecas?
+2026-11-08 12:58:46,391 [INFO]     retrieval=0.004s  generacion=0.000s  total=0.004s
+2026-11-08 12:58:46,391 [INFO] [11/20] V2 (comparativa): ¿Qué diferencias hay entre Zapata y Villa?
+2026-11-08 12:58:46,397 [INFO]     retrieval=0.005s  generacion=0.000s  total=0.005s
+2026-11-08 12:58:46,397 [INFO] [12/20] V3 (comparativa): ¿En qué se parecen el Virreinato y el Imperio Azteca?
+2026-11-08 12:58:46,401 [INFO]     retrieval=0.004s  generacion=0.000s  total=0.004s
+2026-11-08 12:58:46,401 [INFO] [13/20] R1 (relacional): ¿Qué relación tuvo Juárez con la Guerra de Reforma?
+2026-11-08 12:58:46,407 [INFO]     retrieval=0.005s  generacion=0.000s  total=0.005s
+2026-11-08 12:58:46,407 [INFO] [14/20] R2 (relacional): ¿Cómo se relacionan Hernán Cortés y Moctezuma II?
+2026-11-08 12:58:46,414 [INFO]     retrieval=0.007s  generacion=0.000s  total=0.007s
+2026-11-08 12:58:46,414 [INFO] [15/20] R3 (relacional): ¿Qué papel jugó el Virreinato en la Independencia?
+2026-11-08 12:58:46,419 [INFO]     retrieval=0.005s  generacion=0.000s  total=0.005s
+2026-11-08 12:58:46,419 [INFO] [16/20] M1 (multihop): ¿Qué civilizaciones existían antes de los españoles y cuál dominaba en 1519?
+2026-11-08 12:58:46,425 [INFO]     retrieval=0.005s  generacion=0.000s  total=0.005s
+2026-11-08 12:58:46,425 [INFO] [17/20] M2 (multihop): ¿Cómo influyeron las reformas de Juárez en la Revolución décadas después?
+2026-11-08 12:58:46,431 [INFO]     retrieval=0.006s  generacion=0.000s  total=0.006s
+2026-11-08 12:58:46,431 [INFO] [18/20] T1 (trampa): ¿Quién es el presidente actual de México?
+2026-11-08 12:58:46,435 [INFO]     retrieval=0.004s  generacion=0.000s  total=0.004s
+2026-11-08 12:58:46,435 [INFO] [19/20] T2 (trampa): ¿Cuál es el PIB actual de México?
+2026-11-08 12:58:46,439 [INFO]     retrieval=0.004s  generacion=0.000s  total=0.004s
+2026-11-08 12:58:46,439 [INFO] [20/20] T3 (trampa): ¿Qué equipos jugaron la final del fútbol mexicano en 2024?
+2026-11-08 12:58:46,445 [INFO]     retrieval=0.005s  generacion=0.000s  total=0.005s
+2026-11-08 12:58:46,445 [INFO] === Listo: 20 preguntas en 1.2s -> results/pln/run1/bm25_lemma/results.jsonl ===

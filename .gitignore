@@ -9,3 +9,6 @@ desktop.ini
 
 # Indices regenerables (evaluador.py los reconstruye si faltan)
 embeddings/paragraph/
+embeddings/fixed64/
+bm25_index/lemma/
+results/pln/cache/
