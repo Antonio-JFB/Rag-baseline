@@ -1,0 +1,44 @@
+2026-11-01 19:03:33,202 [INFO] === evaluador.py -- config: BM25 (léxico) (configs/bm25.yaml) ===
+2026-11-01 19:03:33,203 [INFO] 20 preguntas cargadas desde evaluation/questions.json
+2026-11-01 19:03:33,231 [INFO] Indexando 1334 chunks...
+2026-11-01 19:03:33,323 [INFO] [1/20] F1 (factual): ¿En qué año cayó Tenochtitlan?
+2026-11-01 19:03:33,330 [INFO]     retrieval=0.007s  generacion=0.000s  total=0.007s
+2026-11-01 19:03:33,331 [INFO] [2/20] F2 (factual): ¿Quién dio el Grito de Independencia?
+2026-11-01 19:03:33,336 [INFO]     retrieval=0.004s  generacion=0.000s  total=0.004s
+2026-11-01 19:03:33,336 [INFO] [3/20] F3 (factual): ¿Cuándo comenzó el Porfiriato?
+2026-11-01 19:03:33,339 [INFO]     retrieval=0.003s  generacion=0.000s  total=0.003s
+2026-11-01 19:03:33,339 [INFO] [4/20] F4 (factual): ¿Qué civilización construyó Teotihuacán?
+2026-11-01 19:03:33,344 [INFO]     retrieval=0.004s  generacion=0.000s  total=0.004s
+2026-11-01 19:03:33,344 [INFO] [5/20] F5 (factual): ¿Quién fue el último emperador azteca?
+2026-11-01 19:03:33,349 [INFO]     retrieval=0.004s  generacion=0.000s  total=0.004s
+2026-11-01 19:03:33,349 [INFO] [6/20] C1 (causalidad): ¿Cuáles fueron las causas de la Revolución Mexicana?
+2026-11-01 19:03:33,354 [INFO]     retrieval=0.004s  generacion=0.000s  total=0.004s
+2026-11-01 19:03:33,354 [INFO] [7/20] C2 (causalidad): ¿Por qué cayó el Imperio Azteca?
+2026-11-01 19:03:33,361 [INFO]     retrieval=0.007s  generacion=0.000s  total=0.007s
+2026-11-01 19:03:33,361 [INFO] [8/20] C3 (causalidad): ¿Qué provocó la Guerra de Reforma?
+2026-11-01 19:03:33,367 [INFO]     retrieval=0.005s  generacion=0.000s  total=0.005s
+2026-11-01 19:03:33,368 [INFO] [9/20] C4 (causalidad): ¿Por qué terminó el Porfiriato?
+2026-11-01 19:03:33,377 [INFO]     retrieval=0.009s  generacion=0.000s  total=0.009s
+2026-11-01 19:03:33,377 [INFO] [10/20] V1 (comparativa): ¿En qué se diferencian los mayas y los olmecas?
+2026-11-01 19:03:33,384 [INFO]     retrieval=0.007s  generacion=0.000s  total=0.007s
+2026-11-01 19:03:33,384 [INFO] [11/20] V2 (comparativa): ¿Qué diferencias hay entre Zapata y Villa?
+2026-11-01 19:03:33,390 [INFO]     retrieval=0.005s  generacion=0.000s  total=0.005s
+2026-11-01 19:03:33,390 [INFO] [12/20] V3 (comparativa): ¿En qué se parecen el Virreinato y el Imperio Azteca?
+2026-11-01 19:03:33,401 [INFO]     retrieval=0.011s  generacion=0.000s  total=0.011s
+2026-11-01 19:03:33,401 [INFO] [13/20] R1 (relacional): ¿Qué relación tuvo Juárez con la Guerra de Reforma?
+2026-11-01 19:03:33,411 [INFO]     retrieval=0.009s  generacion=0.000s  total=0.009s
+2026-11-01 19:03:33,411 [INFO] [14/20] R2 (relacional): ¿Cómo se relacionan Hernán Cortés y Moctezuma II?
+2026-11-01 19:03:33,417 [INFO]     retrieval=0.005s  generacion=0.000s  total=0.005s
+2026-11-01 19:03:33,417 [INFO] [15/20] R3 (relacional): ¿Qué papel jugó el Virreinato en la Independencia?
+2026-11-01 19:03:33,424 [INFO]     retrieval=0.007s  generacion=0.000s  total=0.007s
+2026-11-01 19:03:33,424 [INFO] [16/20] M1 (multihop): ¿Qué civilizaciones existían antes de los españoles y cuál dominaba en 1519?
+2026-11-01 19:03:33,432 [INFO]     retrieval=0.009s  generacion=0.000s  total=0.009s
+2026-11-01 19:03:33,432 [INFO] [17/20] M2 (multihop): ¿Cómo influyeron las reformas de Juárez en la Revolución décadas después?
+2026-11-01 19:03:33,445 [INFO]     retrieval=0.012s  generacion=0.000s  total=0.012s
+2026-11-01 19:03:33,445 [INFO] [18/20] T1 (trampa): ¿Quién es el presidente actual de México?
+2026-11-01 19:03:33,451 [INFO]     retrieval=0.007s  generacion=0.000s  total=0.007s
+2026-11-01 19:03:33,451 [INFO] [19/20] T2 (trampa): ¿Cuál es el PIB actual de México?
+2026-11-01 19:03:33,460 [INFO]     retrieval=0.009s  generacion=0.000s  total=0.009s
+2026-11-01 19:03:33,460 [INFO] [20/20] T3 (trampa): ¿Qué equipos jugaron la final del fútbol mexicano en 2024?
+2026-11-01 19:03:33,466 [INFO]     retrieval=0.005s  generacion=0.000s  total=0.005s
+2026-11-01 19:03:33,466 [INFO] === Listo: 20 preguntas en 0.1s -> results/retrieval/bm25/results.jsonl ===

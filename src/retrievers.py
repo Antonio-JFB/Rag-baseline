@@ -10,7 +10,6 @@ BM25Retriever         -> retrieval léxico (frecuencia de términos), método al
 import logging
 import os
 import pickle
-import re
 
 import faiss
 import numpy as np
@@ -18,6 +17,7 @@ from rank_bm25 import BM25Okapi
 from sentence_transformers import SentenceTransformer
 
 from src.interfaces import BaseRetriever, Chunk, RetrievedChunk
+from src.preprocessing import PlainPreprocessor, Preprocessor
 
 log = logging.getLogger(__name__)
 
@@ -87,17 +87,14 @@ class CosineFaissRetriever(BaseRetriever):
         return resultados
 
 
-def _tokenize(texto: str) -> list[str]:
-    return re.findall(r"\w+", texto.lower())
-
-
 class BM25Retriever(BaseRetriever):
     """Retrieval léxico clásico (Okapi BM25). Los scores NO están acotados
     0-1 como en CosineFaissRetriever -- no son comparables directamente
     entre retrievers; es una limitación a declarar al justificar métricas."""
 
-    def __init__(self, index_path: str = "bm25_index/bm25.pkl"):
+    def __init__(self, index_path: str = "bm25_index/bm25.pkl", preprocessor: Preprocessor | None = None):
         self.index_path = index_path
+        self.pre: Preprocessor = preprocessor or PlainPreprocessor()
         self.bm25: BM25Okapi | None = None
         self.chunks: list[Chunk] = []
 
@@ -115,7 +112,7 @@ class BM25Retriever(BaseRetriever):
                 f"{len(chunks)} chunks; se reconstruye."
             )
 
-        corpus = [_tokenize(c.texto) for c in chunks]
+        corpus = self.pre.tokens_many([c.texto for c in chunks])
         self.bm25 = BM25Okapi(corpus)
 
         os.makedirs(os.path.dirname(self.index_path), exist_ok=True)
@@ -123,9 +120,61 @@ class BM25Retriever(BaseRetriever):
             pickle.dump(self.bm25, f)
 
     def retrieve(self, query: str, top_k: int) -> list[RetrievedChunk]:
-        scores = self.bm25.get_scores(_tokenize(query))
+        tokens = self.pre.tokens(query)
+        if not tokens:
+            log.warning(f"La consulta no tiene terminos tras el preprocesamiento: {query!r}")
+            return []
+        scores = self.bm25.get_scores(tokens)
         top_idx = np.argsort(scores)[::-1][:top_k]
         return [
             RetrievedChunk(chunk=self.chunks[i], score=float(scores[i]))
             for i in top_idx
         ]
+
+
+class HybridRetriever(BaseRetriever):
+    """Busqueda hibrida (Configuracion 2 del RFC): fusiona el ranking semantico
+    (embeddings + coseno) con el lexico (BM25) mediante Reciprocal Rank Fusion.
+
+    RRF combina POSICIONES, no puntajes, asi que no importa que el coseno vaya de 0
+    a 1 y BM25 no este acotado. Cada chunk suma w / (k + posicion) por cada ranking
+    donde aparece. El puntaje devuelto es el puntaje fusionado (del orden de 0.01 a
+    0.03): no es comparable con el de coseno ni con el de BM25.
+
+    Los chunks que BM25 puntua en 0 (ningun termino de la consulta aparece) no
+    entran a la fusion: su orden entre ellos es arbitrario y solo meteria ruido."""
+
+    def __init__(
+        self,
+        dense: CosineFaissRetriever,
+        lexical: BM25Retriever,
+        rrf_k: int = 60,
+        dense_weight: float = 0.5,
+        lexical_weight: float = 0.5,
+        fusion_depth: int = 20,
+    ):
+        self.dense = dense
+        self.lexical = lexical
+        self.rrf_k = rrf_k
+        self.dense_weight = dense_weight
+        self.lexical_weight = lexical_weight
+        self.fusion_depth = fusion_depth
+
+    def build_index(self, chunks: list[Chunk]) -> None:
+        self.dense.build_index(chunks)
+        self.lexical.build_index(chunks)
+
+    def retrieve(self, query: str, top_k: int) -> list[RetrievedChunk]:
+        depth = max(self.fusion_depth, top_k)
+        dense_hits = self.dense.retrieve(query, depth)
+        lexical_hits = [r for r in self.lexical.retrieve(query, depth) if r.score > 0]
+
+        fused: dict[str, float] = {}
+        by_id: dict[str, Chunk] = {}
+        for weight, hits in ((self.dense_weight, dense_hits), (self.lexical_weight, lexical_hits)):
+            for rank, hit in enumerate(hits, 1):
+                by_id[hit.chunk.id] = hit.chunk
+                fused[hit.chunk.id] = fused.get(hit.chunk.id, 0.0) + weight / (self.rrf_k + rank)
+
+        ordered = sorted(fused.items(), key=lambda kv: -kv[1])[:top_k]
+        return [RetrievedChunk(chunk=by_id[cid], score=score) for cid, score in ordered]

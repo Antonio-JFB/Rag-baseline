@@ -1,0 +1,10 @@
+nombre: "Densa con control de tamaño: ventana fija de 64 palabras, sin traslape (PLN)"
+retriever: cosine
+embed_model: paraphrase-multilingual-MiniLM-L12-v2
+top_k: 5
+chunking: sliding_window
+chunk_size: 64
+chunk_overlap: 0
+index_dir: embeddings/fixed64
+ollama_model: gemma3:12b
+ollama_url: http://localhost:11434/api/generate

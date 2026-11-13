@@ -13,6 +13,7 @@ from src.interfaces import (
     BaseRetriever,
     Chunk,
     PipelineResult,
+    RetrievedChunk,
 )
 
 log = logging.getLogger(__name__)
@@ -56,6 +57,13 @@ class RAGPipeline:
 
     def index(self, chunks: list[Chunk]) -> None:
         self.retriever.build_index(chunks)
+
+    def retrieve(self, query: str, top_k: int | None = None) -> tuple[list[RetrievedChunk], float]:
+        """Solo recuperacion (sin generacion): devuelve los chunks y el tiempo de retrieval."""
+        t0 = time.time()
+        resultados = self.retriever.retrieve(query, top_k or self.top_k)
+        resultados = self.postprocessor.process(query, resultados)
+        return resultados, time.time() - t0
 
     def answer(self, query: str, top_k: int | None = None) -> PipelineResult:
         top_k = top_k or self.top_k

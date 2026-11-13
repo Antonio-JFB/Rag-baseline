@@ -1,0 +1,10 @@
+nombre: "Léxica con preprocesamiento: BM25 + lematización + palabras vacías (PLN)"
+retriever: bm25
+top_k: 5
+chunking: sliding_window
+chunk_size: 300
+chunk_overlap: 50
+index_dir: bm25_index/lemma
+lexical_preprocessing: lemma_stopwords
+ollama_model: gemma3:12b
+ollama_url: http://localhost:11434/api/generate

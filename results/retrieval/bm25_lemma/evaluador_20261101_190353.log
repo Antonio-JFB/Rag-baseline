@@ -1,0 +1,3 @@
+2026-11-01 19:03:53,426 [INFO] === evaluador.py -- config: Léxica con preprocesamiento: BM25 + lematización + palabras vacías (PLN) (configs/bm25_lemma.yaml) ===
+2026-11-01 19:03:53,429 [INFO] 20 preguntas cargadas desde evaluation/questions.json
+2026-11-01 19:03:53,474 [INFO] Indexando 1334 chunks...

@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Recuperación léxica vs. densa en español</title>
+<style>
+  :root {
+    --bg: #fafaf7; --card: #ffffff; --ink: #1c1d21; --ink2: #4a4d55; --muted: #7b7f89; --line: #e3e3dc;
+    --a: #2a6fdb;   /* Vista A: k = 5 */
+    --b: #d9822b;   /* Vista B: presupuesto igual */
+    --warn-bg: #fff4dc; --warn-line: #e8c36a; --good: #1f7a4d; --bad: #b3372c;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #15161a; --card: #1e2025; --ink: #ececf0; --ink2: #b5b8c2; --muted: #8b8f9b; --line: #33363e;
+      --a: #6ea2f5; --b: #f0a35c; --warn-bg: #3a3018; --warn-line: #7a6320; --good: #5fcf94; --bad: #f08a80;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #15161a; --card: #1e2025; --ink: #ececf0; --ink2: #b5b8c2; --muted: #8b8f9b; --line: #33363e;
+    --a: #6ea2f5; --b: #f0a35c; --warn-bg: #3a3018; --warn-line: #7a6320; --good: #5fcf94; --bad: #f08a80;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 18px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 1040px; margin: 0 auto; padding: 0 20px 80px; }
+  header { padding: 56px 0 28px; border-bottom: 1px solid var(--line); }
+  header .kicker { color: var(--muted); font-size: 15px; letter-spacing: .04em; text-transform: uppercase; }
+  h1 { font-size: 40px; line-height: 1.15; margin: 8px 0 12px; }
+  h2 { font-size: 28px; margin: 56px 0 8px; }
+  h3 { font-size: 20px; margin: 28px 0 6px; }
+  p { margin: 8px 0; color: var(--ink2); }
+  .lead { font-size: 21px; color: var(--ink); }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 20px 22px; margin: 16px 0; }
+  .grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+  .stat { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; }
+  .stat .n { font-size: 34px; font-weight: 700; line-height: 1.1; }
+  .stat .l { color: var(--ink2); font-size: 15px; margin-top: 4px; }
+  table { border-collapse: collapse; width: 100%; font-size: 16px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: .03em; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .tag { display: inline-block; font-size: 13px; padding: 1px 8px; border-radius: 999px; border: 1px solid var(--line); color: var(--ink2); }
+  .warn { background: var(--warn-bg); border: 1px solid var(--warn-line); border-radius: 12px; padding: 16px 20px; margin: 18px 0; color: var(--ink); }
+  .warn p { color: var(--ink); }
+  .legend { display: flex; gap: 22px; flex-wrap: wrap; margin: 6px 0 2px; font-size: 16px; color: var(--ink2); }
+  .sw { display: inline-block; width: 14px; height: 14px; border-radius: 3px; margin-right: 7px; vertical-align: -2px; }
+  svg text { fill: var(--ink2); font: 14px system-ui, sans-serif; }
+  svg .val { fill: var(--ink); font-weight: 600; }
+  svg .grid { stroke: var(--line); }
+  .pos { color: var(--good); font-weight: 600; } .neg { color: var(--bad); font-weight: 600; }
+  ul { margin: 6px 0 6px 22px; padding: 0; color: var(--ink2); } li { margin: 4px 0; }
+  code { background: var(--line); padding: 1px 6px; border-radius: 4px; font-size: .9em; }
+  nav { position: sticky; top: 0; background: var(--bg); border-bottom: 1px solid var(--line); z-index: 5; }
+  nav div { max-width: 1040px; margin: 0 auto; padding: 8px 20px; display: flex; gap: 16px; flex-wrap: wrap; font-size: 15px; }
+  nav a { color: var(--ink2); text-decoration: none; } nav a:hover { color: var(--ink); text-decoration: underline; }
+  nav button { margin-left: auto; background: none; border: 1px solid var(--line); color: var(--ink2); border-radius: 6px; padding: 2px 10px; cursor: pointer; }
+  @media (max-width: 640px) { h1 { font-size: 30px; } body { font-size: 17px; } main { padding: 0 16px 60px; } }
+</style>
+</head>
+<body>
+<nav><div>
+  <a href="#que">Qué hicimos</a><a href="#config">Configuraciones</a><a href="#metodo">Método</a>
+  <a href="#h1">Hallazgo 1</a><a href="#h2">Hallazgo 2</a><a href="#contrastes">Contrastes</a>
+  <a href="#limites">Límites</a><a href="#sigue">Qué sigue</a>
+  <button id="theme" type="button">Tema</button>
+</div></nav>
+<main>
+
+<header>
+  <div class="kicker">Proyecto de PLN · avance · Jesús Antonio Flores Briones</div>
+  <h1>Recuperación léxica vs. densa en español: efecto del preprocesamiento y la segmentación</h1>
+  <p class="lead">¿Cambia qué texto recupera un sistema de búsqueda según cómo se parte el corpus y si se lematiza la consulta? Experimento de <b>solo recuperación</b> sobre 19 artículos de Wikipedia de Historia de México y 20 preguntas.</p>
+  <p>Este experimento es además el primer bloque experimental de mi tesis de maestría (sistemas de retrieval para agentes de datos).</p>
+</header>
+
+<h2 id="que">Qué hicimos</h2>
+<div class="grid">
+  <div class="stat"><div class="n">6</div><div class="l">configuraciones de recuperación corridas</div></div>
+  <div class="stat"><div class="n">20</div><div class="l">preguntas (17 con respuesta + 3 trampa)</div></div>
+  <div class="stat"><div class="n">18</div><div class="l">artículos únicos (298 638 palabras)</div></div>
+  <div class="stat"><div class="n">20/20</div><div class="l">preguntas con top-5 idéntico en dos corridas (reproducible)</div></div>
+</div>
+<div class="card">
+  <ul>
+    <li><b>Corpus fijado:</b> detecté que dos archivos son idénticos byte a byte (SHA-256) y que <code>Tenochtitlan.txt</code> tiene solo 51 palabras; ambos quedan declarados. El duplicado se evalúa como un solo artículo.</li>
+    <li><b>Evaluación independiente de la segmentación:</b> la evidencia se marca por <b>oración</b>, no por chunk, para poder comparar chunkings distintos con la misma anotación.</li>
+    <li><b>Herramientas:</b> segmentación en oraciones con offsets, pooling de candidatas (741 oraciones), métricas, bootstrap, pruebas de permutación con corrección de Holm, 16 pruebas con resultado conocido.</li>
+  </ul>
+</div>
+
+<h2 id="config">Las seis configuraciones</h2>
+<div class="card">
+<table>
+<tr><th>Configuración</th><th>Qué cambia</th></tr>
+<tr><td><b>Densa (baseline)</b></td><td>Ventanas de 300 palabras (traslape 50), embeddings MiniLM multilingüe, FAISS exacto</td></tr>
+<tr><td><b>Densa + párrafos</b></td><td>Segmentación por párrafos, ≤ 85 palabras (≈ el límite de 128 tokens del modelo)</td></tr>
+<tr><td><b>Densa + ventana 64</b></td><td><i>Control de tamaño:</i> ventana fija de 64 palabras sin traslape</td></tr>
+<tr><td><b>BM25 simple</b></td><td>Recuperador léxico, minúsculas + tokens</td></tr>
+<tr><td><b>BM25 + lemas + stopwords</b></td><td>spaCy <code>es_core_news_sm</code>: lematización y palabras vacías estándar</td></tr>
+<tr><td><b>Híbrida RRF</b></td><td>Densa + BM25 simple fusionadas por rangos (k = 60, pesos 0.5/0.5)</td></tr>
+</table>
+<p style="margin-top:12px"><b>Hipótesis:</b> <b>H1</b> lematizar ayuda a BM25. <b>H2</b> parte del efecto de segmentar por párrafos es solo tamaño del chunk. <b>H3</b> lo léxico gana cuando la pregunta comparte vocabulario con su evidencia.</p>
+</div>
+
+<h2 id="metodo">Cómo se evalúa</h2>
+<div class="card">
+  <ul>
+    <li>Un chunk <b>cubre</b> una oración de evidencia si contiene ≥ 50 % de sus palabras. Métricas: P@n, Hit, MRR, <b>Recall de evidencia</b> (primaria) y densidad.</li>
+    <li>Se evalúan chunks <b>distintos</b>: una copia exacta del artículo duplicado cuenta una vez (8 de 100 huecos del top-5 del baseline eran copias).</li>
+    <li><b>Dos vistas.</b> <b>A:</b> k = 5 chunks (como en la tesis). <b>B:</b> mismo <i>presupuesto de contexto</i> (≈ 1 450 palabras), porque 5 chunks de 300 palabras entregan 4.5 veces más texto que 5 de ~65.</li>
+    <li>n = 17 preguntas: intervalos bootstrap sobre preguntas y corrección de Holm en 7 contrastes planeados.</li>
+  </ul>
+</div>
+
+<div class="warn">
+  <p><b>Estado de los resultados: provisionales.</b> Todavía falta mi anotación humana de evidencia. Las cifras de abajo usan una métrica automática (<b>proxy</b>: cobertura de los puntos clave de cada pregunta en el texto recuperado), que es una heurística por coincidencia de tokens. Sirve para validar el pipeline y orientar, no para concluir.</p>
+</div>
+
+<h2 id="h1">Hallazgo 1 — el «castigo» de los chunks chicos era un artefacto del contexto</h2>
+<p class="lead">Con k = 5 los chunks de párrafo y de 64 palabras parecen perder mucho. A igual cantidad de texto recuperado, la diferencia desaparece.</p>
+<div class="card">
+  <div class="legend">
+    <span><span class="sw" style="background:var(--a)"></span>Vista A: k = 5 chunks</span>
+    <span><span class="sw" style="background:var(--b)"></span>Vista B: mismo contexto (≈ 1 450 palabras)</span>
+  </div>
+  <div id="chart1"></div>
+  <p style="font-size:15px;color:var(--muted)">Cobertura de puntos clave (0–1), media sobre 17 preguntas; bigotes = IC 95 % bootstrap. Las configuraciones de chunks grandes (baseline, BM25, híbrida) tienen el mismo resultado en ambas vistas porque ya entregan ≈ 1 450 palabras.</p>
+  <table style="margin-top:10px">
+    <tr><th>Configuración</th><th class="num">Palabras recuperadas (A)</th><th class="num">Palabras recuperadas (B)</th></tr>
+    <tr><td>Densa + párrafos</td><td class="num">322</td><td class="num">1 485 (22 chunks)</td></tr>
+    <tr><td>Densa + ventana 64</td><td class="num">320</td><td class="num">1 472 (23 chunks)</td></tr>
+    <tr><td>Densa baseline</td><td class="num">1 450</td><td class="num">1 450 (5 chunks)</td></tr>
+  </table>
+</div>
+<p><b>Lectura:</b> en la Vista A, párrafos − baseline = <span class="neg">−0.33</span> (significativo tras Holm). En la Vista B = <b>−0.03</b>, IC [−0.18, +0.10]. La pérdida se explica por entregar ≈ 4.5 veces menos texto, no por segmentar. Por eso H2 necesita el control de tamaño y la vista a presupuesto igual.</p>
+
+<h2 id="h2">Hallazgo 2 — datos descriptivos (no dependen de la anotación)</h2>
+<div class="grid">
+  <div class="stat"><div class="n">100 %</div><div class="l">de los chunks del baseline exceden los 128 tokens del modelo de embeddings (14 % con párrafos, 1 % con ventana 64)</div></div>
+  <div class="stat"><div class="n">0 / 20</div><div class="l">preguntas con el mismo top-5 entre BM25 simple y BM25 lematizado (Jaccard medio 0.35)</div></div>
+  <div class="stat"><div class="n">2.5 ms</div><div class="l">BM25 simple; densas 18–22 ms; híbrida 24 ms (mediana de recuperación)</div></div>
+</div>
+<div class="card">
+  <p><b>Palabras vacías con consecuencias:</b> la lista estándar de spaCy elimina «último» de «¿Quién fue el último emperador azteca?», que queda como «emperador azteca». Su efecto real en F5 solo se sabrá con la anotación. La lista <b>no</b> se ajustó a las preguntas, para no sobreajustar.</p>
+</div>
+
+<h2 id="contrastes">Contrastes planeados (métrica proxy, n = 17)</h2>
+<div class="card">
+<table>
+<tr><th>Contraste (A − B)</th><th class="num">Vista A (k = 5)</th><th class="num">Vista B (mismo contexto)</th></tr>
+<tr><td><b>H1</b> BM25 lemas − BM25 simple</td><td class="num">+0.040 [−0.05, +0.14]</td><td class="num">+0.040 [−0.05, +0.14]</td></tr>
+<tr><td><b>H2a</b> párrafos − baseline (efecto total)</td><td class="num neg">−0.334 [−0.49, −0.20]</td><td class="num">−0.032 [−0.18, +0.10]</td></tr>
+<tr><td><b>H2b</b> ventana 64 − baseline (solo tamaño)</td><td class="num neg">−0.305 [−0.46, −0.17]</td><td class="num">+0.059 [−0.08, +0.20]</td></tr>
+<tr><td><b>H2c</b> párrafos − ventana 64 (estructura)</td><td class="num">−0.029 [−0.12, +0.06]</td><td class="num">−0.091 [−0.23, +0.05]</td></tr>
+<tr><td><b>H3</b> BM25 simple − densa</td><td class="num">−0.050 [−0.25, +0.14]</td><td class="num">−0.050 [−0.25, +0.14]</td></tr>
+<tr><td><b>Hy1</b> híbrida − densa</td><td class="num">+0.025 [−0.05, +0.11]</td><td class="num">+0.025 [−0.05, +0.11]</td></tr>
+<tr><td><b>Hy2</b> híbrida − BM25 simple</td><td class="num">+0.074 [−0.06, +0.21]</td><td class="num">+0.074 [−0.06, +0.21]</td></tr>
+</table>
+<p style="font-size:15px;color:var(--muted);margin-top:8px">Diferencia de medias con IC 95 % bootstrap entre corchetes. Solo H2a y H2b en la Vista A son significativas tras Holm (p = 0.003 y 0.006), y ese efecto desaparece en la Vista B. Ningún otro contraste se distingue de cero con n = 17.</p>
+</div>
+<ul>
+  <li><b>H1 (lemas):</b> el proxy no detecta efecto (4 mejoras, 11 empates, 2 empeoramientos). No se concluye nada hasta tener la anotación humana.</li>
+  <li><b>Híbrida:</b> el valor puntual es el más alto (0.62), pero no se distingue de las demás.</li>
+</ul>
+
+<h2 id="limites">Límites que declaro</h2>
+<div class="card"><ul>
+  <li><b>La métrica es un proxy.</b> Su MRR penaliza estructuralmente a chunks chicos (un chunk de 64 palabras casi nunca contiene la mitad de los puntos clave), por lo que no lo interpreto entre tamaños distintos.</li>
+  <li><b>n = 17</b>, un solo anotador, un solo modelo de embeddings (MiniLM, 128 tokens), un lematizador pequeño y un solo corpus enciclopédico.</li>
+  <li><b>Sesgo del pooling:</b> la evidencia que ningún método propuso queda sin juzgar.</li>
+  <li>La segmentación en oraciones es heurística; probada con casos sintéticos, no auditada sobre todo el corpus.</li>
+  <li>Hiperparámetros sin ajustar (k de RRF, 85 palabras): ajustarlos con las mismas 20 preguntas sería sobreajustar.</li>
+</ul></div>
+
+<h2 id="sigue">Qué sigue</h2>
+<div class="card"><ol style="color:var(--ink2);margin:4px 0 4px 22px;padding:0">
+  <li><b>Anotar la evidencia</b> (741 oraciones candidatas, ~2 h). Es lo que convierte estos resultados provisionales en definitivos.</li>
+  <li>Correr las métricas humanas y <b>validar el proxy</b> contra la anotación (si no correlaciona, se descarta).</li>
+  <li>Análisis de sensibilidad del umbral de cobertura (50 %) y análisis de errores por pregunta.</li>
+  <li>Redactar el reporte del curso.</li>
+</ol>
+<p><b>Relación con la tesis:</b> las configuraciones de párrafos, ventana 64, BM25 e híbrida son configuraciones de la Fase 2; la evidencia por oración es un gold reutilizable (también para reranking). Generación, fidelidad y producto quedan solo en la tesis.</p></div>
+
+</main>
+
+<script>
+(function () {
+  // Datos: [etiqueta, A, A_lo, A_hi, B, B_lo, B_hi]
+  var D = [
+    ["Densa baseline",          0.59, 0.44, 0.74, 0.59, 0.44, 0.74],
+    ["Densa + párrafos",        0.26, 0.14, 0.39, 0.56, 0.42, 0.69],
+    ["Densa + ventana 64",      0.29, 0.16, 0.42, 0.65, 0.54, 0.77],
+    ["BM25 simple",             0.54, 0.38, 0.71, 0.54, 0.38, 0.71],
+    ["BM25 + lemas + stopwords",0.58, 0.46, 0.71, 0.58, 0.46, 0.71],
+    ["Híbrida RRF",             0.62, 0.49, 0.74, 0.62, 0.49, 0.74]
+  ];
+  var W = 960, left = 210, right = 30, top = 14, rowH = 58, barH = 18, gap = 4;
+  var H = top + D.length * rowH + 34;
+  var x = function (v) { return left + v * (W - left - right); };
+  var s = '<svg viewBox="0 0 ' + W + ' ' + H + '" width="100%" role="img" aria-label="Cobertura de puntos clave por configuración en las vistas A y B">';
+  for (var g = 0; g <= 1.0001; g += 0.2) {
+    s += '<line class="grid" x1="' + x(g) + '" x2="' + x(g) + '" y1="' + top + '" y2="' + (H - 28) + '"/>' +
+         '<text x="' + x(g) + '" y="' + (H - 8) + '" text-anchor="middle">' + g.toFixed(1) + '</text>';
+  }
+  D.forEach(function (d, i) {
+    var y = top + i * rowH + 6;
+    s += '<text x="' + (left - 12) + '" y="' + (y + barH + 2) + '" text-anchor="end" style="fill:var(--ink)">' + d[0] + '</text>';
+    [[1, 'var(--a)'], [4, 'var(--b)']].forEach(function (p, k) {
+      var v = d[p[0]], lo = d[p[0] + 1], hi = d[p[0] + 2], yy = y + k * (barH + gap);
+      s += '<rect x="' + left + '" y="' + yy + '" width="' + (x(v) - left) + '" height="' + barH + '" rx="3" fill="' + p[1] + '"/>' +
+           '<line x1="' + x(lo) + '" x2="' + x(hi) + '" y1="' + (yy + barH / 2) + '" y2="' + (yy + barH / 2) + '" stroke="var(--ink)" stroke-width="1.5"/>' +
+           '<line x1="' + x(lo) + '" x2="' + x(lo) + '" y1="' + (yy + 4) + '" y2="' + (yy + barH - 4) + '" stroke="var(--ink)" stroke-width="1.5"/>' +
+           '<line x1="' + x(hi) + '" x2="' + x(hi) + '" y1="' + (yy + 4) + '" y2="' + (yy + barH - 4) + '" stroke="var(--ink)" stroke-width="1.5"/>' +
+           '<text class="val" x="' + (x(hi) + 8) + '" y="' + (yy + barH - 4) + '">' + v.toFixed(2) + '</text>';
+    });
+  });
+  s += '</svg>';
+  document.getElementById('chart1').innerHTML = s;
+
+  var root = document.documentElement, btn = document.getElementById('theme');
+  btn.addEventListener('click', function () {
+    var dark = root.getAttribute('data-theme') === 'dark' ||
+      (!root.getAttribute('data-theme') && matchMedia('(prefers-color-scheme: dark)').matches);
+    root.setAttribute('data-theme', dark ? 'light' : 'dark');
+  });
+})();
+</script>
+</body>
+</html>
