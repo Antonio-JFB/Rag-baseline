@@ -2,7 +2,7 @@
 
 **Efecto del preprocesamiento y la segmentación.** Bloque experimental para el proyecto del curso de PLN, diseñado para reutilizarse en la Fase 2 de la tesis (ver §9).
 
-**Estado (08/11/2026):** corridas hechas y verificadas (reproducibles), herramientas de evaluación probadas, resultados provisionales con métrica automática (proxy). **Falta la anotación humana de evidencia** (§6), que es lo que convierte los resultados provisionales en resultados.
+**Estado (24/11/2026):** corridas hechas y verificadas (reproducibles), herramientas probadas y **anotación humana completa** (20 preguntas, 168 oraciones de evidencia). Resultados definitivos en §7 (n = 17, un solo anotador). Pendientes: sensibilidad al umbral de cobertura, análisis de errores, consistencia de la anotación y reporte (§10).
 
 ---
 
@@ -90,7 +90,9 @@ python evaluation/test_pln.py                                  # pruebas con res
 
 (`python` = `./venv/Scripts/python.exe`.) Los registros de recuperación ahora guardan `chunk_id` y offsets.
 
-## 6. Qué te toca hacer: la anotación
+## 6. La anotación (hecha; instrucciones conservadas para repetirla)
+
+> **Estado:** completa para las 20 preguntas. Para re-anotar un subconjunto (consistencia intra-anotador) se usa la misma hoja en una copia, sin consultar la anterior.
 
 Archivo: **`results/pln/anotacion_evidencia.md`** — 741 oraciones candidatas en 20 preguntas (30–43 por pregunta). Marca `[x]` en *Evidencia* y marca **Anotada** al terminar cada pregunta. Las reglas están en el encabezado de la hoja.
 
@@ -102,37 +104,71 @@ Archivo: **`results/pln/anotacion_evidencia.md`** — 741 oraciones candidatas e
 
 El pool se armó con: top-8 por búsqueda densa, BM25 simple y BM25 lematizado sobre las **oraciones** del corpus, oraciones con puntos clave, y la mejor oración de cada chunk que alguna configuración recuperó. Lo que no aparece en la hoja se asume no relevante (supuesto estándar de *pooling*); si ves evidencia faltante, añade una fila con su `Ref`.
 
-## 7. Resultados provisionales (proxy, sin anotación humana)
+## 7. Resultados (con anotación humana)
 
-Métrica proxy = cobertura de los puntos clave de `questions.json` en el texto recuperado. **Es heurística** (coincidencia de tokens): sirve para probar el pipeline y orientar, no para concluir. Tabla completa en `results/pln/analisis.md`.
+Evidencia anotada por oración sobre las 20 preguntas (única anotadora: Jesús). Las 17 preguntas con respuesta suman **168 oraciones de evidencia** (media 9.8, mediana 8, mín. 3, máx. 28; V1 = 23 y V2 = 28 son las extremas). T1 tiene 1 oración de evidencia en el corpus; T2 y T3 ninguna. Tablas completas con IC y contrastes en `results/pln/analisis.md` y `results/pln/metricas.json`.
 
-**Lo que ya se puede afirmar (descriptivo, no depende de la anotación):**
+**Qué se afirma sin depender de la anotación (descriptivo):**
 - Chunks que exceden los 128 tokens del modelo de embeddings: **100 %** en el baseline, 14 % con párrafos, 1 % con ventana 64.
-- Recuperación determinista en las seis configuraciones.
+- Recuperación determinista en las seis configuraciones (20/20 preguntas con el mismo top-5 en dos corridas).
 - Lematizar cambia mucho qué se recupera: el top-5 de BM25 simple y BM25 lematizado es **idéntico en 0/20 preguntas** (Jaccard medio 0.35).
-- La lista estándar de palabras vacías elimina «último» de «¿Quién fue el último emperador azteca?» (F5), que queda como «emperador azteca»; el efecto sobre F5 solo se sabe con la anotación.
+- La lista estándar de palabras vacías elimina «último» de «¿Quién fue el último emperador azteca?» (F5). Con la anotación: BM25 simple y BM25 lematizado obtienen el mismo Recall en F5 (0.25), así que quitar «último» no la perjudicó; la densa y la híbrida obtienen 0.
 - Latencia de recuperación (mediana, sin la primera pregunta): densas 18–22 ms, BM25 2.5 ms, BM25 lematizado 4 ms (incluye lematizar la consulta), híbrida 24 ms.
 
-**Resultados con el proxy (n = 17):**
+### 7.1 Métricas humanas (n = 17; media [IC 95 % bootstrap])
 
-| | Cobertura Vista A (k = 5) | Cobertura Vista B (presupuesto igual) |
-|---|---|---|
-| Densa baseline | 0.59 | 0.59 |
-| Densa + párrafos | 0.26 | 0.56 |
-| Densa + ventana 64 | 0.29 | 0.65 |
-| BM25 simple | 0.54 | 0.54 |
-| BM25 + lemas + stopwords | 0.58 | 0.58 |
-| Híbrida RRF | 0.62 | 0.62 |
+**Vista A (k = 5 chunks):**
 
-- **El «castigo» de los chunks chicos en la Vista A (−0.33 y −0.31, significativo tras Holm) desaparece en la Vista B** (párrafos − baseline = −0.03, IC [−0.18, +0.10]). La pérdida en k = 5 se explica por entregar ≈ 4.5 veces menos texto, no por segmentar. Esto confirma por qué H2 necesita el control y la vista a presupuesto igual.
-- H1 (lemas): +0.04, IC [−0.05, +0.14]; 4 mejoras, 11 empates, 2 empeoramientos. El proxy no detecta efecto. No se concluye nada hasta tener la métrica humana.
-- Híbrida ≥ las demás en el valor puntual, pero ninguna diferencia es distinguible de cero.
-- El MRR del proxy (≥ 50 % de los puntos clave en un solo chunk) **penaliza estructuralmente a los chunks chicos** (un chunk de 64 palabras casi nunca contiene la mitad de los puntos clave); no lo interpretes entre tamaños distintos.
+| Configuración | P@5 | Hit@5 | MRR | Recall de evidencia (primaria) | Densidad |
+|---|---|---|---|---|---|
+| Densa baseline (300/50) | 0.33 | 0.94 | 0.66 | 0.19 [0.14, 0.25] | 0.04 |
+| Densa + párrafos | 0.27 | 0.76 | 0.53 | 0.14 [0.09, 0.20] | 0.13 |
+| Densa + ventana 64 | 0.27 | 0.71 | 0.51 | 0.16 [0.09, 0.25] | 0.14 |
+| BM25 simple | 0.28 | 0.76 | 0.42 | 0.18 [0.10, 0.28] | 0.04 |
+| BM25 + lemas + stopwords | 0.39 | 0.94 | 0.60 | 0.25 [0.18, 0.31] | 0.05 |
+| Híbrida RRF | 0.38 | 0.88 | 0.68 | 0.22 [0.15, 0.31] | 0.05 |
+
+**Vista B (mismo presupuesto de contexto, ≈ 1 450 palabras).** Solo cambian las dos configuraciones de chunks chicos; el resto coincide con la Vista A:
+
+| Configuración | P@n | Hit | MRR | Recall de evidencia (primaria) | Densidad |
+|---|---|---|---|---|---|
+| Densa + párrafos (22 chunks) | 0.14 | 0.88 | 0.54 | **0.32** [0.23, 0.42] | 0.07 |
+| Densa + ventana 64 (23 chunks) | 0.12 | 1.00 | 0.53 | **0.30** [0.23, 0.37] | 0.06 |
+
+El Recall absoluto es bajo (0.14–0.32) porque cada pregunta tiene en promedio unas 10 oraciones de evidencia y solo se recupera una cantidad fija de texto; se interpreta en términos relativos.
+
+### 7.2 Contrastes planeados sobre el Recall (p Holm sobre 7 contrastes)
+
+| Contraste | Vista A | p Holm | Vista B | p Holm |
+|---|---|---|---|---|
+| **H1** BM25 lemas − BM25 simple | +0.063 [−0.006, +0.133] | 0.656 | igual | 0.547 |
+| **H2a** párrafos − baseline (efecto total) | −0.052 [−0.104, −0.010] | 0.438 | **+0.132 [+0.052, +0.210]** | **0.047** |
+| **H2b** ventana 64 − baseline (solo tamaño) | −0.032 [−0.106, +0.047] | 1.000 | **+0.107 [+0.046, +0.171]** | **0.041** |
+| **H2c** párrafos − ventana 64 (estructura) | −0.020 [−0.125, +0.063] | 1.000 | +0.025 [−0.046, +0.101] | 1.000 |
+| **H3** BM25 simple − densa | −0.009 [−0.088, +0.069] | 1.000 | igual | 1.000 |
+| **Hy1** híbrida − densa | +0.032 [−0.021, +0.084] | 1.000 | igual | 1.000 |
+| **Hy2** híbrida − BM25 simple | +0.041 [−0.036, +0.117] | 1.000 | igual | 1.000 |
+
+### 7.3 Lectura por hipótesis
+
+- **H2 (segmentación y tamaño): hay efecto y es de tamaño, no de estructura.** Con k = 5 los chunks chicos no ganan en Recall porque entregan ≈ 4.5 veces menos texto. A igual contexto recuperan más evidencia que el baseline (H2a +0.132, H2b +0.107; ganan 9, empatan 7, pierden 1), y párrafos frente a ventana de 64 no se distingue de cero (H2c). Respetar la estructura de párrafos no aporta más que usar chunks chicos. **Contrapartida:** a igual contexto la precisión cae (P@n 0.33 → 0.14 y 0.12, peor en 16 de 17 preguntas, exploratorio). La densidad por palabra recuperada mejora con k = 5 (0.04 → 0.13 y 0.14, Holm 0.006 y 0.017). Significativo por poco tras Holm y con n = 17: evidencia a favor, no resultado cerrado.
+- **H1 (lemas): tendencia, no confirmada.** Recall +0.063 (6 gana, 9 empatan, 2 pierden). En Hit@5 mejora en 3 preguntas, empata en 14 y no empeora en ninguna; P@5 +0.109 [+0.009, +0.218]; MRR +0.18 (exploratorios). La dirección es consistente, pero n = 17 no alcanza tras Holm.
+- **H3 (léxica vs. densa): no se sostiene.** El Recall es prácticamente igual (−0.009) y separar las preguntas por solapamiento léxico con su evidencia (alto n = 8, bajo n = 9; mediana 0.67) no cambia el resultado. La densa pone antes el primer resultado relevante (MRR −0.24 a favor de la densa, p = 0.027 sin corregir, Holm 0.19; exploratorio).
+- **Híbrida:** sin diferencias significativas; MRR numéricamente más alto (0.68). BM25 lematizado tiene el mejor Recall con k = 5 (0.25).
+- **Por tipo de pregunta (ilustrativo, 2–5 casos por tipo):** BM25 lematizado es mejor en relacionales (0.35) y factuales (0.32); la híbrida en causalidad (0.25) y comparativas (0.21).
+
+### 7.4 Validez del proxy: descartado
+
+La cobertura de puntos clave (proxy) correlaciona **r = 0.39** con el Recall humano (n = 102 pares configuración × pregunta). Además falla donde importa: a igual contexto el proxy daba H2a = −0.03 y la anotación humana da **+0.132**. Los resultados con proxy de versiones anteriores de este documento y de `presentacion_pln.html` quedan **retirados**; no deben citarse. El proxy solo se conserva como diagnóstico de pipeline.
+
+### 7.5 Preguntas trampa
+
+Ninguna configuración tiene umbral de rechazo y los puntajes del primer resultado no son comparables entre métodos (coseno 0–1, BM25 sin cota, RRF ≈ 0.01). T1 sí tiene una oración de evidencia en el corpus (juramentación de la presidenta, 1 de octubre de 2024), así que su estatus como «trampa» depende de la fecha de corte del corpus. El rechazo es tarea de la fase de generación (tesis).
 
 ## 8. Amenazas a la validez
 
 1. **n = 17** y 5 tipos de pregunta con 2–5 casos cada uno: el análisis por tipo es ilustrativo.
-2. **Un solo anotador** (tú). No hay acuerdo entre anotadores. Mitigación posible: que otra persona anote 5–6 preguntas y reportar acuerdo (κ).
+2. **Un solo anotador** (tú). No hay acuerdo entre anotadores ni se ha medido la consistencia intra-anotador. Mitigación posible: re-anotar ~3 preguntas sin mirar la anotación previa, o que otra persona anote 5–6 y reportar acuerdo (κ).
 3. **Sesgo del pooling:** la evidencia que ningún método propuso queda sin juzgar; favorece a métodos parecidos a los del pool.
 4. **Un solo modelo de embeddings** (MiniLM, 128 tokens) y un lematizador pequeño (`es_core_news_sm`); no hay conclusiones sobre «lo denso» en general. No se revisó la calidad de la lematización más allá de ejemplos (p. ej. «tlaxcaltecas» → «tlaxcalteca», «mexicana» → «mexicano»).
 5. **Un solo corpus** de dominio histórico-enciclopédico; fechas y nombres propios favorecen lo léxico.
@@ -154,9 +190,9 @@ La reutilización debe **declararse por escrito** al profesor del curso y al dir
 
 ## 10. Pendiente
 
-1. **Anotar** (§6): bloquea todos los resultados definitivos.
-2. Re-correr `pln_metrics.py`, revisar el proxy contra el gold humano (correlación, §5 de `analisis.md`) y decidir si el proxy se descarta.
-3. Análisis de sensibilidad del umbral de cobertura; opcionalmente acuerdo entre anotadores en un subconjunto.
+1. ~~Anotar (§6)~~ **Hecho.**
+2. ~~Re-correr `pln_metrics.py` y validar el proxy~~ **Hecho:** r = 0.39, proxy descartado (§7.4).
+3. Análisis de sensibilidad del umbral de cobertura (30 %, 50 %, 100 %); re-anotación de ~3 preguntas (consistencia) o acuerdo entre anotadores en un subconjunto.
 4. Análisis cualitativo de errores (qué preguntas pierde cada método y por qué).
 5. Redactar el reporte del curso con las tablas de `analisis.md`.
 6. **Commit (lo haces tú):** `.gitignore`, `evaluation/{evaluador,evidence,pln_pool,pln_metrics,test_pln}.py`, `EXPERIMENTO_PLN.md`, `results/pln/` (sin `cache/`, ya ignorado).

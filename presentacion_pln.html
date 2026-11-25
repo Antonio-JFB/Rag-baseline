@@ -114,18 +114,18 @@
 </div>
 
 <div class="warn">
-  <p><b>Estado de los resultados: provisionales.</b> Todavía falta mi anotación humana de evidencia. Las cifras de abajo usan una métrica automática (<b>proxy</b>: cobertura de los puntos clave de cada pregunta en el texto recuperado), que es una heurística por coincidencia de tokens. Sirve para validar el pipeline y orientar, no para concluir.</p>
+  <p><b>Estado de los resultados: con anotación humana.</b> Anoté la evidencia de las 20 preguntas (168 oraciones de evidencia en las 17 con respuesta). Es <b>un solo anotador</b> y n = 17, así que las conclusiones se formulan con cautela. La métrica automática que usé al principio (cobertura de puntos clave) <b>correlaciona solo r = 0.39</b> con mi anotación y la descarté.</p>
 </div>
 
-<h2 id="h1">Hallazgo 1 — el «castigo» de los chunks chicos era un artefacto del contexto</h2>
-<p class="lead">Con k = 5 los chunks de párrafo y de 64 palabras parecen perder mucho. A igual cantidad de texto recuperado, la diferencia desaparece.</p>
+<h2 id="h1">Hallazgo 1 — a igual contexto, los chunks chicos recuperan más evidencia, y es por tamaño</h2>
+<p class="lead">Con k = 5, los chunks de párrafo y de 64 palabras no ganan: entregan 4.5 veces menos texto. Cuando cada configuración recibe el mismo contexto (≈ 1 450 palabras), recuperan más evidencia que el baseline de 300 palabras. Párrafos y ventana de 64 no se distinguen entre sí.</p>
 <div class="card">
   <div class="legend">
     <span><span class="sw" style="background:var(--a)"></span>Vista A: k = 5 chunks</span>
     <span><span class="sw" style="background:var(--b)"></span>Vista B: mismo contexto (≈ 1 450 palabras)</span>
   </div>
   <div id="chart1"></div>
-  <p style="font-size:15px;color:var(--muted)">Cobertura de puntos clave (0–1), media sobre 17 preguntas; bigotes = IC 95 % bootstrap. Las configuraciones de chunks grandes (baseline, BM25, híbrida) tienen el mismo resultado en ambas vistas porque ya entregan ≈ 1 450 palabras.</p>
+  <p style="font-size:15px;color:var(--muted)">Recall de evidencia (fracción de las oraciones de evidencia cubiertas), media sobre 17 preguntas; bigotes = IC 95 % bootstrap. Las configuraciones de chunks grandes (baseline, BM25, híbrida) tienen el mismo resultado en ambas vistas porque ya entregan ≈ 1 450 palabras. El Recall absoluto es bajo porque cada pregunta tiene unas 10 oraciones de evidencia (hasta 28) y se recupera una cantidad fija de texto: léelo en términos relativos.</p>
   <table style="margin-top:10px">
     <tr><th>Configuración</th><th class="num">Palabras recuperadas (A)</th><th class="num">Palabras recuperadas (B)</th></tr>
     <tr><td>Densa + párrafos</td><td class="num">322</td><td class="num">1 485 (22 chunks)</td></tr>
@@ -133,41 +133,48 @@
     <tr><td>Densa baseline</td><td class="num">1 450</td><td class="num">1 450 (5 chunks)</td></tr>
   </table>
 </div>
-<p><b>Lectura:</b> en la Vista A, párrafos − baseline = <span class="neg">−0.33</span> (significativo tras Holm). En la Vista B = <b>−0.03</b>, IC [−0.18, +0.10]. La pérdida se explica por entregar ≈ 4.5 veces menos texto, no por segmentar. Por eso H2 necesita el control de tamaño y la vista a presupuesto igual.</p>
+<p><b>Lectura:</b> en la Vista A (k = 5) no hay diferencia significativa en Recall (párrafos − baseline = −0.05, Holm 0.44). En la Vista B (mismo contexto) párrafos − baseline = <span class="pos">+0.132</span> [+0.05, +0.21] (Holm 0.047) y ventana 64 − baseline = <span class="pos">+0.107</span> [+0.05, +0.17] (Holm 0.041). Párrafos − ventana 64 = +0.025 [−0.05, +0.10], que no se distingue de cero. <b>Respetar la estructura de párrafos no aporta más que usar chunks chicos.</b></p>
+<div class="card">
+  <p><b>Contrapartida: precisión.</b> A igual contexto, los chunks chicos son menos precisos: P@n baja de 0.33 (baseline) a 0.14 (párrafos) y 0.12 (ventana 64), con 16 de 17 preguntas peor. Recuperan más evidencia, pero también más texto no relevante. La densidad de evidencia por palabra recuperada sí mejora con k = 5 (0.04 → 0.13 y 0.14).</p>
+  <p>Con n = 17 y corrección de Holm, el efecto en Recall es significativo por poco; lo presento como evidencia a favor, no como resultado cerrado.</p>
+</div>
 
-<h2 id="h2">Hallazgo 2 — datos descriptivos (no dependen de la anotación)</h2>
+<h2 id="h2">Hallazgo 2 — datos descriptivos (no dependen de la anotación) y un caso</h2>
 <div class="grid">
   <div class="stat"><div class="n">100 %</div><div class="l">de los chunks del baseline exceden los 128 tokens del modelo de embeddings (14 % con párrafos, 1 % con ventana 64)</div></div>
   <div class="stat"><div class="n">0 / 20</div><div class="l">preguntas con el mismo top-5 entre BM25 simple y BM25 lematizado (Jaccard medio 0.35)</div></div>
   <div class="stat"><div class="n">2.5 ms</div><div class="l">BM25 simple; densas 18–22 ms; híbrida 24 ms (mediana de recuperación)</div></div>
 </div>
 <div class="card">
-  <p><b>Palabras vacías con consecuencias:</b> la lista estándar de spaCy elimina «último» de «¿Quién fue el último emperador azteca?», que queda como «emperador azteca». Su efecto real en F5 solo se sabrá con la anotación. La lista <b>no</b> se ajustó a las preguntas, para no sobreajustar.</p>
+  <p><b>Palabras vacías con consecuencias:</b> la lista estándar de spaCy elimina «último» de «¿Quién fue el último emperador azteca?», que queda como «emperador azteca». Con la anotación, en esa pregunta (F5) BM25 simple y BM25 con lemas obtienen el mismo Recall (0.25), así que quitar «último» no la perjudicó. La densa y la híbrida obtienen 0. La lista <b>no</b> se ajustó a las preguntas, para no sobreajustar.</p>
 </div>
 
-<h2 id="contrastes">Contrastes planeados (métrica proxy, n = 17)</h2>
+<h2 id="contrastes">Contrastes planeados (Recall de evidencia humano, n = 17)</h2>
 <div class="card">
 <table>
 <tr><th>Contraste (A − B)</th><th class="num">Vista A (k = 5)</th><th class="num">Vista B (mismo contexto)</th></tr>
-<tr><td><b>H1</b> BM25 lemas − BM25 simple</td><td class="num">+0.040 [−0.05, +0.14]</td><td class="num">+0.040 [−0.05, +0.14]</td></tr>
-<tr><td><b>H2a</b> párrafos − baseline (efecto total)</td><td class="num neg">−0.334 [−0.49, −0.20]</td><td class="num">−0.032 [−0.18, +0.10]</td></tr>
-<tr><td><b>H2b</b> ventana 64 − baseline (solo tamaño)</td><td class="num neg">−0.305 [−0.46, −0.17]</td><td class="num">+0.059 [−0.08, +0.20]</td></tr>
-<tr><td><b>H2c</b> párrafos − ventana 64 (estructura)</td><td class="num">−0.029 [−0.12, +0.06]</td><td class="num">−0.091 [−0.23, +0.05]</td></tr>
-<tr><td><b>H3</b> BM25 simple − densa</td><td class="num">−0.050 [−0.25, +0.14]</td><td class="num">−0.050 [−0.25, +0.14]</td></tr>
-<tr><td><b>Hy1</b> híbrida − densa</td><td class="num">+0.025 [−0.05, +0.11]</td><td class="num">+0.025 [−0.05, +0.11]</td></tr>
-<tr><td><b>Hy2</b> híbrida − BM25 simple</td><td class="num">+0.074 [−0.06, +0.21]</td><td class="num">+0.074 [−0.06, +0.21]</td></tr>
+<tr><td><b>H1</b> BM25 lemas − BM25 simple</td><td class="num">+0.063 [−0.006, +0.133]</td><td class="num">+0.063 [−0.006, +0.133]</td></tr>
+<tr><td><b>H2a</b> párrafos − baseline (efecto total)</td><td class="num">−0.052 [−0.104, −0.010]</td><td class="num pos">+0.132 [+0.052, +0.210]</td></tr>
+<tr><td><b>H2b</b> ventana 64 − baseline (solo tamaño)</td><td class="num">−0.032 [−0.106, +0.047]</td><td class="num pos">+0.107 [+0.046, +0.171]</td></tr>
+<tr><td><b>H2c</b> párrafos − ventana 64 (estructura)</td><td class="num">−0.020 [−0.125, +0.063]</td><td class="num">+0.025 [−0.046, +0.101]</td></tr>
+<tr><td><b>H3</b> BM25 simple − densa</td><td class="num">−0.009 [−0.088, +0.069]</td><td class="num">−0.009 [−0.088, +0.069]</td></tr>
+<tr><td><b>Hy1</b> híbrida − densa</td><td class="num">+0.032 [−0.021, +0.084]</td><td class="num">+0.032 [−0.021, +0.084]</td></tr>
+<tr><td><b>Hy2</b> híbrida − BM25 simple</td><td class="num">+0.041 [−0.036, +0.117]</td><td class="num">+0.041 [−0.036, +0.117]</td></tr>
 </table>
-<p style="font-size:15px;color:var(--muted);margin-top:8px">Diferencia de medias con IC 95 % bootstrap entre corchetes. Solo H2a y H2b en la Vista A son significativas tras Holm (p = 0.003 y 0.006), y ese efecto desaparece en la Vista B. Ningún otro contraste se distingue de cero con n = 17.</p>
+<p style="font-size:15px;color:var(--muted);margin-top:8px">Diferencia de medias con IC 95 % bootstrap entre corchetes. Con la corrección de Holm sobre 7 contrastes, solo H2a y H2b de la Vista B son significativas (p Holm = 0.047 y 0.041). Ningún otro contraste se distingue de cero con n = 17.</p>
 </div>
 <ul>
-  <li><b>H1 (lemas):</b> el proxy no detecta efecto (4 mejoras, 11 empates, 2 empeoramientos). No se concluye nada hasta tener la anotación humana.</li>
-  <li><b>Híbrida:</b> el valor puntual es el más alto (0.62), pero no se distingue de las demás.</li>
+  <li><b>H1 (lemas):</b> tendencia, no confirmada. Recall +0.063 (Holm 0.55). En Hit@5 mejora en 3 preguntas, empata en 14 y no empeora en ninguna; P@5 sube +0.109 [+0.009, +0.218] (exploratorio). La dirección es consistente, pero n = 17 no alcanza para confirmarla.</li>
+  <li><b>H3 (léxica vs. densa):</b> no se sostiene. El Recall es prácticamente igual (−0.009) y separar las preguntas por solapamiento léxico con su evidencia no cambia el resultado. La densa pone antes el primer resultado relevante (MRR 0.66 vs. 0.42, exploratorio, no significativo tras Holm).</li>
+  <li><b>Híbrida:</b> sin diferencias significativas; tiene el MRR más alto (0.68) y BM25 con lemas el mejor Recall con k = 5 (0.25).</li>
 </ul>
 
 <h2 id="limites">Límites que declaro</h2>
 <div class="card"><ul>
-  <li><b>La métrica es un proxy.</b> Su MRR penaliza estructuralmente a chunks chicos (un chunk de 64 palabras casi nunca contiene la mitad de los puntos clave), por lo que no lo interpreto entre tamaños distintos.</li>
-  <li><b>n = 17</b>, un solo anotador, un solo modelo de embeddings (MiniLM, 128 tokens), un lematizador pequeño y un solo corpus enciclopédico.</li>
+  <li><b>Un solo anotador y n = 17.</b> No he medido mi consistencia (re-anotar algunas preguntas) ni la sensibilidad al umbral de cobertura del 50 %.</li>
+  <li><b>El proxy automático se descartó</b> (r = 0.39 con la anotación) y llegó a sugerir un resultado equivocado para H2 a igual contexto.</li>
+  <li>Un solo modelo de embeddings (MiniLM, 128 tokens), un lematizador pequeño y un solo corpus enciclopédico.</li>
+  <li>Las preguntas trampa (T1–T3) no tienen umbral de rechazo; los puntajes del primer resultado no son comparables entre métodos.</li>
   <li><b>Sesgo del pooling:</b> la evidencia que ningún método propuso queda sin juzgar.</li>
   <li>La segmentación en oraciones es heurística; probada con casos sintéticos, no auditada sobre todo el corpus.</li>
   <li>Hiperparámetros sin ajustar (k de RRF, 85 palabras): ajustarlos con las mismas 20 preguntas sería sobreajustar.</li>
@@ -175,9 +182,9 @@
 
 <h2 id="sigue">Qué sigue</h2>
 <div class="card"><ol style="color:var(--ink2);margin:4px 0 4px 22px;padding:0">
-  <li><b>Anotar la evidencia</b> (741 oraciones candidatas, ~2 h). Es lo que convierte estos resultados provisionales en definitivos.</li>
-  <li>Correr las métricas humanas y <b>validar el proxy</b> contra la anotación (si no correlaciona, se descarta).</li>
-  <li>Análisis de sensibilidad del umbral de cobertura (50 %) y análisis de errores por pregunta.</li>
+  <li><b>Hecho:</b> anotación completa de la evidencia (741 oraciones candidatas), métricas humanas y validación del proxy (descartado).</li>
+  <li>Análisis de sensibilidad del umbral de cobertura (30 %, 50 %, 100 %) para ver si las conclusiones se sostienen.</li>
+  <li>Análisis de errores por pregunta (qué pierde cada método y por qué) y re-anotación de unas 3 preguntas para medir mi consistencia.</li>
   <li>Redactar el reporte del curso.</li>
 </ol>
 <p><b>Relación con la tesis:</b> las configuraciones de párrafos, ventana 64, BM25 e híbrida son configuraciones de la Fase 2; la evidencia por oración es un gold reutilizable (también para reranking). Generación, fidelidad y producto quedan solo en la tesis.</p></div>
@@ -188,18 +195,19 @@
 (function () {
   // Datos: [etiqueta, A, A_lo, A_hi, B, B_lo, B_hi]
   var D = [
-    ["Densa baseline",          0.59, 0.44, 0.74, 0.59, 0.44, 0.74],
-    ["Densa + párrafos",        0.26, 0.14, 0.39, 0.56, 0.42, 0.69],
-    ["Densa + ventana 64",      0.29, 0.16, 0.42, 0.65, 0.54, 0.77],
-    ["BM25 simple",             0.54, 0.38, 0.71, 0.54, 0.38, 0.71],
-    ["BM25 + lemas + stopwords",0.58, 0.46, 0.71, 0.58, 0.46, 0.71],
-    ["Híbrida RRF",             0.62, 0.49, 0.74, 0.62, 0.49, 0.74]
+    ["Densa baseline",          0.19, 0.14, 0.25, 0.19, 0.14, 0.25],
+    ["Densa + párrafos",        0.14, 0.09, 0.20, 0.32, 0.23, 0.42],
+    ["Densa + ventana 64",      0.16, 0.09, 0.25, 0.30, 0.23, 0.37],
+    ["BM25 simple",             0.18, 0.10, 0.28, 0.18, 0.10, 0.28],
+    ["BM25 + lemas + stopwords",0.25, 0.18, 0.31, 0.25, 0.18, 0.31],
+    ["Híbrida RRF",             0.22, 0.15, 0.31, 0.22, 0.15, 0.31]
   ];
+  var MAX = 0.5;
   var W = 960, left = 210, right = 30, top = 14, rowH = 58, barH = 18, gap = 4;
   var H = top + D.length * rowH + 34;
-  var x = function (v) { return left + v * (W - left - right); };
-  var s = '<svg viewBox="0 0 ' + W + ' ' + H + '" width="100%" role="img" aria-label="Cobertura de puntos clave por configuración en las vistas A y B">';
-  for (var g = 0; g <= 1.0001; g += 0.2) {
+  var x = function (v) { return left + (v / MAX) * (W - left - right); };
+  var s = '<svg viewBox="0 0 ' + W + ' ' + H + '" width="100%" role="img" aria-label="Recall de evidencia por configuración en las vistas A y B">';
+  for (var g = 0; g <= MAX + 0.0001; g += 0.1) {
     s += '<line class="grid" x1="' + x(g) + '" x2="' + x(g) + '" y1="' + top + '" y2="' + (H - 28) + '"/>' +
          '<text x="' + x(g) + '" y="' + (H - 8) + '" text-anchor="middle">' + g.toFixed(1) + '</text>';
   }
